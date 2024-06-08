@@ -223,6 +223,18 @@ header {
 
 
 /* ********** style menu inside ********** */
+.menu-inside-layout {
+  display: none;
+  transition: all 10s;
+}
+
+/* 
+  hover hr đầu cho cd red, hr tiếp theo cho 
+  */
+.menu-submenu-item:not(:first-child):not(:last-child):hover~.menu-inside-layout {
+  display: block;
+}
+
 .menu-inside {
   position: absolute;
   top: 0;
@@ -235,10 +247,6 @@ header {
   height: 100%;
   min-height: 469px;
   background-color: #B1E5E5;
-}
-
-.menu-inside article {
-  width: 100%;
   padding: 0 48px;
 }
 
