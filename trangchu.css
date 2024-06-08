@@ -1,0 +1,458 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --brown: #8d6e63;
+  --white-cream: #f5f5dc;
+  --white: #fff;
+  --gray: #e0e0e0;
+  --yellow: #020202;
+
+  /* --header-bg: #266A29; */
+  --header-bg: #393939;
+  --header-text: #e0e0e0;
+  --header-text-hover: #ffcc00;
+  --submenu-bg: #fff;
+  --submenu-bg-hover: #f1f1f1;
+  --submenu-text: #4b4b4b;
+  --submenu-text-hover: #000;
+  --bg-discount: #788795;
+  --menu-link-anonymous-text: #de8ae5;
+  --menu-link-anonymous-text-hover: #f9b2ff;
+  --menu-inside-info-bg: #e1e1e1;
+  --menu-inside-price-text: #686868;
+  --menu-inside-button: linear-gradient(to bottom, rgba(204, 204, 204, 0.2) 0%,
+      rgba(204, 204, 204, 0.2) 4%,
+      rgba(217, 217, 217, 0.2) 100%);
+  --menu-inside-button-hover: linear-gradient(to top, rgba(204, 204, 204, 0.55) 0%,
+      rgba(204, 204, 204, 0.55) 4%,
+      rgba(217, 217, 217, 0.55) 100%);
+}
+
+body {
+  background-color: var(--gray);
+  font-family: Lato, sans-serif;
+  color: #000;
+}
+
+tbody {
+  border: none;
+}
+
+a,
+ul,
+li {
+  text-decoration: none;
+  list-style: none;
+  color: #fff;
+}
+
+button {
+  border: none;
+  margin: 0;
+  text-decoration: none;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+header {
+  background-color: var(--header-bg);
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 90%;
+  margin: 0 auto;
+  height: 56px;
+}
+
+
+
+/* ********** Style logo ********** */
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+  height: 60%;
+  margin-right: 20px;
+
+}
+
+.logo-icon {
+  width: 60px;
+}
+
+/* ********** Style logo ********** */
+
+
+
+/* ********** style menu main ********** */
+.menu-main {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  height: 100%;
+}
+
+.menu-main-item {
+  height: 100%;
+  font-weight: 600;
+}
+
+.menu-main-item .menu-link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 10px;
+  color: var(--header-text);
+  text-transform: uppercase;
+  transition: color 0.2s ease-in-out;
+}
+
+.menu-main-item:last-child {
+  display: flex;
+  align-items: center;
+}
+
+.menu-main-item .menu-link:hover {
+  color: var(--header-text-hover);
+}
+
+.menu-main-item .menu-link-anonymous {
+  color: var(--menu-link-anonymous-text);
+  transition: color 0.3s;
+}
+
+.menu-main-item .menu-link-anonymous:hover {
+  color: var(--menu-link-anonymous-text-hover);
+}
+
+.chevron-down {
+  margin-left: 5px;
+}
+
+/* ********** style menu main ********** */
+
+
+
+/* ********** style sub menu main ********** */
+.menu-submenu {
+  position: absolute;
+  width: 230px;
+  padding: 8px 0;
+  background-color: var(--submenu-bg);
+  border-spacing: 0 10px;
+}
+
+.menu-submenu::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.1),
+    0 0px 15px 5px rgba(0, 0, 0, 0.15);
+}
+
+.menu-submenu-item .menu-submenu-link {
+  color: var(--submenu-text);
+}
+
+.menu-submenu-separator {
+  margin-top: 8px;
+  margin-bottom: 7px;
+  color: var(--gray);
+}
+
+.menu-submenu-link {
+  position: relative;
+  display: block;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 5px 8px;
+  font-size: 14px;
+}
+
+.menu-submenu-item:first-child .menu-submenu-link,
+.menu-submenu-item:first-child .menu-submenu-link path {
+  color: red;
+  fill: red;
+}
+
+.menu-submenu-item:first-child:hover .menu-submenu-link path {
+  fill: red;
+}
+
+.menu-submenu-link:hover {
+  background-color: var(--submenu-bg-hover);
+  color: var(--submenu-text-hover);
+}
+
+.submenu-icon {
+  position: absolute;
+  right: 10;
+  top: 10;
+}
+
+.submenu-icon path {
+  fill: #9c8181;
+}
+
+.submenu-icon:first-child {
+  display: none;
+  right: 14;
+}
+
+.menu-submenu-link:hover .submenu-icon:first-child,
+.menu-submenu-link:hover .submenu-icon path {
+  display: block;
+  fill: #686868;
+}
+
+/* ********** style sub menu main ********** */
+
+
+
+/* ********** style menu inside ********** */
+.menu-inside {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 716px;
+  height: 100%;
+  min-height: 469px;
+  background-color: #B1E5E5;
+}
+
+.menu-inside article {
+  width: 100%;
+  padding: 0 48px;
+}
+
+.menu-inside-title,
+.menu-inside-button {
+  color: #000;
+}
+
+.menu-inside-title {
+  margin-bottom: 17px;
+  font-weight: 400;
+  text-transform: uppercase;
+  cursor: default;
+}
+
+.menu-inside-button {
+  display: flex;
+  justify-content: center;
+}
+
+.menu-inside-product {
+  width: 100%;
+  border-spacing: 0;
+}
+
+.menu-inside-item {
+  position: relative;
+  padding: 0 16px 16px 0;
+}
+
+.menu-inside-list:last-child .menu-inside-item {
+  padding-bottom: 0;
+}
+
+.menu-inside-item:last-child {
+  padding-right: 0;
+}
+
+.menu-inside-link {
+  display: inline-block;
+  width: 100%;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+}
+
+.menu-inside-img {
+  width: 100%;
+}
+
+.menu-inside-info {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 36px;
+  background-color: var(--menu-inside-info-bg);
+}
+
+/* image */
+.menu-inside-img {
+  width: 196px;
+  height: 110px;
+}
+
+/* discount */
+.menu-inside-discount-text {
+  position: absolute;
+  bottom: 7px;
+  right: 66px;
+}
+
+.menu-inside-discount-percent {
+  display: inline-block;
+  height: 23px;
+  padding: 0 5px;
+  border-radius: 2px;
+  background-color: var(--bg-discount);
+  color: #fff;
+  font-size: 12px;
+  line-height: 21px;
+}
+
+.menu-inside-discount-percent::before {
+  content: "\2010";
+  margin-right: -0.15em;
+}
+
+/* os support */
+.icon-os-list {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.menu-inside-os-icon {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  margin-right: 2px;
+  background-image: url(icon/icon-os.png);
+  opacity: 0.5;
+}
+
+.windows-icon {
+  background-position: 0 0;
+}
+
+.mac-icon {
+  margin-right: 3px;
+  background-position: 13px -0.7px;
+  opacity: 0.4;
+}
+
+.linux-icon {
+  margin-right: 3px;
+  background-position: 0px 15px;
+}
+
+/* price */
+.menu-inside-price-text {
+  position: absolute;
+  top: 116px;
+  left: 134px;
+  z-index: 1;
+  min-width: 57px;
+  height: 23px;
+  padding: 0 6px;
+  border: 1px solid var(--menu-inside-price-text);
+  border-radius: 3px;
+  color: var(--menu-inside-price-text);
+  text-align: center;
+  font-size: 12px;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.menu-inside-price-text ._price::before {
+  content: "$";
+}
+
+.menu-inside-item:hover .menu-inside-price-text {
+  color: #fff;
+  background: linear-gradient(to bottom, #9fbf00, #80ab00);
+}
+
+/* button read more */
+.menu-inside-button {
+  height: 40px;
+  margin-top: 17px;
+  color: #4c4c4c;
+  background: var(--menu-inside-button);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25),
+    0 1px 3px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 40px;
+  transition: all 0.3s;
+}
+
+.menu-inside-button:hover {
+  background: var(--menu-inside-button-hover);
+}
+
+/* ********** style menu-inside ********** */
+
+
+
+/* ********** style menu tray ********** */
+.menu-tray {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  height: 100%;
+  width: 40%;
+}
+
+.menu-tray-item {
+  height: 100%;
+}
+
+.menu-tray-item a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 15px;
+  text-transform: uppercase;
+}
+
+.menu-tray-item a:hover {
+  color: var(--yellow);
+}
+
+.menu-tray-item button {
+  position: absolute;
+  right: 7;
+  height: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.menu-tray-item button path {
+  fill: var(--gray);
+}
+
+.menu-tray-item:hover button path {
+  fill: var(--yellow);
+}
+
+.search {
+  position: relative;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* ********** style menu tray ********** */

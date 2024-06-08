@@ -1,0 +1,284 @@
+BODY {
+    background-color: lightblue;
+    color: rgb(255, 255, 255);
+}
+
+#clock {
+    width: 100%;
+    height: 100%;
+
+    font-size: 0px;
+    font-family: monospace;
+}
+
+SPAN.colon {
+    font-size: 100;
+}
+/* second */
+#sl9 {
+    animation: 10s linear infinite ten;
+}
+
+#sl8 {
+    animation: 10s linear infinite ten 1s;
+}
+
+#sl7 {
+    animation: 10s linear infinite ten 2s;
+}
+
+#sl6 {
+    animation: 10s linear infinite ten 3s;
+}
+
+#sl5 {
+    animation: 10s linear infinite ten 4s;
+}
+
+#sl4 {
+    animation: 10s linear infinite ten 5s;
+}
+
+#sl3 {
+    animation: 10s linear infinite ten 6s;
+}
+
+#sl2 {
+    animation: 10s linear infinite ten 7s;
+}
+
+#sl1 {
+    animation: 10s linear infinite ten 8s;
+}
+
+#sl0 {
+    animation: 10s linear infinite ten 9s;
+}
+
+/* second dozens */
+#sh5 {
+    animation: 60s linear infinite six;
+}
+
+#sh4 {
+    animation: 60s linear infinite six 10s;
+}
+
+#sh3 {
+    animation: 60s linear infinite six 20s;
+}
+
+#sh2 {
+    animation: 60s linear infinite six 30s;
+}
+
+#sh1 {
+    animation: 60s linear infinite six 40s;
+}
+
+#sh0 {
+    animation: 60s linear infinite six 50s;
+}
+
+/* minues */
+#ml9 {
+    animation: 600s linear infinite ten;
+}
+
+#ml8 {
+    animation: 600s linear infinite ten 60s;
+}
+
+#ml7 {
+    animation: 600s linear infinite ten 120s;
+}
+
+#ml6 {
+    animation: 600s linear infinite ten 180s;
+}
+
+#ml5 {
+    animation: 600s linear infinite ten 240s;
+}
+
+#ml4 {
+    animation: 600s linear infinite ten 300s;
+}
+
+#ml3 {
+    animation: 600s linear infinite ten 360s;
+}
+
+#ml2 {
+    animation: 600s linear infinite ten 420s;
+}
+
+#ml1 {
+    animation: 600s linear infinite ten 480s;
+}
+
+#ml0 {
+    animation: 600s linear infinite ten 540s;
+}
+
+/* minues dozens */
+#mh5 {
+    animation: 3600s linear infinite six;
+}
+
+#mh4 {
+    animation: 3600s linear infinite six 600s;
+}
+
+#mh3 {
+    animation: 3600s linear infinite six 1200s;
+}
+
+#mh2 {
+    animation: 3600s linear infinite six 1800s;
+}
+
+#mh1 {
+    animation: 3600s linear infinite six 2400s;
+}
+
+#mh0 {
+    animation: 3600s linear infinite six 3000s;
+}
+
+/* hour */
+#h23 {
+    animation: 86400s linear infinite twentyFour;
+}
+
+#h22 {
+    animation: 86400s linear infinite twentyFour 3600s;
+}
+
+#h21 {
+    animation: 86400s linear infinite twentyFour 7200s;
+}
+
+#h20 {
+    animation: 86400s linear infinite twentyFour 10800s;
+}
+
+#h19 {
+    animation: 86400s linear infinite twentyFour 14400s;
+}
+
+#h18 {
+    animation: 86400s linear infinite twentyFour 18000s;
+}
+
+#h17 {
+    animation: 86400s linear infinite twentyFour 21600s;
+}
+
+#h16 {
+    animation: 86400s linear infinite twentyFour 25200s;
+}
+
+#h15 {
+    animation: 86400s linear infinite twentyFour 28800s;
+}
+
+#h14 {
+    animation: 86400s linear infinite twentyFour 32400s;
+}
+
+#h13 {
+    animation: 86400s linear infinite twentyFour 36000s;
+}
+
+#h12 {
+    animation: 86400s linear infinite twentyFour 39600s;
+}
+
+#h11 {
+    animation: 86400s linear infinite twentyFour 43200s;
+}
+
+#h10 {
+    animation: 86400s linear infinite twentyFour 46800s;
+}
+
+#h9 {
+    animation: 86400s linear infinite twentyFour 50400s;
+}
+
+#h8 {
+    animation: 86400s linear infinite twentyFour 54000s;
+}
+
+#h7 {
+    animation: 86400s linear infinite twentyFour 57600s;
+}
+
+#h6 {
+    animation: 86400s linear infinite twentyFour 61200s;
+}
+
+#h5 {
+    animation: 86400s linear infinite twentyFour 64800s;
+}
+
+#h4 {
+    animation: 86400s linear infinite twentyFour 68400s;
+}
+
+#h3 {
+    animation: 86400s linear infinite twentyFour 72000s;
+}
+
+#h2 {
+    animation: 86400s linear infinite twentyFour 75600s;
+}
+
+#h1 {
+    animation: 86400s linear infinite twentyFour 79200s;
+}
+
+#h0 {
+    animation: 86400s linear infinite twentyFour 82800s;
+}
+
+@keyframes ten {
+
+    0%,
+    9.9999% {
+        font-size: 100;
+    }
+
+    10%,
+    100% {
+        font-size: 0px;
+    }
+}
+
+@keyframes six {
+
+    0%,
+    16.6666% {
+        font-size: 100;
+    }
+
+    16.6667%,
+    100% {
+        font-size: 0px;
+    }
+}
+
+@keyframes twentyFour {
+    0%, 4.1666% {
+        font-size: 100;
+    }
+    4.1667%, 100% {
+        font-size: 0px;
+    }
+
+}
+
+.text{
+    font-size: 100;
+}
