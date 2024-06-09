@@ -19,17 +19,26 @@
   --submenu-bg-hover: #f1f1f1;
   --submenu-text: #4b4b4b;
   --submenu-text-hover: #000;
+  --menu-submenu-separator: #e6e6e6;
   --bg-discount: #788795;
   --menu-link-anonymous-text: #de8ae5;
   --menu-link-anonymous-text-hover: #f9b2ff;
   --menu-inside-info-bg: #e1e1e1;
+  --menu-inside-title: #333333;
   --menu-inside-price-text: #686868;
+  --menu-inside-collection-text: #5b5b5b;
+  --menu-inside-collection-bg: #e1e1e1;
   --menu-inside-button: linear-gradient(to bottom, rgba(204, 204, 204, 0.2) 0%,
       rgba(204, 204, 204, 0.2) 4%,
       rgba(217, 217, 217, 0.2) 100%);
   --menu-inside-button-hover: linear-gradient(to top, rgba(204, 204, 204, 0.55) 0%,
       rgba(204, 204, 204, 0.55) 4%,
       rgba(217, 217, 217, 0.55) 100%);
+  --box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 0px 15px 5px rgba(0, 0, 0, 0.15);
+  --signup-bg: #e6e6e6;
+  --signin-bg: linear-gradient(to bottom, #985fb2 0%, #713b8d 100%);
+  --signup-text: #4c4c4c;
+  --signin-text: #fff;
 }
 
 body {
@@ -59,6 +68,10 @@ button {
   cursor: pointer;
 }
 
+.ngl-hide {
+  display: none;
+}
+
 header {
   background-color: var(--header-bg);
 }
@@ -67,12 +80,22 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 90%;
+  max-width: 1060px;
   margin: 0 auto;
   height: 56px;
 }
 
+@media (min-width: 1440px) {
+  .menu {
+    max-width: 1200px;
+  }
+}
 
+@media (min-width: 1600px) {
+  .menu {
+    max-width: 1440px;
+  }
+}
 
 /* ********** Style logo ********** */
 .logo {
@@ -102,8 +125,39 @@ header {
 }
 
 .menu-main-item {
+  position: relative;
   height: 100%;
   font-weight: 600;
+}
+
+/* transform Effect */
+@keyframes transformEffect {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.menu-triangle {
+  position: absolute;
+  display: none;
+  border: 7px solid transparent;
+  border-bottom: 7px solid #fff;
+  top: auto;
+  bottom: 0;
+  left: auto;
+  right: 7px;
+  z-index: 3;
+}
+
+.menu-main-item:hover .menu-triangle {
+  display: block;
+  animation: 0.3s transformEffect forwards;
 }
 
 .menu-main-item .menu-link {
@@ -145,10 +199,17 @@ header {
 /* ********** style sub menu main ********** */
 .menu-submenu {
   position: absolute;
+  display: none;
   width: 230px;
   padding: 8px 0;
   background-color: var(--submenu-bg);
   border-spacing: 0 10px;
+  transition: all 0.9s;
+}
+
+.menu-main-item:hover .menu-submenu {
+  display: block;
+  animation: transformEffect .3s forwards;
 }
 
 .menu-submenu::before {
@@ -159,8 +220,7 @@ header {
   z-index: -1;
   height: 100%;
   width: 100%;
-  box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.1),
-    0 0px 15px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--box-shadow);
 }
 
 .menu-submenu-item .menu-submenu-link {
@@ -170,7 +230,8 @@ header {
 .menu-submenu-separator {
   margin-top: 8px;
   margin-bottom: 7px;
-  color: var(--gray);
+  border-top: 0px;
+  border-color: var(--menu-submenu-separator);
 }
 
 .menu-submenu-link {
@@ -182,13 +243,14 @@ header {
   font-size: 14px;
 }
 
-.menu-submenu-item:first-child .menu-submenu-link,
-.menu-submenu-item:first-child .menu-submenu-link path {
+.bandai .menu-submenu-link,
+.bandai .menu-submenu-link path {
   color: red;
   fill: red;
+  text-transform: uppercase;
 }
 
-.menu-submenu-item:first-child:hover .menu-submenu-link path {
+.bandai:hover .menu-submenu-link path {
   fill: red;
 }
 
@@ -225,13 +287,10 @@ header {
 /* ********** style menu inside ********** */
 .menu-inside-layout {
   display: none;
-  transition: all 10s;
 }
 
-/* 
-  hover hr đầu cho cd red, hr tiếp theo cho 
-  */
-.menu-submenu-item:not(:first-child):not(:last-child):hover~.menu-inside-layout {
+.menu-submenu-item:not(:first-child):not(:nth-last-child(4)):hover~.menu-inside-layout,
+.menu-inside-layout:hover {
   display: block;
 }
 
@@ -242,12 +301,22 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   width: 716px;
   height: 100%;
   min-height: 469px;
   background-color: #B1E5E5;
   padding: 0 48px;
+}
+
+.menu-inside::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  box-shadow: var(--box-shadow);
 }
 
 .menu-inside-title,
@@ -257,6 +326,7 @@ header {
 
 .menu-inside-title {
   margin-bottom: 17px;
+  color: var(--menu-inside-title);
   font-weight: 400;
   text-transform: uppercase;
   cursor: default;
@@ -269,12 +339,12 @@ header {
 
 .menu-inside-product {
   width: 100%;
-  border-spacing: 0;
+  border-spacing: 16px 16px;
+  margin: -16px -16px;
 }
 
 .menu-inside-item {
   position: relative;
-  padding: 0 16px 16px 0;
 }
 
 .menu-inside-list:last-child .menu-inside-item {
@@ -368,8 +438,11 @@ header {
 .menu-inside-price-text {
   position: absolute;
   top: 116px;
-  left: 134px;
+  left: 133px;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-width: 57px;
   height: 23px;
   padding: 0 6px;
@@ -380,6 +453,7 @@ header {
   font-size: 12px;
   line-height: 22px;
   cursor: pointer;
+  transition: all 0.3s;
 }
 
 .menu-inside-price-text ._price::before {
@@ -391,8 +465,18 @@ header {
   background: linear-gradient(to bottom, #9fbf00, #80ab00);
 }
 
+
+.menu-inside-item:hover ._owner {
+  display: none;
+}
+
+.menu-inside-item:hover ._owner:not(.ngl-hide)~._price {
+  display: block;
+}
+
 /* button read more */
 .menu-inside-button {
+  width: 100%;
   height: 40px;
   margin-top: 17px;
   color: #4c4c4c;
@@ -409,7 +493,168 @@ header {
   background: var(--menu-inside-button-hover);
 }
 
+/* Bandai Namco Entertainment */
+.menu-inside-layout-bandai {
+  position: relative;
+  display: none;
+}
+
+.menu-inside-bandai {
+  position: absolute;
+  top: 0;
+  left: 100%;
+
+  width: 716px;
+  height: 100%;
+  min-height: 459px;
+  background-color: #bfbfbf;
+}
+
+.menu-submenu-item:first-child:hover~.menu-inside-layout-bandai {
+  display: block;
+}
+
+.menu-inside-bandai-background {
+  position: absolute;
+  top: 0;
+  width: 716px;
+}
+
+.menu-inside-title-bandai {
+  height: 76px;
+  margin-bottom: 17px;
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: default;
+}
+
+.menu-inside-product-title {
+  text-align: start;
+  margin-left: 16px;
+  color: #fff;
+  cursor: default;
+}
+
+.menu-inside-bandai-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-inside-button-bandai {
+  padding: 9px 16px;
+  color: #4c4c4c;
+  background: var(--menu-inside-button);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25),
+    0 1px 3px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  line-height: 17px;
+  transition: all 0.3s;
+}
+
+.menu-inside-button-bandai:hover {
+  background: var(--menu-inside-button-hover);
+}
+
+
+/* Browse all games */
+.menu-inside-layout-other {
+  display: none;
+}
+
+.menu-submenu-item:nth-last-child(4):hover~.menu-inside-layout-other,
+.menu-inside-layout-other:hover {
+  display: block;
+}
+
+.menu-inside-other {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 716px;
+  height: 100%;
+  min-height: 459px;
+  background-color: #bfbfbf;
+  padding: 0 48px;
+}
+
+.menu-inside-other::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  box-shadow: var(--box-shadow);
+}
+
+.menu-inside-collection-img {
+  transition: all 0.3s;
+}
+
+.menu-inside-collection-img:hover {
+  opacity: .9;
+}
+
+.menu-inside-collection-name {
+  height: 36px;
+  padding: 0 8px;
+  color: var(--menu-inside-collection-text);
+  background-color: var(--menu-inside-collection-bg);
+  font-size: 14px;
+  line-height: 36px;
+}
+
 /* ********** style menu-inside ********** */
+
+
+
+/* ********** style menu-sign in ********** */
+.menu-signin {
+  position: absolute;
+  left: -170px;
+  top: 55px;
+  width: 500px;
+  background-color: #fff;
+}
+
+.menu-signin-item:first-child {
+  padding: 14px 15px 0;
+}
+
+.menu-signin-link {
+  display: inline-block;
+  width: 48%;
+  height: 36px;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 36px;
+  text-transform: uppercase;
+}
+
+.signup {
+  margin-right: 3%;
+  color: var(--signup-text);
+  background-color: var(--signup-bg);
+}
+
+.signin {
+  color: var(--signin-text);
+  background: var(--signin-bg);
+}
+
+
+
+/* ********** style menu-sign in ********** */
 
 
 
@@ -432,10 +677,12 @@ header {
   height: 100%;
   padding: 0 15px;
   text-transform: uppercase;
+  transition: color 0.3s;
 }
 
-.menu-tray-item a:hover {
-  color: var(--yellow);
+.menu-tray-item a path,
+.menu-tray-item button path {
+  fill: var(--header-text);
 }
 
 .menu-tray-item button {
@@ -444,14 +691,12 @@ header {
   height: 100%;
   padding: 10px;
   cursor: pointer;
+  transition: color 0.3s;
 }
 
-.menu-tray-item button path {
-  fill: var(--gray);
-}
-
+.menu-tray-item a:hover path,
 .menu-tray-item:hover button path {
-  fill: var(--yellow);
+  fill: #fff;
 }
 
 .search {
