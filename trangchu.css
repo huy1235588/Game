@@ -37,10 +37,17 @@
       rgba(204, 204, 204, 0.55) 4%,
       rgba(217, 217, 217, 0.55) 100%);
   --box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 0px 15px 5px rgba(0, 0, 0, 0.15);
-  --signup-bg: #e6e6e6;
-  --signin-bg: linear-gradient(to bottom, #985fb2 0%, #713b8d 100%);
+  --signin-button-bg: #f2f2f2;
+  --signin-button-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
   --signup-text: #4c4c4c;
+  --signup-bg: #e6e6e6;
+  --signup-bg-hover: #f3f3f3;
+  --signin-bg: linear-gradient(to bottom, #985fb2 0%, #713b8d 100%);
+  --signin-bg-hover: #713b8d;
   --signin-text: #fff;
+  --signin-about-text: #4c4c4c;
+  --signin-features-text: #4c4c4c;
+  --menu-signin-features-title-dash: #e5e5e5;
 }
 
 body {
@@ -210,7 +217,7 @@ header {
 }
 
 .menu-main-item:nth-child(2) .menu-submenu {
-  display: block;
+  /* display: block; */
 }
 
 .menu-main-item:hover .menu-submenu {
@@ -502,7 +509,7 @@ header {
 /* playstation Namco Entertainment */
 .menu-inside-layout-playstation {
   position: relative;
-  /* display: none; */
+  display: none;
 }
 
 .menu-inside-playstation {
@@ -651,13 +658,9 @@ header {
   position: absolute;
   left: -170px;
   top: 55px;
-  display: none;
+  /* display: none; */
   width: 500px;
   background-color: #fff;
-}
-
-.menu-signin-item:first-child {
-  padding: 14px 15px 0;
 }
 
 .menu-signin-link {
@@ -672,6 +675,16 @@ header {
   text-transform: uppercase;
 }
 
+.signin-button {
+  padding: 14px 15px 18px;
+  background-color: var(--signin-button-bg);
+}
+
+.signin-button a {
+  box-shadow: var(--signin-button-box-shadow);
+  transition: color 0.3s;
+}
+
 .signup {
   margin-right: 3%;
   color: var(--signup-text);
@@ -683,6 +696,100 @@ header {
   background: var(--signin-bg);
 }
 
+.signup:hover {
+  background-color: var(--signup-bg-hover);
+}
+
+.signin:hover {
+  background: var(--signin-bg-hover);
+}
+
+.menu-signin-about {
+  padding: 0 30px;
+  color: var(--signin-about-text);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.menu-signin-features-title {
+  position: relative;
+  margin-top: 14px;
+  color: var(--signin-features-text);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  overflow: hidden;
+}
+
+.menu-signin-features-title::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 37%;
+  height: 1px;
+  background-color: var(--menu-signin-features-title-dash);
+}
+
+.menu-signin-features-title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 37%;
+  height: 1px;
+  background-color: var(--menu-signin-features-title-dash);
+}
+
+/* features */
+@keyframes ChangeScene {
+  0%, 25% {
+    position: relative;
+    opacity: 1;
+  }
+  30%, 100% {
+    position: absolute;
+    opacity: 0;
+  }
+}
+
+.menu-signin-features-item:first-child {
+  transition: opcity 0.5s ease-in-out;
+  animation: 5s ChangeScene linear infinite 0;
+}
+
+.menu-signin-features-item:nth-child(2) {
+  transition: opcity 0.5s ease-in-out;
+  animation: 5s ChangeScene linear infinite 1.33s;
+}
+
+.menu-signin-features-item:last-child {
+  transition: opcity 0.5s ease-in-out;
+  animation: 5s ChangeScene linear infinite 2.66s;
+}
+
+.menu-signin-features-list {
+  height: 115px;
+  padding: 0 65px 25px;
+}
+
+.menu-signin-features-item {
+  opacity: 0;
+  position: absolute;
+  color: #000;
+  font-size: 13px;
+}
+
+.menu-signin-features-text {
+  padding: 14px 0;
+  line-height: 21px;
+}
+
+.menu-signin-features-highlight {
+  color: #007db8;
+}
 
 
 /* ********** style menu-sign in ********** */
