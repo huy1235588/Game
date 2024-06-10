@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animation</title>
+    <style>
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .item {
+            position: absolute;
+            opacity: 0;
+        }
+        @keyframes slideShow {
+            0%, 20% {
+                opacity: 1;
+            }
+            25%, 100% {
+                opacity: 0;
+            }
+        }
+        .item:nth-child(1) {
+            animation: slideShow 15s steps(1, end) infinite;
+        }
+        .item:nth-child(2) {
+            animation: slideShow 15s steps(1, end) infinite 5s;
+        }
+        .item:nth-child(3) {
+            animation: slideShow 15s steps(1, end) infinite 10s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+</body>
+</html>

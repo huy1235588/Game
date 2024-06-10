@@ -28,7 +28,7 @@
   --menu-inside-price-text: #686868;
   --menu-inside-collection-text: #5b5b5b;
   --menu-inside-collection-bg: #e1e1e1;
-  --menu-inside-button-playstation: linear-gradient(180deg, #f5f5f5 0%, #ededed 100%);
+  --menu-inside-button-playstation: linear-gradient(180deg, #dbdbdb 0%, #ededed 100%);
   --menu-inside-button-playstation-hover: brightness(1.05);
   --menu-inside-button: linear-gradient(to bottom, rgba(204, 204, 204, 0.2) 0%,
       rgba(204, 204, 204, 0.2) 4%,
@@ -48,6 +48,10 @@
   --signin-about-text: #4c4c4c;
   --signin-features-text: #4c4c4c;
   --menu-signin-features-title-dash: #e5e5e5;
+  --button-lang: #19c430;
+  --footer-title-text: #9F9F9F;
+  --footer-link-hover: #9f9f9f;
+  --footer-legal-link-hover: #9f9f9f;
 }
 
 body {
@@ -77,11 +81,49 @@ button {
   cursor: pointer;
 }
 
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1280px
+  }
+}
+
 .ngl-hide {
   display: none;
 }
 
-header {
+header,
+footer {
   background-color: var(--header-bg);
 }
 
@@ -114,7 +156,6 @@ header {
   width: 10%;
   height: 60%;
   margin-right: 20px;
-
 }
 
 .logo-icon {
@@ -217,7 +258,11 @@ header {
 }
 
 .menu-main-item:nth-child(2) .menu-submenu {
-  /* display: block; */
+  padding-top: 0;
+}
+
+.playstation {
+  padding-top: 9px;
 }
 
 .menu-main-item:hover .menu-submenu {
@@ -523,7 +568,8 @@ header {
   background-color: #bfbfbf;
 }
 
-.menu-submenu-item:first-child:hover~.menu-inside-layout-playstation {
+.menu-submenu-item:first-child:hover~.menu-inside-layout-playstation,
+.menu-inside-layout-playstation:hover {
   display: block;
 }
 
@@ -578,6 +624,10 @@ header {
 
 .playstation-link b {
   color: #fff;
+}
+
+.playstation-link:hover {
+  text-decoration: underline;
 }
 
 .menu-inside-button-playstation {
@@ -658,9 +708,13 @@ header {
   position: absolute;
   left: -170px;
   top: 55px;
-  /* display: none; */
+  display: none;
   width: 500px;
   background-color: #fff;
+}
+
+._sign-in:hover .menu-signin {
+  display: block;
 }
 
 .menu-signin-link {
@@ -677,6 +731,7 @@ header {
 
 .signin-button {
   padding: 14px 15px 18px;
+  margin-bottom: 10px;
   background-color: var(--signin-button-bg);
 }
 
@@ -704,6 +759,11 @@ header {
   background: var(--signin-bg-hover);
 }
 
+.menu-signin-img {
+  width: 100%;
+  height: 144px;
+}
+
 .menu-signin-about {
   padding: 0 30px;
   color: var(--signin-about-text);
@@ -711,6 +771,7 @@ header {
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
+  cursor: default;
 }
 
 .menu-signin-features-title {
@@ -721,6 +782,7 @@ header {
   font-weight: 600;
   text-align: center;
   overflow: hidden;
+  cursor: default;
 }
 
 .menu-signin-features-title::before {
@@ -745,41 +807,51 @@ header {
 
 /* features */
 @keyframes ChangeScene {
-  0%, 25% {
-    position: relative;
+
+  0%,
+  33.33% {
     opacity: 1;
   }
-  30%, 100% {
-    position: absolute;
+
+  33.34%,
+  100% {
     opacity: 0;
   }
 }
 
-.menu-signin-features-item:first-child {
-  transition: opcity 0.5s ease-in-out;
-  animation: 5s ChangeScene linear infinite 0;
-}
-
-.menu-signin-features-item:nth-child(2) {
-  transition: opcity 0.5s ease-in-out;
-  animation: 5s ChangeScene linear infinite 1.33s;
-}
-
-.menu-signin-features-item:last-child {
-  transition: opcity 0.5s ease-in-out;
-  animation: 5s ChangeScene linear infinite 2.66s;
-}
-
 .menu-signin-features-list {
+  position: relative;
   height: 115px;
-  padding: 0 65px 25px;
+  padding: 0 65px 20px;
+  cursor: default;
 }
 
 .menu-signin-features-item {
-  opacity: 0;
   position: absolute;
+  display: flex;
+  align-items: center;
+  width: 370px;
+  height: 90px;
+  opacity: 0;
   color: #000;
   font-size: 13px;
+  transition: opacity 1s;
+}
+
+.menu-signin-features-item:first-child {
+  opacity: 1;
+}
+
+._sign-in:hover .menu-signin-features-item:first-child {
+  animation: ChangeScene 15s linear infinite 0s;
+}
+
+._sign-in:hover .menu-signin-features-item:nth-child(2) {
+  animation: ChangeScene 15s linear infinite 5s;
+}
+
+._sign-in:hover .menu-signin-features-item:nth-child(3) {
+  animation: ChangeScene 15s linear infinite 10s;
 }
 
 .menu-signin-features-text {
@@ -787,10 +859,71 @@ header {
   line-height: 21px;
 }
 
-.menu-signin-features-highlight {
+.menu-signin-features-item:first-child .menu-signin-features-highlight {
   color: #007db8;
 }
 
+.menu-signin-features-item:nth-child(2) .menu-signin-features-highlight {
+  color: #a90000;
+}
+
+.menu-signin-features-item:last-child .menu-signin-features-highlight {
+  color: #7d00c9;
+}
+
+.menu-signin-icon {
+  width: 16px;
+  vertical-align: middle;
+}
+
+@keyframes timer {
+
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+.menu-signin-timer {
+  position: absolute;
+  bottom: 1;
+  left: 0;
+  right: 0;
+  height: 5px;
+}
+
+.menu-signin-timer span {
+  width: calc(100% / 3);
+  height: 5px;
+  float: left;
+  background: #E5D3E9;
+}
+
+.menu-signin-timer span::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 5px;
+  background: #fff;
+  z-index: 1;
+}
+
+.menu-signin-timer span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  background: #a86cb6;
+}
+
+._sign-in:hover .menu-signin-timer span::before {
+  animation: timer 15s linear infinite forwards;
+}
 
 /* ********** style menu-sign in ********** */
 
@@ -847,3 +980,166 @@ header {
 }
 
 /* ********** style menu tray ********** */
+
+
+
+
+
+
+
+/* ********** style footer ********** */
+footer{
+  padding: 60px 0 36px;
+}
+
+.footer-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-item:first-child {
+  width: 50%;
+}
+
+.footer-item:last-child {
+  width: 50%;
+}
+
+.footer-logo {
+  display: block;
+  width: 60px;
+  margin-bottom: 20px;
+}
+
+.lang-button {
+  display: inline-flex;
+  margin-top: 7px;
+  padding: 7px 0;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.lang-button-highlight {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 14px;
+  color: var(--button-lang);
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.lang-button-highlight svg {
+  margin-left: 5px;
+}
+
+.lang-button:hover .lang-button-highlight {
+  color: #fff;
+}
+
+.footer-info {
+  width: 100%;
+  height: 162px;
+}
+
+.footer-social-td {
+  vertical-align: top;
+}
+
+.footer-social-td .footer-title {
+  margin-top: 23px;
+
+}
+
+.footer-social {
+  display: flex;
+}
+
+.footer-social-item {
+  padding: 10px;
+}
+
+.footer-social-item:first-child {
+  margin-left: -10px;
+}
+
+.footer-social-link path {
+  transition: all 0.3s;
+}
+
+.footer-social-link:hover path {
+  fill: #ff0000;
+}
+
+.footer-social-icon {
+  width: 20px;
+}
+
+.footer-social-icon:nth-child(2) {
+  width: 23px;
+}
+
+.footer-title {
+  margin-bottom: 5px;
+  color: var(--footer-title-text);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  cursor: default;
+}
+
+.footer-link {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26px;
+  transition: all 0.3s;
+}
+
+.footer-link:hover {
+  color: var(--footer-link-hover);
+}
+
+.footer-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-copyright {
+  width: 50%;
+  color: #fff;
+}
+
+.footer-legal-list {
+  display: flex;
+  width: 50%;
+}
+
+.footer-legal-item {
+  padding-right: 8px;
+  margin-right: 8px;
+  border-right: 1px solid #fff;
+}
+
+.footer-legal-link {
+  transition: all 0.3s;
+}
+
+.footer-legal-link:hover {
+  color: var(--footer-legal-link-hover);
+}
+
+.footer-legal-item:last-child {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.footer-legal-text {
+  line-height: 26px;
+}
+
+/* ********** style footer ********** */
