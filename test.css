@@ -104,6 +104,11 @@ li {
     }
   }
 
+.ngl-hide{
+  display: none;
+}
+
+
 /* header */
 .section-header{
     color: #000;
