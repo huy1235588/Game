@@ -1,3 +1,5 @@
+import os
+
 def rgba_to_rgb(hex_color):
     # Assuming a white background, so the background RGB is (255, 255, 255)
     background_r, background_g, background_b = 255, 255, 255
@@ -18,11 +20,41 @@ def rgba_to_rgb(hex_color):
 
 
 def transform_string(input_string):
-    replacements = [("Hello", "Hi"), ("world", "Earth"), ("Programming", "Coding")]
+    replacements = [(":", ""), ("@", ""), ("®", ""), ("®", ""),("'s","")]
     for old, new in replacements:
         input_string = input_string.replace(old, new)
-    transformed_string = input_string.lower().replace(' ', '-').replace([':','®'],'')
+    transformed_string = input_string.lower().replace(' ', '-')
     return transformed_string
+
+
+def read_file_to_list(file_path):
+    # Tạo danh sách rỗng để lưu trữ các dòng từ tệp tin
+    lines = []
+
+    # Mở tệp tin với chế độ đọc (read mode)
+    with open(file_path, 'r', encoding='utf-8') as file:
+        # Đọc từng dòng trong tệp tin và thêm vào danh sách
+        for line in file:
+            # Loại bỏ ký tự xuống dòng (\n) ở cuối mỗi dòng
+            lines.append(line.strip())
+
+    return lines
+
+# Mở file ở chế độ ghi (write mode)
+with open('pythontest\\ha1.txt', 'w') as file:
+   for i in range(19):
+       # Tính chữ cái tương ứng
+        char = chr(ord('a') + i)
+        # Nếu không phải là lần lặp cuối cùng, thêm '\n'
+        if i < 18:
+            file.write(char + '\n')
+        else:
+            file.write(char)
+
+
+
+f = "pythontest\\ha.txt"
+f1 = "pythontest\\ha1.txt"
 
 colors = [
     "#a86cb64d",
@@ -30,12 +62,61 @@ colors = [
 input_string = [
     "Diablo® IV",
 ]
+lines_list = read_file_to_list(f)
+lines_list1 = read_file_to_list(f1)
 
+# print(lines_list)
 
 for color in colors:
     converted = rgba_to_rgb(color)
     print(f"{color} -> {converted}")
 
-for i in input_string:
-    result = transform_string(i)
-    print(f"{i} -> {result}")
+# for i in lines_list:
+#     result = transform_string(i)
+#     lines_list[i] = result
+
+
+for index in range(len(lines_list)):
+    result = transform_string(lines_list[index])
+    lines_list[index] = result
+
+# print(lines_list)
+# print(lines_list1)
+
+folder_path = 'img\\article\\ha'
+
+
+
+# # Mở file trong chế độ ghi (write mode)
+# with open(folder_path, 'w') as file:
+#     # Duyệt qua từng phần tử trong danh sách
+#     for item in lines_list:
+#         # Ghi phần tử vào file, mỗi phần tử trên một dòng
+#         file.write(f"{item}\n")
+
+
+
+# for i in range(1, 20):
+#     create_file = open(f'pythontest\\{i}.txt', 'w')
+
+_, _, files = next(os.walk("img\\article\\ha"))
+file_count = len(files)
+print(file_count)
+
+
+
+if len(lines_list) != file_count:
+    print("Số lượng tên file mới không khớp với số lượng file trong thư mục.")
+else:
+    files = os.listdir(folder_path)
+    files.sort()  # Sắp xếp danh sách file theo thứ tự chữ cái
+    # Lặp qua từng file trong thư mục và đổi tên
+    for i, file_name in enumerate(files):
+        old_path = os.path.join(folder_path, file_name)
+        # Lấy phần mở rộng của file cũ
+        extension = os.path.splitext(file_name)[1]
+        # Tạo đường dẫn mới với tên mới và phần mở rộng cũ
+        new_path = os.path.join(folder_path, lines_list[i] + extension)
+        os.rename(old_path, new_path)
+
+
