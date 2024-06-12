@@ -1,0 +1,4 @@
+id
+appHubAppName
+class
+game_purchase_price
