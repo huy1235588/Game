@@ -4,6 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 import socket
 
+
 def rgba_to_rgb(hex_color):
     # Assuming a white background, so the background RGB is (255, 255, 255)
     background_r, background_g, background_b = 255, 255, 255
@@ -32,7 +33,7 @@ def transform_string(input_string):
 
 
 def transform_string_no_space(input_string):
-    replacements = [("\n",""),(' ',""),("\t", ""),("\s","")]
+    replacements = [("\n",""),(' ',""),("\t", "")]
     for old, new in replacements:
         input_string = input_string.replace(old, new)
     return input_string
@@ -52,15 +53,15 @@ def read_file_to_list(file_path):
     return lines
 
 # Mở file ở chế độ ghi (write mode)
-with open('pythontest\\ha1.txt', 'w') as file:
-   for i in range(19):
-       # Tính chữ cái tương ứng
-        char = chr(ord('a') + i)
-        # Nếu không phải là lần lặp cuối cùng, thêm '\n'
-        if i < 18:
-            file.write(char + '\n')
-        else:
-            file.write(char)
+# with open('pythontest\\ha1.txt', 'w') as file:
+#    for i in range(19):
+#        # Tính chữ cái tương ứng
+#         char = chr(ord('a') + i)
+#         # Nếu không phải là lần lặp cuối cùng, thêm '\n'
+#         if i < 18:
+#             file.write(char + '\n')
+#         else:
+#             file.write(char)
 
 
 def convert_urls(urls):
@@ -140,56 +141,98 @@ lines_list1 = read_file_to_list(f1)
 #         new_path = os.path.join(folder_path, lines_list[i] + extension)
 #         os.rename(old_path, new_path)
 
-file_link = "pythontest\\name\\link_list.txt"
-link_list = read_file_to_list(file_link)
+# file_link = "pythontest\\name\\link_list.txt"
+# link_list = read_file_to_list(file_link)
 
-with open('pythontest\\name\\content_id.txt', 'w', encoding='utf-8') as file:
-    file.write('')
+# with open('pythontest\\name\\content_id.txt', 'w', encoding='utf-8') as file:
+#     file.write('')
 
 
-def get_content_from_url(link_list, selector, value):
-    for url_link in link_list:
-        response = requests.get(url_link)
-        if response.status_code == 200:
-            # Phân tích cú pháp HTML của trang web
-            soup = BeautifulSoup(response.content, 'html.parser')
-            # Lấy nội dung của phần tử theo id, class, hoặc tag
-            element = soup.find('div', {f"{selector}": f"{value}"})
-            if element:
-                # Lấy nội dung text của phần tử
-                if(element.has_attr('data-price-final')):
-                    price_final = element.get('data-price-final')
-                    with open('pythontest\\name\\content_id.txt', 'a', encoding='utf-8') as file:
-                        file.write(content + '\n')
-                        print("Đã ghi " + f"{value}")
-                else:
-                    content = element.get_text().strip()
-                    with open('pythontest\\name\\content_id.txt', 'a', encoding='utf-8') as file:
-                        file.write(content + '\n')
-                        print("Đã ghi " + f"{value}")
-                # Ghi nội dung vào file txt
+# def get_content_from_url(link_list, selector, value):
+#     for url_link in link_list:
+#         response = requests.get(url_link)
+#         if response.status_code == 200:
+#             # Phân tích cú pháp HTML của trang web
+#             soup = BeautifulSoup(response.content, 'html.parser')
+#             # Lấy nội dung của phần tử theo id, class, hoặc tag
+#             element = soup.find('div', {f"{selector}": f"{value}"})
+#             if element:
+#                 # Lấy nội dung text của phần tử
+#                 if(element.has_attr('data-price-final')):
+#                     price_final = element.get('data-price-final')
+#                     with open('pythontest\\name\\content_id.txt', 'a', encoding='utf-8') as file:
+#                         file.write(content + '\n')
+#                         print("Đã ghi " + f"{value}")
+#                 else:
+#                     content = element.get_text().strip()
+#                     with open('pythontest\\name\\content_id.txt', 'a', encoding='utf-8') as file:
+#                         file.write(content + '\n')
+#                         print("Đã ghi " + f"{value}")
+#                 # Ghi nội dung vào file txt
                 
-            else:
-                print("Không tìm thấy phần tử theo yêu cầu.")
-        else:
-            print(f"Yêu cầu không thành công, mã trạng thái: {response.status_code}")
+#             else:
+#                 print("Không tìm thấy phần tử theo yêu cầu.")
+#         else:
+#             print(f"Yêu cầu không thành công, mã trạng thái: {response.status_code}")
 
 
 
-selector_value_list = read_file_to_list("pythontest\\name\\selector_value.txt")
-selectorValue = []
+# selector_value_list = read_file_to_list("pythontest\\name\\selector_value.txt")
+# selectorValue = []
 
-for i in range(0, len(selector_value_list), 2):
-    selectorValue.append((selector_value_list[i], selector_value_list[i+1]))
-
-
-for selector, value in selectorValue:
-    get_content_from_url(link_list, selector, value)
+# for i in range(0, len(selector_value_list), 2):
+#     selectorValue.append((selector_value_list[i], selector_value_list[i+1]))
 
 
-original_urls  = read_file_to_list("pythontest\\name\\link_list.txt")
-converted_urls = convert_urls(original_urls)
-for url in converted_urls:
-     with open('pythontest\\name\\converted_link.txt', 'a', encoding='utf-8') as file:
-         file.write(url + '\n')
+# for selector, value in selectorValue:
+#     get_content_from_url(link_list, selector, value)
 
+
+# original_urls  = read_file_to_list("pythontest\\name\\link_list.txt")
+# converted_urls = convert_urls(original_urls)
+# for url in converted_urls:
+#      with open('pythontest\\name\\converted_link.txt', 'a', encoding='utf-8') as file:
+#          file.write(url + '\n')
+
+
+def change_dns_windows(interface, new_dns):
+    # Set primary DNS server
+    os.system(f"netsh interface ip set dns name=\"{interface}\" source=static addr={new_dns[0]}")
+    
+    # Add secondary DNS server
+    for dns in new_dns[1:]:
+        os.system(f"netsh interface ip add dns name=\"{interface}\" addr={dns} index=2")
+    
+    print(f"DNS settings have been changed to: {', '.join(new_dns)} for interface {interface}")
+
+    
+# # Example usage
+# interface_name = "Ethernet"
+# google_server = ["8.8.8.8", "8.8.4.4"]
+# cloudflare_server = ["1.1.1.1", "1.0.0.1"]
+# change_dns_windows(interface_name, cloudflare_server)
+
+
+
+def change_dns_ipv6(interface, new_dns):
+    # Set primary DNS server
+    os.system(f"netsh interface ipv6 set dns name=\"{interface}\" source=static addr={new_dns[0]} primary")
+    
+    # Add secondary DNS server
+    for dns in new_dns[1:]:
+        os.system(f"netsh interface ipv6 add dns name=\"{interface}\" addr={dns} index=2")
+    
+    print(f"DNS settings have been changed to: {', '.join(new_dns)} for interface {interface}")
+
+# # Example usage
+interface_name = "Ethernet"
+google_server = ["2001:4860:4860::8888", "2001:4860:4860::8844"]
+cloudflare_server = ["2606:4700:4700::1111", "2606:4700:4700::1001"]
+change_dns_ipv6(interface_name, cloudflare_server)
+
+# def testt(interface, new_dns):
+#     ha = f"netsh interface ipv6 set dns name=\"{interface}\" source=static addr={new_dns[0]} primary"
+#     for dns in new_dns[1:]:
+#         ha += f"\nnetsh interface ipv6 add dnsservers \"{interface}\" {dns} index=2"
+#     return ha
+# print(testt(interface_name, google_server))
