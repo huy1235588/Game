@@ -1,0 +1,251 @@
+/*=========================================================
+Author       : LeThienHuy.
+==============================================================*/
+
+/*=============================================================
+    CSS INDEX
+  =============================
+  01.GENERAL STYLE
+  02.START HEADER STYLE
+	03.START MENU MAIN
+	04.START SUBMENU
+	05.START SUBMENU INSIDE
+	06.START SIGN IN
+	07.START MENU TRAY
+	08.START new
+	09.START SECTION 1
+	24.START ELEMENT DESIGN
+		
+*=============================================================*/
+
+
+
+
+
+/*===================================*
+  01.GENERAL STYLE
+*===================================*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  :root {
+    --brown: #8d6e63;
+    --white-cream: #f5f5dc;
+    --white: #fff;
+    --gray: #e0e0e0;
+    --yellow: #020202;
+  
+    /* --header-bg: #266A29; */
+    --body-bg: #d9d9d9;
+    --body-bg: #1b2838;
+    --header-bg: #393939;
+    --header-text: #e0e0e0;
+    --header-text-hover: #ffcc00;
+    --submenu-bg: #fff;
+    --submenu-bg-hover: #f1f1f1;
+    --submenu-text: #4b4b4b;
+    --submenu-text-hover: #000;
+    --menu-submenu-separator: #e6e6e6;
+    --bg-discount: #788795;
+    --menu-link-anonymous-text: #de8ae5;
+    --menu-link-anonymous-text-hover: #f9b2ff;
+    --menu-inside-info-bg: #e1e1e1;
+    --menu-inside-title: #333333;
+    --menu-inside-price-text: #686868;
+    --menu-inside-collection-text: #5b5b5b;
+    --menu-inside-collection-bg: #e1e1e1;
+    --menu-inside-button-playstation: linear-gradient(180deg, #dbdbdb 0%, #ededed 100%);
+    --menu-inside-button-playstation-hover: brightness(1.05);
+    --menu-inside-button: linear-gradient(to bottom, rgba(204, 204, 204, 0.2) 0%,
+        rgba(204, 204, 204, 0.2) 4%,
+        rgba(217, 217, 217, 0.2) 100%);
+    --menu-inside-button-hover: linear-gradient(to top, rgba(204, 204, 204, 0.55) 0%,
+        rgba(204, 204, 204, 0.55) 4%,
+        rgba(217, 217, 217, 0.55) 100%);
+    --box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 0px 15px 5px rgba(0, 0, 0, 0.15);
+    --signin-button-bg: #f2f2f2;
+    --signin-button-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
+    --signup-text: #4c4c4c;
+    --signup-bg: #e6e6e6;
+    --signup-bg-hover: #f3f3f3;
+    --signin-bg: linear-gradient(to bottom, #985fb2 0%, #713b8d 100%);
+    --signin-bg-hover: #713b8d;
+    --signin-text: #fff;
+    --signin-about-text: #4c4c4c;
+    --signin-features-text: #4c4c4c;
+    --menu-signin-features-title-dash: #e5e5e5;
+    --button-lang: #19c430;
+    --footer-title-text: #9F9F9F;
+    --footer-link-hover: #9f9f9f;
+    --footer-legal-link-hover: #9f9f9f;
+    --new-button-bg: #19c430;
+    --product-button-bg: #19c430;
+    --section-header-text: #000;
+    --section-header-link: #c7d5e0;
+    --section-text: #c7d5e0;
+    --product-boxshadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+    --product-info-bg: linear-gradient(-45deg, rgba(64, 121, 153, 1) 5%, rgba(42, 62, 89, 1) 95%);
+    --product-info-bg-hover: linear-gradient(to right, rgba(56, 107, 135, 1) 5%, rgba(68, 130, 163, 1) 95%);
+    --product-name-hover: #19c430;
+    --product-header-link: #ffffff66;
+  }
+  
+  body {
+    background-color: var(--body-bg);
+    font-family: Lato, sans-serif;
+    color: #000;
+  }
+  
+  tbody {
+    border: none;
+  }
+  
+  a,
+  ul,
+  li {
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+  }
+  
+  button {
+    border: none;
+    margin: 0;
+    text-decoration: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  @media (min-width: 576px) {
+    .container {
+      max-width: 540px
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px
+    }
+  }
+  
+  @media (min-width: 1440px) {
+    .container {
+      max-width: 1280px
+    }
+  }
+  
+  .ngl-hide {
+    display: none;
+  }
+  /*===================================*
+    01.END GENERAL STYLE
+  *===================================*/
+
+
+
+
+
+
+/*===================================*
+  10.START SECTION NEW GAME
+*===================================*/
+.new-releases{
+    /* background-color: #fff; */
+}
+
+.new-releases-title{
+    color: #fff;
+    text-align: center;
+}
+
+.new-aside {
+    margin-bottom: 50px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto 50px;
+    position: relative;
+    top: 56px;
+    top: 56;
+    overflow: hidden;
+    text-align: center;
+    padding: 0;
+}
+
+.new-aside label {
+    position: absolute;
+    left: 0;
+    bottom: 10;
+    z-index: 5;
+    /* max-width: 2440px; */
+    /* padding: 40px 0; */
+    margin: 0 auto;
+
+    cursor: pointer;
+    display: inline-block;
+    width: 12%;
+    height: 12%;
+    /* height: 10px; */
+    /* background: #fff; */
+    border-radius: 16px;
+    transition: all .3s ease;
+    transition: opacity 0.9s;
+}
+
+.new-aside label img {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+}
+
+.new {
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    /* left: 100%; */
+    /* display: none; */
+    opacity: 0;
+    visibility: hidden;
+    background-size: cover;
+    margin: 0px;
+    transition: left 0s .75s;
+    /* z-index: 10; */
+}
+
+[id^="new"]:checked+.new {
+    /* left: 0; */
+    z-index: 4;
+    /* display: block; */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1.2s ease-in;
+    /* animation: 5s transformEffect; */
+}
+
+
+
+
+/*===================================*
+  10.END SECTION NEW GAME
+*===================================*/
