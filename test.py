@@ -97,12 +97,13 @@ lines_list1 = read_file_to_list(f1)
 #     result = transform_string(i)
 #     lines_list[i] = result
 
+# list = transform_string("Zenless Zone Zero")
 
 # for index in range(len(lines_list)):
 #     result = transform_string(lines_list[index])
 #     lines_list[index] = result
 
-# print(lines_list)
+print(list)
 # print(lines_list1)
 
 # folder_path = 'img\\article\\ha'
@@ -214,21 +215,21 @@ def change_dns_windows(interface, new_dns):
 
 
 
-def change_dns_ipv6(interface, new_dns):
-    # Set primary DNS server
-    os.system(f"netsh interface ipv6 set dns name=\"{interface}\" source=static addr={new_dns[0]} primary")
+# def change_dns_ipv6(interface, new_dns):
+#     # Set primary DNS server
+#     os.system(f"netsh interface ipv6 set dns name=\"{interface}\" source=static addr={new_dns[0]} primary")
     
-    # Add secondary DNS server
-    for dns in new_dns[1:]:
-        os.system(f"netsh interface ipv6 add dns name=\"{interface}\" addr={dns} index=2")
+#     # Add secondary DNS server
+#     for dns in new_dns[1:]:
+#         os.system(f"netsh interface ipv6 add dns name=\"{interface}\" addr={dns} index=2")
     
-    print(f"DNS settings have been changed to: {', '.join(new_dns)} for interface {interface}")
+#     print(f"DNS settings have been changed to: {', '.join(new_dns)} for interface {interface}")
 
-# # Example usage
-interface_name = "Ethernet"
-google_server = ["2001:4860:4860::8888", "2001:4860:4860::8844"]
-cloudflare_server = ["2606:4700:4700::1111", "2606:4700:4700::1001"]
-change_dns_ipv6(interface_name, cloudflare_server)
+# # # Example usage
+# interface_name = "Ethernet"
+# google_server = ["2001:4860:4860::8888", "2001:4860:4860::8844"]
+# cloudflare_server = ["2606:4700:4700::1111", "2606:4700:4700::1001"]
+# change_dns_ipv6(interface_name, cloudflare_server)
 
 # def testt(interface, new_dns):
 #     ha = f"netsh interface ipv6 set dns name=\"{interface}\" source=static addr={new_dns[0]} primary"
@@ -236,3 +237,23 @@ change_dns_ipv6(interface_name, cloudflare_server)
 #         ha += f"\nnetsh interface ipv6 add dnsservers \"{interface}\" {dns} index=2"
 #     return ha
 # print(testt(interface_name, google_server))
+
+
+def get_file_names(directory):
+    file_names = []
+    # Lặp qua tất cả các tập tin trong thư mục được chỉ định
+    for root, _, files in os.walk(directory):
+        for file in files:
+            file_names.append(file)
+    return file_names
+
+def write_to_file(file_names, output_file):
+    with open(output_file, 'w') as f:
+        for file_name in file_names:
+            f.write(file_name + '\n')
+
+directory = 'img/article/section-new-releases/comming-soon'
+output_file = 'pythontest/output_file_name.txt'
+
+file_names = get_file_names(directory)
+write_to_file(file_names, output_file)

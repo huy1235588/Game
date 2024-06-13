@@ -13,7 +13,8 @@ Author       : LeThienHuy.
 	06.START SIGN IN
 	07.START MENU TRAY
 	08.START BANNER
-	09.START SECTION 1
+	09.SECTION TRENDING
+	10.SECTION NEW GAME
 	24.START ELEMENT DESIGN
 		
 *=============================================================*/
@@ -91,6 +92,7 @@ Author       : LeThienHuy.
   --product-info-bg-hover: linear-gradient(to right, rgba(56, 107, 135, 1) 5%, rgba(68, 130, 163, 1) 95%);
   --product-name-hover: #19c430;
   --product-header-link: #ffffff66;
+
 }
 
 body {
@@ -159,6 +161,57 @@ button {
 .ngl-hide {
   display: none;
 }
+
+:root {
+  --scrollbar-width: 17px;
+  --mesh-column: 4;
+  --mesh-gutter: var(--space-5);
+  --mesh-margin: var(--space-6);
+  --mesh-container-width: calc((100vw - var(--scrollbar-width, 0)) - var(--mesh-margin) - var(--mesh-margin) + var(--mesh-gutter));
+  --mesh-column-width: calc(var(--mesh-container-width) / var(--mesh-column))
+}
+
+:root {
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 7px;
+  --space-4: 10px;
+  --space-5: 14px;
+  --space-6: 21px;
+  --space-7: 28px;
+  --space-8: 35px;
+  --space-9: 42px;
+  --space-10: 56px;
+  --space-11: 70px;
+  --space-12: 112px;
+  --space-13: 224px;
+}
+
+@media (min-width: 360px) {
+  :root {
+    --mesh-margin: var(--space-7);
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --mesh-column: 12;
+    --mesh-margin: var(--space-9);
+  }
+}
+
+@media (min-width: 1367px) {
+  :root {
+    --mesh-margin: var(--space-11);
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --mesh-column: 24;
+  }
+}
+
 /*===================================*
   01.END GENERAL STYLE
 *===================================*/
@@ -180,6 +233,7 @@ header {
   width: 100%;
   z-index: 9;
 }
+
 /*===================================*
   02.END HEADER STYLE
 *===================================*/
@@ -332,7 +386,7 @@ header {
 
 
 /*===================================*
-  4.START SUBMENU
+  04.START SUBMENU
 *===================================*/
 .menu-submenu {
   position: absolute;
@@ -430,8 +484,9 @@ header {
   display: block;
   fill: #686868;
 }
+
 /*===================================*
-  4.END SUBMENU
+  04.END SUBMENU
 *===================================*/
 
 
@@ -439,7 +494,7 @@ header {
 
 
 /*===================================*
-  5.START SUBMENU INSIDE
+  05.START SUBMENU INSIDE
 *===================================*/
 .menu-inside-layout {
   display: none;
@@ -796,8 +851,9 @@ header {
   font-size: 14px;
   line-height: 36px;
 }
+
 /*===================================*
-  5.END SUB MENU INSIDE
+  05.END SUB MENU INSIDE
 *===================================*/
 
 
@@ -805,7 +861,7 @@ header {
 
 
 /*===================================*
-  6.START SIGN IN
+  06.START SIGN IN
 *===================================*/
 .menu-signin {
   position: absolute;
@@ -1031,14 +1087,14 @@ header {
 }
 
 /*===================================*
-  6.END SIGN IN
+  06.END SIGN IN
 *===================================*/
 
 
 
 
 /*===================================*
-  7.START MENU TRAY
+  07.START MENU TRAY
 *===================================*/
 .menu-tray {
   display: flex;
@@ -1088,8 +1144,9 @@ header {
   width: 100%;
   height: 100%;
 }
+
 /*===================================*
-  7.END MENU TRAY
+  07.END MENU TRAY
 *===================================*/
 
 
@@ -1098,7 +1155,7 @@ header {
 
 
 /*===================================*
-  8.START BANNER
+  08.START BANNER
 *===================================*/
 .banner-aside {
   margin-bottom: 50px;
@@ -1203,7 +1260,7 @@ header {
   opacity: 1;
 }
 
-.banner-aside label:hover .banner-button-img{
+.banner-aside label:hover .banner-button-img {
   transform: translateY(-8px);
   box-shadow: 0 12px 8px rgba(0, 0, 0, 0.18);
 }
@@ -1215,7 +1272,7 @@ header {
 }
 
 /*===================================*
-  8.END BANNER
+  08.END BANNER
 *===================================*/
 
 
@@ -1223,11 +1280,152 @@ header {
 
 
 /*===================================*
-  9.START SECTION 1
+  09.START SECTION NEW GAME
+*===================================*/
+.new-releases {
+  height: 715px;
+  /* background-color: #fff; */
+}
+
+.new-releases-title {
+  margin-bottom: 70px;
+  line-height: 42px;
+  font-weight: 300;
+  letter-spacing: .1px;
+}
+
+.new-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-row-gap: var(--space-5);
+}
+
+.new-item {
+  --column: 2;
+  width: calc(var(--mesh-column-width) * var(--column) - var(--mesh-gutter));
+  flex-shrink: 0;
+  margin-left: 14px;
+}
+
+.new-item:hover .new-img{
+  transform: scale(1.025);
+  box-shadow: 0 var(--space-2) var(--space-5) var(--space-1) rgba(0, 0, 0, 0.8);
+}
+
+.new-item:not(:hover):has(~.new-item:hover) .new-img,
+.new-item:hover ~ .new-item:not(:hover) .new-img{
+  opacity: 0.3;
+} 
+
+.new-link {
+  display: inline-block;
+  width: 100%;
+}
+
+.new-img {
+  width: 100%;
+  transition: opacity 0.3s;
+}
+
+.new-releases-title {
+  color: #fff;
+  text-align: center;
+}
+
+.new-name {
+  margin-top: 7px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 15px;
+}
+
+.new-releases {
+  margin-bottom: 50px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto 50px;
+  position: relative;
+  top: 20px;
+  overflow: hidden;
+  text-align: center;
+  padding: 0;
+}
+
+.new-releases label {
+  position: absolute;
+  top: 50;
+  left: 0;
+  z-index: 5;
+  margin: 0 auto;
+
+  cursor: pointer;
+  display: inline-block;
+  /* width: 5%; */
+  /* height: 5%; */
+  padding: 10px 14px;
+  background: #1f2e41;
+  color: #fff;
+  border-radius: 16px;
+  transition: all .3s ease;
+  transition: opacity 0.9s;
+  transition: color 0.5s;
+}
+
+.new-list {
+  /* width: 100%;
+  height: 80%; */
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  background-size: cover;
+  margin: 0px;
+  transition: left 0s .75s;
+  /* z-index: 10; */
+}
+
+[id^="new"]:checked+.new-list {
+  z-index: 4;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1.2s ease-in;
+  /* animation: 5s transformEffect; */
+}
+
+.new-releases .new-button1 {
+  left: 40.5%;
+}
+
+.new-releases .new-button2 {
+  left: 50%;
+}
+
+
+.new-releases label:hover {
+  color: rgb(0, 195, 255);
+}
+
+.new-releases label:has(+input[type="radio"]:checked) {
+  background-color: #fff;
+  color: #000;
+  z-index: 50;
+}
+
+/*===================================*
+09.END SECTION NEW GAME
+*===================================*/
+
+
+
+
+
+/*===================================*
+  10.START SECTION TRENDING
 *===================================*/
 .main-content {
   margin-top: 40px;
 }
+
 /* header */
 .section-header {
   display: flex;
@@ -1415,8 +1613,9 @@ header {
 }
 
 /*===================================*
-  9.START SECTION 1
+  10.START SECTION TRENDING
 *===================================*/
+
 
 
 
