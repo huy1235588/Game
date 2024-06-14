@@ -43,6 +43,7 @@ Author       : LeThienHuy.
   --body-bg: #d9d9d9;
   --body-bg: #1b2838;
   --header-bg: #393939;
+  /* --header-bg: transparent; */
   --header-text: #e0e0e0;
   --header-text-hover: #ffcc00;
   --submenu-bg: #fff;
@@ -142,13 +143,13 @@ button {
 
 @media (min-width: 992px) {
   .container {
-    max-width: 960px
+    max-width: 900px
   }
 }
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 1140px
+    max-width: 1000px
   }
 }
 
@@ -232,6 +233,16 @@ header {
   position: fixed;
   width: 100%;
   z-index: 9;
+  opacity: 0.96;
+}
+
+header:has(.menu-main-item:hover) {
+  opacity: 1;
+}
+
+body:has(.menu-main-item:hover) main,
+body:has(.menu-main-item:hover) footer {
+  opacity: 0.5;
 }
 
 /*===================================*
@@ -273,7 +284,7 @@ header {
   align-items: center;
   max-width: 1060px;
   margin: 0 auto;
-  height: 56px;
+  height: 50px;
 }
 
 @media (min-width: 1440px) {
@@ -1157,14 +1168,18 @@ header {
 /*===================================*
   08.START BANNER
 *===================================*/
+main {
+  transition: opacity 0.5s;
+}
+
 .banner-aside {
   margin-bottom: 50px;
   width: 100%;
   height: 100%;
-  margin: 0 auto 50px;
+  margin: 0 auto 30px;
   position: relative;
-  top: 56px;
-  top: 56;
+  top: 50px;
+  /* top: 0; */
   overflow: hidden;
   text-align: center;
   padding: 0;
@@ -1173,13 +1188,13 @@ header {
 .banner-aside label {
   position: absolute;
   left: 0;
-  bottom: 55;
+  bottom: 60;
   z-index: 5;
   margin: 0 auto;
   cursor: pointer;
   display: inline-block;
-  width: 12%;
-  height: 12%;
+  width: 10%;
+  height: 10%;
   border-radius: 16px;
   transition: all .3s ease;
   transition: opacity 0.9s;
@@ -1193,7 +1208,7 @@ header {
 
 .banner {
   width: 100%;
-  height: 75%;
+  height: 78%;
   position: absolute;
   opacity: 0;
   visibility: hidden;
@@ -1210,23 +1225,27 @@ header {
 }
 
 .banner-aside .banner-button1 {
-  left: calc(50% - 6% - 28%);
+  left: calc(50% - 5% - 28.7%);
 }
 
 .banner-aside .banner-button2 {
-  left: calc(50% - 6% - 14%);
+  left: calc(50% - 5% - 17.2%);
 }
 
 .banner-aside .banner-button3 {
-  left: calc(50% - 6% - 0%);
+  left: calc(50% - 5% - 5.7%);
 }
 
 .banner-aside .banner-button4 {
-  left: calc(50% - 6% + 14%);
+  left: calc(50% - 5% + 5.7%);
 }
 
 .banner-aside .banner-button5 {
-  left: calc(50% - 6% + 28%);
+  left: calc(50% - 5% + 17.2%);
+}
+
+.banner-aside .banner-button6 {
+  left: calc(50% - 5% + 28.7%);
 }
 
 .banner-aside .banner-button-img {
@@ -1253,7 +1272,7 @@ header {
 }
 
 .banner-aside label:not(:has(+input[type="radio"]:checked)) {
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .banner-aside .banner-button:has(~.hover):hover {
@@ -1269,6 +1288,12 @@ header {
 .banner-aside label:not(:hover):has(~label:hover),
 .banner-aside label:hover~label:not(:hover) {
   opacity: 0.3;
+}
+
+.banner-link{
+  position: absolute;
+  top: 0;
+  z-index: 6;
 }
 
 /*===================================*
@@ -1329,8 +1354,8 @@ header {
 }
 
 .new-name {
-  margin-top: 7px;
-  font-size: 14px;
+  margin-top: 13px;
+  font-size: 13px;
   font-weight: 400;
   line-height: 15px;
 }
@@ -1380,7 +1405,7 @@ header {
 
 [id^="new"]:checked+.new-list {
   position: relative;
-  z-index: 4;
+  z-index: 5;
   opacity: 1;
   visibility: visible;
   transition: opacity 1.2s ease-in;
@@ -1388,7 +1413,7 @@ header {
 }
 
 .new-releases .new-button1 {
-  left: 40.5%;
+  left: 28%;
 }
 
 .new-releases .new-button2 {
@@ -1396,14 +1421,44 @@ header {
 }
 
 
+@media (min-width: 600px) {
+  .new-releases .new-button1 {
+    left: 32%;
+  }
+}
+
+@media (min-width: 720px) {
+  .new-releases .new-button1 {
+    left: 34%;
+  }
+}
+
+@media (min-width: 856px) {
+  .new-releases .new-button1 {
+    left: 36.5%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .new-releases .new-button1 {
+    left: 38.5%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .new-releases .new-button1 {
+    left: 40.5%;
+  }
+}
+
 .new-releases label:hover {
-  color: rgb(0, 195, 255);
+  color: #19c430;
 }
 
 .new-releases label:has(+input[type="radio"]:checked) {
   background-color: #fff;
   color: #000;
-  z-index: 3;
+  z-index: 5;
 }
 
 /*===================================*
@@ -1418,7 +1473,7 @@ header {
   10.START SECTION TRENDING
 *===================================*/
 .main-content {
-  margin-top: 40px;
+  margin-top: 0;
 }
 
 /* header */
@@ -1428,7 +1483,7 @@ header {
   align-items: center;
   padding-bottom: 12px;
   border-bottom: 1px solid #b8b8b8;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   color: var(--section-header-text);
 }
 
@@ -1466,15 +1521,21 @@ header {
   text-align: center;
 }
 
-@media (min-height: 720px) {
+@media (min-height: 420px) {
   .trending {
-    height: 670px;
+    height: 540px;
+  }
+}
+
+@media (min-height: 526px) {
+  .trending {
+    height: 550px;
   }
 }
 
 @media (min-height: 600px) {
   .trending {
-    height: 640px;
+    height: 570px;
   }
 }
 
@@ -1570,7 +1631,7 @@ header {
 }
 
 .product-name {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
 }
 
@@ -1585,7 +1646,7 @@ header {
 .product-info {
   display: flex;
   flex-direction: column;
-  height: 114px;
+  height: 105px;
   padding: 12px 16px;
   background: var(--product-info-bg);
   transition: all0 0.3s;
@@ -1620,7 +1681,7 @@ header {
   color: #BEEE11;
   font-size: 16px;
   font-weight: 700;
-  line-height: 16px;
+  line-height: 13px;
 }
 
 .__base-price {
@@ -1660,11 +1721,64 @@ header {
 *===================================*/
 .browse-list {
   display: flex;
+  margin-bottom: 30px;
 }
 
-.browse-img{
+.browse-item {
+  position: relative;
+  width: calc(100% - 10px);
+  height: 370px;
+  margin-right: 30px;
+}
+
+.browse-item:last-child {
+  margin-right: 0;
+}
+
+.browse-item a:first-child {
+  display: inline-block;
   width: 100%;
-  
+  height: 210px;
+}
+
+.browse-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  transition: 0.3s;
+}
+
+.browse-img:hover {
+  opacity: 0.3;
+}
+
+.browse-item a:not(:first-child) {
+  display: inline-block;
+  height: 23px;
+  margin: 0 10px;
+}
+
+.browse-item a:nth-child(2) {
+  height: fit-content;
+  margin: 20px 10px 10px;
+}
+
+.browse-item a:last-child {
+  position: absolute;
+  bottom: 0;
+  display: inline-block;
+  height: 26px;
+  margin: auto 10px 0;
+  font-size: 22px;
+}
+
+.browse-text {
+  margin: 0 10px;
+  color: #f5f5f599;
+}
+
+.browse-button:hover {
+  text-decoration: underline;
 }
 
 /*===================================*
@@ -1679,7 +1793,8 @@ header {
   9.START FOOTER
 *===================================*/
 footer {
-  padding: 36px 0 36px;
+  padding: 30px 0 36px;
+  transition: opacity 0.5s;
 }
 
 .footer-list {
