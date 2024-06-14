@@ -13,8 +13,8 @@ Author       : LeThienHuy.
 	06.START SIGN IN
 	07.START MENU TRAY
 	08.START BANNER
-	09.SECTION TRENDING
-	10.SECTION NEW GAME
+	09.SECTION NEW GAME
+	10.SECTION TRENDING
 	24.START ELEMENT DESIGN
 		
 *=============================================================*/
@@ -1282,11 +1282,6 @@ header {
 /*===================================*
   09.START SECTION NEW GAME
 *===================================*/
-.new-releases {
-  height: 715px;
-  /* background-color: #fff; */
-}
-
 .new-releases-title {
   margin-bottom: 70px;
   line-height: 42px;
@@ -1298,7 +1293,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  grid-row-gap: var(--space-5);
+  grid-row-gap: var(--space-6);
 }
 
 .new-item {
@@ -1308,15 +1303,15 @@ header {
   margin-left: 14px;
 }
 
-.new-item:hover .new-img{
+.new-item:hover .new-img {
   transform: scale(1.025);
   box-shadow: 0 var(--space-2) var(--space-5) var(--space-1) rgba(0, 0, 0, 0.8);
 }
 
 .new-item:not(:hover):has(~.new-item:hover) .new-img,
-.new-item:hover ~ .new-item:not(:hover) .new-img{
+.new-item:hover~.new-item:not(:hover) .new-img {
   opacity: 0.3;
-} 
+}
 
 .new-link {
   display: inline-block;
@@ -1341,13 +1336,11 @@ header {
 }
 
 .new-releases {
-  margin-bottom: 50px;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto 50px;
   position: relative;
-  top: 20px;
+  width: 100%;
+  /* height: 100%; */
   overflow: hidden;
+  margin-bottom: 100px;
   text-align: center;
   padding: 0;
 }
@@ -1356,7 +1349,7 @@ header {
   position: absolute;
   top: 50;
   left: 0;
-  z-index: 5;
+  z-index: 3;
   margin: 0 auto;
 
   cursor: pointer;
@@ -1375,7 +1368,8 @@ header {
 .new-list {
   /* width: 100%;
   height: 80%; */
-  position: absolute;
+  position: fixed;
+  top: 0;
   opacity: 0;
   visibility: hidden;
   background-size: cover;
@@ -1385,6 +1379,7 @@ header {
 }
 
 [id^="new"]:checked+.new-list {
+  position: relative;
   z-index: 4;
   opacity: 1;
   visibility: visible;
@@ -1408,7 +1403,7 @@ header {
 .new-releases label:has(+input[type="radio"]:checked) {
   background-color: #fff;
   color: #000;
-  z-index: 50;
+  z-index: 3;
 }
 
 /*===================================*
@@ -1433,6 +1428,7 @@ header {
   align-items: center;
   padding-bottom: 12px;
   border-bottom: 1px solid #b8b8b8;
+  margin-bottom: 30px;
   color: var(--section-header-text);
 }
 
@@ -1460,18 +1456,47 @@ header {
   color: #fff;
 }
 
-.product-layout {
+.trending {
   position: relative;
   width: 100%;
-  height: 85%;
+  height: 700px;
   padding: 0;
   margin: 16px auto 50px;
   overflow: hidden;
   text-align: center;
 }
 
+@media (min-height: 720px) {
+  .trending {
+    height: 670px;
+  }
+}
 
-.product-layout label {
+@media (min-height: 600px) {
+  .trending {
+    height: 640px;
+  }
+}
+
+@media (min-height: 720px) {
+  .trending {
+    height: 670px;
+  }
+}
+
+@media (min-height: 856px) {
+  .trending {
+    height: 700px;
+  }
+}
+
+@media (min-height: 912px) {
+  .trending {
+    height: 710px;
+  }
+}
+
+.trending label {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -1486,7 +1511,7 @@ header {
   transition: all .3s ease;
 }
 
-.product-layout label:hover {
+.trending label:hover {
   background: var(--product-button-bg)
 }
 
@@ -1507,19 +1532,19 @@ header {
 }
 
 
-.product-layout .product-button1 {
+.trending .product-button1 {
   left: 43%;
 }
 
-.product-layout .product-button2 {
+.trending .product-button2 {
   left: 50%;
 }
 
-.product-layout .product-button3 {
+.trending .product-button3 {
   left: 57%;
 }
 
-.product-layout label:has(+input[type="radio"]:checked) {
+.trending label:has(+input[type="radio"]:checked) {
   background-color: var(--product-button-bg);
 }
 
@@ -1545,7 +1570,7 @@ header {
 }
 
 .product-name {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
 }
 
@@ -1591,7 +1616,8 @@ header {
   align-items: center;
   padding: 10px;
   border-radius: 5px;
-  background-color: #713b8d;
+  background-color: #4c6b22;
+  color: #BEEE11;
   font-size: 16px;
   font-weight: 700;
   line-height: 16px;
@@ -1610,10 +1636,39 @@ header {
   font-weight: 700;
   line-height: 16px;
   text-align: right;
+  color: #BEEE11;
+}
+
+.__discount.ngl-hide {
+  opacity: 0;
+}
+
+.__discount.ngl-hide~.__final-price {
+  color: #fff;
 }
 
 /*===================================*
-  10.START SECTION TRENDING
+  10.END SECTION TRENDING
+*===================================*/
+
+
+
+
+
+/*===================================*
+  1.START SECTION BROWSE
+*===================================*/
+.browse-list {
+  display: flex;
+}
+
+.browse-img{
+  width: 100%;
+  
+}
+
+/*===================================*
+  1.END SECTION BROWSE
 *===================================*/
 
 

@@ -52,6 +52,11 @@ def read_file_to_list(file_path):
 
     return lines
 
+def clear_file(file_path):
+    with open(f"{file_path}", 'w', encoding='utf-8') as file:
+        file.write('')
+
+
 # Mở file ở chế độ ghi (write mode)
 # with open('pythontest\\ha1.txt', 'w') as file:
 #    for i in range(19):
@@ -70,6 +75,16 @@ def convert_urls(urls):
         parts = url.split('/')
         app_id = parts[4]
         new_url = f"https://steamdb.info/app/{app_id}/"
+        new_urls.append(new_url)
+    return new_urls
+
+def convert_urls_to_us(urls):
+    new_urls = []
+    for url in urls:
+        parts = url.split('/')
+        app_id = parts[4]
+        app_name = parts[5]
+        new_url = f"https://store.steampowered.com/app/{app_id}/{app_name}/?cc=us"
         new_urls.append(new_url)
     return new_urls
 
@@ -103,7 +118,7 @@ lines_list1 = read_file_to_list(f1)
 #     result = transform_string(lines_list[index])
 #     lines_list[index] = result
 
-print(list)
+# print(list)
 # print(lines_list1)
 
 # folder_path = 'img\\article\\ha'
@@ -142,51 +157,63 @@ print(list)
 #         new_path = os.path.join(folder_path, lines_list[i] + extension)
 #         os.rename(old_path, new_path)
 
-# file_link = "pythontest\\name\\link_list.txt"
-# link_list = read_file_to_list(file_link)
-
-# with open('pythontest\\name\\content_id.txt', 'w', encoding='utf-8') as file:
-#     file.write('')
 
 
-# def get_content_from_url(link_list, selector, value):
-#     for url_link in link_list:
-#         response = requests.get(url_link)
-#         if response.status_code == 200:
-#             # Phân tích cú pháp HTML của trang web
-#             soup = BeautifulSoup(response.content, 'html.parser')
-#             # Lấy nội dung của phần tử theo id, class, hoặc tag
-#             element = soup.find('div', {f"{selector}": f"{value}"})
-#             if element:
-#                 # Lấy nội dung text của phần tử
-#                 if(element.has_attr('data-price-final')):
-#                     price_final = element.get('data-price-final')
-#                     with open('pythontest\\name\\content_id.txt', 'a', encoding='utf-8') as file:
-#                         file.write(content + '\n')
-#                         print("Đã ghi " + f"{value}")
-#                 else:
-#                     content = element.get_text().strip()
-#                     with open('pythontest\\name\\content_id.txt', 'a', encoding='utf-8') as file:
-#                         file.write(content + '\n')
-#                         print("Đã ghi " + f"{value}")
-#                 # Ghi nội dung vào file txt
-                
-#             else:
-#                 print("Không tìm thấy phần tử theo yêu cầu.")
-#         else:
-#             print(f"Yêu cầu không thành công, mã trạng thái: {response.status_code}")
+file_link = "pythontest\\name\\converted_link_to_us.txt"
+link_list = read_file_to_list(file_link)
+
+def get_content_from_url(link_list, selector, value, data, path):
+    with open('pythontest\\name\\content\\' + f"{path}", 'w', encoding='utf-8') as file:
+        file.write('')
+    for url_link in link_list:
+        response = requests.get(url_link)
+        if response.status_code == 200:
+            # Phân tích cú pháp HTML của trang web
+            soup = BeautifulSoup(response.content, 'html.parser')
+            # Lấy nội dung của phần tử theo id, class, hoặc tag
+            if(data == '0'):
+                element = soup.find('div', {f"{selector}": f"{value}"})
+                if element:
+                    # Lấy nội dung text của phần tử
+                        content = element.get_text().strip()
+                        with open('pythontest\\name\\content\\' + f"{path}", 'a', encoding='utf-8') as file:
+                            file.write(content + '\n')
+                            print("Đã ghi " + f"{content}")
+                    # Ghi nội dung vào file txt
+                else:
+                    with open('pythontest\\name\\content\\' + f"{path}", 'a', encoding='utf-8') as file:
+                            file.write('\n')
+                            print("Đã ghi \"\"")
+            else:
+                element = soup.find('div', {f"{data}": True})
+                if element:
+                    if element.has_attr('aria-label'):
+                        element_child = element.find('div', {f"{selector}": f"{value}"})
+                        content = element_child.get_text()
+                        with open('pythontest\\name\\content\\' + f"{path}", 'a', encoding='utf-8') as file:
+                            file.write(content + '\n')
+                            print("Đã ghi " + f"{content}")   
+                    else:
+                        content = element.get_text().strip()
+                        with open('pythontest\\name\\content\\' + f"{path}", 'a', encoding='utf-8') as file:
+                            file.write(content + '\n')
+                            print("Đã ghi " + f"{content}")                        
+                else:
+                    print("Không tìm thấy phần tử có thuộc tính data-price-final")                   
+        else:
+            print(f"Yêu cầu không thành công, mã trạng thái: {response.status_code}")
+  
+
+selector_value_list = read_file_to_list("pythontest\\name\\selector_value.txt")
+selectorValue = []
+
+# for i in range(0, len(selector_value_list), 4):
+#     selectorValue.append((selector_value_list[i], selector_value_list[i+1], selector_value_list[i+2], selector_value_list[i+3]))
+
+# for selector, value, data, path in selectorValue:
+#     get_content_from_url(link_list, selector, value, data, path)
 
 
-
-# selector_value_list = read_file_to_list("pythontest\\name\\selector_value.txt")
-# selectorValue = []
-
-# for i in range(0, len(selector_value_list), 2):
-#     selectorValue.append((selector_value_list[i], selector_value_list[i+1]))
-
-
-# for selector, value in selectorValue:
-#     get_content_from_url(link_list, selector, value)
 
 
 # original_urls  = read_file_to_list("pythontest\\name\\link_list.txt")
@@ -195,19 +222,25 @@ print(list)
 #      with open('pythontest\\name\\converted_link.txt', 'a', encoding='utf-8') as file:
 #          file.write(url + '\n')
 
+# original_urls  = read_file_to_list("pythontest\\name\\link_list.txt")
+# converted_urls = convert_urls_to_us(original_urls)
+# clear_file("pythontest\\name\\converted_link_to_us.txt")
+# for url in converted_urls:
+#      with open('pythontest\\name\\converted_link_to_us.txt', 'a', encoding='utf-8') as file:
+#          file.write(url + '\n')
 
-def change_dns_windows(interface, new_dns):
-    # Set primary DNS server
-    os.system(f"netsh interface ip set dns name=\"{interface}\" source=static addr={new_dns[0]}")
-    
-    # Add secondary DNS server
-    for dns in new_dns[1:]:
-        os.system(f"netsh interface ip add dns name=\"{interface}\" addr={dns} index=2")
-    
-    print(f"DNS settings have been changed to: {', '.join(new_dns)} for interface {interface}")
 
+# def change_dns_windows(interface, new_dns):
+#     # Set primary DNS server
+#     os.system(f"netsh interface ip set dns name=\"{interface}\" source=static addr={new_dns[0]}")
     
-# # Example usage
+#     # Add secondary DNS server
+#     for dns in new_dns[1:]:
+#         os.system(f"netsh interface ip add dns name=\"{interface}\" addr={dns} index=2")
+    
+#     print(f"DNS settings have been changed to: {', '.join(new_dns)} for interface {interface}")
+
+# Example usage
 # interface_name = "Ethernet"
 # google_server = ["8.8.8.8", "8.8.4.4"]
 # cloudflare_server = ["1.1.1.1", "1.0.0.1"]
@@ -229,7 +262,7 @@ def change_dns_windows(interface, new_dns):
 # interface_name = "Ethernet"
 # google_server = ["2001:4860:4860::8888", "2001:4860:4860::8844"]
 # cloudflare_server = ["2606:4700:4700::1111", "2606:4700:4700::1001"]
-# change_dns_ipv6(interface_name, cloudflare_server)
+# change_dns_ipv6(interface_name, google_server)
 
 # def testt(interface, new_dns):
 #     ha = f"netsh interface ipv6 set dns name=\"{interface}\" source=static addr={new_dns[0]} primary"
@@ -244,7 +277,9 @@ def get_file_names(directory):
     # Lặp qua tất cả các tập tin trong thư mục được chỉ định
     for root, _, files in os.walk(directory):
         for file in files:
-            file_names.append(file)
+            file_path = os.path.join(root, file)
+            file_path = file_path.replace('/', '\\')
+            file_names.append(file_path)
     return file_names
 
 def write_to_file(file_names, output_file):
@@ -252,8 +287,113 @@ def write_to_file(file_names, output_file):
         for file_name in file_names:
             f.write(file_name + '\n')
 
-directory = 'img/article/section-new-releases/comming-soon'
-output_file = 'pythontest/output_file_name.txt'
+# directory = 'img/article/section-new-releases/comming-soon'
+# output_file = 'pythontest/output_file_name.txt'
 
-file_names = get_file_names(directory)
-write_to_file(file_names, output_file)
+# file_names = get_file_names(directory)
+# write_to_file(file_names, output_file)
+
+# directory = 'img/article/section-trending'
+# output_file = 'pythontest/name/content/content_img.txt'
+
+
+# write_to_file(get_file_names(directory), output_file)
+
+
+
+
+def edit_html_file(html_path, txt_path, element_name, selector, selector_name):
+    # Đọc nội dung file HTML
+    with open(f"{html_path}", 'r', encoding='utf-8') as file:
+        html_content = file.read()
+
+    # Đọc nội dung file TXT
+    text_content = read_file_to_list(txt_path)
+    # Tạo đối tượng BeautifulSoup
+    soup = BeautifulSoup(html_content, 'html.parser')
+
+    # Tìm tất cả các thẻ img
+
+    # Sửa thuộc tính src của các thẻ img
+    if (f"{element_name}" == 'img'):
+        content = soup.find_all(f"{element_name}", {f"{selector}": f"{selector_name}"})
+        index = 0
+        while index < 24:
+            src = content[index].get('src')
+            if src and 'img/article/section-trending/' in src:
+                content[index]['src'] = src + text_content[index]
+                index = index + 1
+    elif(f"{element_name}" == 'span'):
+        content = soup.find_all(f"{element_name}", {f"{selector}": f"{selector_name}"})
+        index = 0
+        while index < 24:
+            content[index].string = text_content[index]
+            index = index + 1
+    else: 
+        content = soup.find_all(f"{element_name}", {f"{selector}": f"{selector_name}"})
+        index = 0
+        while index < 24:
+            span = content[index].find('span')
+            if span:
+                span.string = text_content[index]
+                index = index + 1
+
+    # Ghi lại nội dung đã chỉnh sửa vào file HTML
+    with open(f"{html_path}", 'w', encoding='utf-8') as file:
+        file.write(str(soup))
+
+    print("Đã hoàn thành việc chỉnh sửa và lưu vào" + f"{html_path}")
+
+
+
+# file_html_path = "test_trending.html"
+# directory = 'pythontest/name/content'
+# file_txt_list = get_file_names(directory)
+# print(file_txt_list)
+
+# selector_value_list = read_file_to_list("pythontest\\name\\edit_html.txt")
+# selectorValue = []
+
+# for i in range(0, len(selector_value_list), 3):
+#     selectorValue.append((selector_value_list[i], selector_value_list[i+1], selector_value_list[i+2]))
+
+# indexx = 0 
+# while indexx < 5:
+#     element_name = selectorValue[indexx][0]
+#     selector = selectorValue[indexx][1]
+#     selector_name = selectorValue[indexx][2]
+#     txt_path = file_txt_list[indexx]
+#     edit_html_file(file_html_path, txt_path, element_name, selector, selector_name)
+#     indexx = indexx + 1
+
+
+def check_and_add_class(html_path, element_name, selector, selector_name):
+    # Đọc nội dung file HTML
+    with open(f"{html_path}", 'r', encoding='utf-8') as file:
+        html_content = file.read()
+
+    # Tạo đối tượng BeautifulSoup
+    soup = BeautifulSoup(html_content, 'html.parser')
+
+    for element in soup.find_all(f"{element_name}", {f"{selector}": f"{selector_name}"}):
+        # Kiểm tra nếu phần tử không có nội dung (bao gồm cả các khoảng trắng)
+        if not element.text.strip():
+            # Thêm class "ngl-hide"
+            if 'class' in element.attrs:
+                element['class'].append('ngl-hide')
+            else:
+                element['class'] = ['ngl-hide']
+    with open(f"{html_path}", 'w', encoding='utf-8') as file:
+        file.write(str(soup))
+
+    print("Đã hoàn thành việc chỉnh sửa" + f"{selector_name}" + "và lưu vào" + f"{html_path}")
+
+
+file_html_path = "test_trending.html"
+element_name = "span"
+selector = "class"
+selector_name = ["__discount", "__base-price"]
+
+# for selector_name in selector_name:
+#     check_and_add_class(file_html_path, element_name, selector, selector_name)
+    # print(selector_name)
