@@ -3,7 +3,11 @@ import webbrowser
 import requests
 from bs4 import BeautifulSoup
 import socket
-
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+import time
+import urllib.parse
 
 def rgba_to_rgb(hex_color):
     # Assuming a white background, so the background RGB is (255, 255, 255)
@@ -85,6 +89,16 @@ def convert_urls_to_us(urls):
         app_id = parts[4]
         app_name = parts[5]
         new_url = f"https://store.steampowered.com/app/{app_id}/{app_name}/?cc=us"
+        new_urls.append(new_url)
+    return new_urls
+
+def convert_github_url(urls):
+    new_urls = []
+    for url in urls:
+        parts = url.split('/')
+        app_id = parts[3]
+        app_name = parts[4]
+        new_url = f"htmlpreview.github.io/?https://github.com/{app_id}/{app_name}"
         new_urls.append(new_url)
     return new_urls
 
@@ -228,6 +242,73 @@ selectorValue = []
 # for url in converted_urls:
 #      with open('pythontest\\name\\converted_link_to_us.txt', 'a', encoding='utf-8') as file:
 #          file.write(url + '\n')
+
+
+def get_all_href_web(url, element_name, selector, selector_name):
+    response = requests.get(url)
+    driver_path = "chromedriver/chromedriver.exe"
+
+    service = Service(driver_path)
+    driver = webdriver.Chrome(service=service)
+
+    driver.get(url)
+    time.sleep(5)
+    html_content = driver.page_source
+    driver.quit()
+
+    if response.status_code == 200:
+    # Kiểm tra nội dung của phản hồi để đảm bảo đó là HTML
+        # Tạo đối tượng BeautifulSoup để phân tích cú pháp HTML
+        soup = BeautifulSoup(html_content, 'html.parser')
+        # Tìm tất cả các thẻ 'a' bên trong thẻ 'div' hoặc bất kỳ thẻ cha nào khác
+        content = soup.find_all(f"{element_name}", {f"{selector}": f"{selector_name}"})
+        # content = soup.find('div')
+        link = []
+        for content in content:
+            a_tags = content.find('a', href=True)
+            # Lấy tất cả các đường liên kết từ các thẻ 'a'
+            href = a_tags.get('href')
+            full_url = urllib.parse.urljoin(url, href)
+            link.append(full_url)
+
+        # Ghi các đường liên kết vào một tệp txt
+        with open('pythontest\\tranform_github_link.txt', 'a') as file:
+            for link in link:
+                file.write(link + '\n')
+        print('Đã lưu các đường liên kết vào tệp links.txt')
+    else:
+        print(f'Yêu cầu HTTP thất bại với mã trạng thái: {response.status_code}')
+
+
+
+# element_name = "div"
+# selector = "class"
+# selector_name = "search-title"
+# clear_file('pythontest\\tranform_github_link.txt')
+
+# for pages in range(11,21):
+#     url = "https://github.com/search?q=sign+in+language%3ACSS&type=repositories&l=CSS&p=" + f"{pages}"
+#     get_all_href_web(url,element_name, selector, selector_name)
+
+# url = "https://stackoverflow.com/questions/8933863/how-to-find-tags-with-only-certain-attributes-beautifulsoup"
+# get_all_href_web(url,element_name, selector, selector_name)
+
+
+original_urls  = read_file_to_list("pythontest\\tranform_github_link.txt")
+converted_urls = convert_github_url(original_urls)
+
+# clear_file("pythontest\\output\\output_github_link.txt")
+# for url in converted_urls:
+#      with open('pythontest\\output\\output_github_link.txt', 'a', encoding='utf-8') as file:
+#          file.write(url + '\n')
+
+# url_convered_github = read_file_to_list('pythontest\\tranform_github_link.txt')
+# for url in url_convered_github[81:100]:
+#     webbrowser.open_new_tab(url)  
+#     # print(url)
+
+
+
 
 
 # def change_dns_windows(interface, new_dns):
@@ -389,10 +470,10 @@ def check_and_add_class(html_path, element_name, selector, selector_name):
     print("Đã hoàn thành việc chỉnh sửa" + f"{selector_name}" + "và lưu vào" + f"{html_path}")
 
 
-file_html_path = "test_trending.html"
-element_name = "span"
-selector = "class"
-selector_name = ["__discount", "__base-price"]
+# file_html_path = "test_trending.html"
+# element_name = "span"
+# selector = "class"
+# selector_name = ["__discount", "__base-price"]
 
 # for selector_name in selector_name:
 #     check_and_add_class(file_html_path, element_name, selector, selector_name)

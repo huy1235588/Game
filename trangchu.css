@@ -877,7 +877,7 @@ body:has(.menu-main-item:hover) footer {
 .menu-signin {
   position: absolute;
   left: -170px;
-  top: 55px;
+  top: 50px;
   display: none;
   width: 500px;
   background-color: #fff;
