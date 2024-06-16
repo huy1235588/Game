@@ -93,7 +93,8 @@ Author       : LeThienHuy.
   --product-info-bg-hover: linear-gradient(to right, rgba(56, 107, 135, 1) 5%, rgba(68, 130, 163, 1) 95%);
   --product-name-hover: #19c430;
   --product-header-link: #ffffff66;
-
+  --discount-bg: #4c6b22;
+  --discount-text: #BEEE11;
 }
 
 body {
@@ -1677,8 +1678,8 @@ main {
   align-items: center;
   padding: 10px;
   border-radius: 5px;
-  background-color: #4c6b22;
-  color: #BEEE11;
+  background-color: var(--discount-bg);
+  color: var(--discount-text);
   font-size: 16px;
   font-weight: 700;
   line-height: 13px;
