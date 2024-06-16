@@ -1,3 +1,4 @@
+from googletrans import Translator
 import os
 import webbrowser
 import requests
@@ -8,6 +9,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
 import urllib.parse
+
 
 def rgba_to_rgb(hex_color):
     # Assuming a white background, so the background RGB is (255, 255, 255)
@@ -29,7 +31,7 @@ def rgba_to_rgb(hex_color):
 
 
 def transform_string(input_string):
-    replacements = [(":", ""), ("@", ""), ("®", ""), ("®", ""),("'s","")]
+    replacements = [(":", ""), ("@", ""), ("®", ""), ("®", ""), ("'s", "")]
     for old, new in replacements:
         input_string = input_string.replace(old, new)
     transformed_string = input_string.lower().replace(' ', '-')
@@ -37,7 +39,7 @@ def transform_string(input_string):
 
 
 def transform_string_no_space(input_string):
-    replacements = [("\n",""),(' ',""),("\t", "")]
+    replacements = [("\n", ""), (' ', ""), ("\t", "")]
     for old, new in replacements:
         input_string = input_string.replace(old, new)
     return input_string
@@ -55,6 +57,7 @@ def read_file_to_list(file_path):
             lines.append(line.strip())
 
     return lines
+
 
 def clear_file(file_path):
     with open(f"{file_path}", 'w', encoding='utf-8') as file:
@@ -82,15 +85,18 @@ def convert_urls(urls):
         new_urls.append(new_url)
     return new_urls
 
+
 def convert_urls_to_us(urls):
     new_urls = []
     for url in urls:
         parts = url.split('/')
         app_id = parts[4]
         app_name = parts[5]
-        new_url = f"https://store.steampowered.com/app/{app_id}/{app_name}/?cc=us"
+        new_url = f"https://store.steampowered.com/app/{
+            app_id}/{app_name}/?cc=us"
         new_urls.append(new_url)
     return new_urls
+
 
 def convert_github_url(urls):
     new_urls = []
@@ -98,10 +104,10 @@ def convert_github_url(urls):
         parts = url.split('/')
         app_id = parts[3]
         app_name = parts[4]
-        new_url = f"htmlpreview.github.io/?https://github.com/{app_id}/{app_name}"
+        new_url = f"htmlpreview.github.io/?https://github.com/{
+            app_id}/{app_name}"
         new_urls.append(new_url)
     return new_urls
-
 
 
 f = "pythontest\\ha.txt"
@@ -138,7 +144,6 @@ lines_list1 = read_file_to_list(f1)
 # folder_path = 'img\\article\\ha'
 
 
-
 # # Mở file trong chế độ ghi (write mode)
 # with open(folder_path, 'w') as file:
 #     # Duyệt qua từng phần tử trong danh sách
@@ -147,14 +152,12 @@ lines_list1 = read_file_to_list(f1)
 #         file.write(f"{item}\n")
 
 
-
 # for i in range(1, 20):
 #     create_file = open(f'pythontest\\{i}.txt', 'w')
 
 # _, _, files = next(os.walk("img\\article\\ha"))
 # file_count = len(files)
 # print(file_count)
-
 
 
 # if len(lines_list) != file_count:
@@ -172,9 +175,9 @@ lines_list1 = read_file_to_list(f1)
 #         os.rename(old_path, new_path)
 
 
-
 file_link = "pythontest\\name\\converted_link_to_us.txt"
 link_list = read_file_to_list(file_link)
+
 
 def get_content_from_url(link_list, selector, value, data, path):
     with open('pythontest\\name\\content\\' + f"{path}", 'w', encoding='utf-8') as file:
@@ -185,38 +188,40 @@ def get_content_from_url(link_list, selector, value, data, path):
             # Phân tích cú pháp HTML của trang web
             soup = BeautifulSoup(response.content, 'html.parser')
             # Lấy nội dung của phần tử theo id, class, hoặc tag
-            if(data == '0'):
+            if (data == '0'):
                 element = soup.find('div', {f"{selector}": f"{value}"})
                 if element:
                     # Lấy nội dung text của phần tử
-                        content = element.get_text().strip()
-                        with open('pythontest\\name\\content\\' + f"{path}", 'a', encoding='utf-8') as file:
-                            file.write(content + '\n')
-                            print("Đã ghi " + f"{content}")
+                    content = element.get_text().strip()
+                    with open('pythontest\\name\\content\\' + f"{path}", 'a', encoding='utf-8') as file:
+                        file.write(content + '\n')
+                        print("Đã ghi " + f"{content}")
                     # Ghi nội dung vào file txt
                 else:
                     with open('pythontest\\name\\content\\' + f"{path}", 'a', encoding='utf-8') as file:
-                            file.write('\n')
-                            print("Đã ghi \"\"")
+                        file.write('\n')
+                        print("Đã ghi \"\"")
             else:
                 element = soup.find('div', {f"{data}": True})
                 if element:
                     if element.has_attr('aria-label'):
-                        element_child = element.find('div', {f"{selector}": f"{value}"})
+                        element_child = element.find(
+                            'div', {f"{selector}": f"{value}"})
                         content = element_child.get_text()
                         with open('pythontest\\name\\content\\' + f"{path}", 'a', encoding='utf-8') as file:
                             file.write(content + '\n')
-                            print("Đã ghi " + f"{content}")   
+                            print("Đã ghi " + f"{content}")
                     else:
                         content = element.get_text().strip()
                         with open('pythontest\\name\\content\\' + f"{path}", 'a', encoding='utf-8') as file:
                             file.write(content + '\n')
-                            print("Đã ghi " + f"{content}")                        
+                            print("Đã ghi " + f"{content}")
                 else:
-                    print("Không tìm thấy phần tử có thuộc tính data-price-final")                   
+                    print("Không tìm thấy phần tử có thuộc tính data-price-final")
         else:
-            print(f"Yêu cầu không thành công, mã trạng thái: {response.status_code}")
-  
+            print(f"Yêu cầu không thành công, mã trạng thái: {
+                  response.status_code}")
+
 
 selector_value_list = read_file_to_list("pythontest\\name\\selector_value.txt")
 selectorValue = []
@@ -226,8 +231,6 @@ selectorValue = []
 
 # for selector, value, data, path in selectorValue:
 #     get_content_from_url(link_list, selector, value, data, path)
-
-
 
 
 # original_urls  = read_file_to_list("pythontest\\name\\link_list.txt")
@@ -257,11 +260,12 @@ def get_all_href_web(url, element_name, selector, selector_name):
     driver.quit()
 
     if response.status_code == 200:
-    # Kiểm tra nội dung của phản hồi để đảm bảo đó là HTML
+        # Kiểm tra nội dung của phản hồi để đảm bảo đó là HTML
         # Tạo đối tượng BeautifulSoup để phân tích cú pháp HTML
         soup = BeautifulSoup(html_content, 'html.parser')
         # Tìm tất cả các thẻ 'a' bên trong thẻ 'div' hoặc bất kỳ thẻ cha nào khác
-        content = soup.find_all(f"{element_name}", {f"{selector}": f"{selector_name}"})
+        content = soup.find_all(
+            f"{element_name}", {f"{selector}": f"{selector_name}"})
         # content = soup.find('div')
         link = []
         for content in content:
@@ -277,8 +281,8 @@ def get_all_href_web(url, element_name, selector, selector_name):
                 file.write(link + '\n')
         print('Đã lưu các đường liên kết vào tệp links.txt')
     else:
-        print(f'Yêu cầu HTTP thất bại với mã trạng thái: {response.status_code}')
-
+        print(f'Yêu cầu HTTP thất bại với mã trạng thái: {
+              response.status_code}')
 
 
 # element_name = "div"
@@ -294,8 +298,8 @@ def get_all_href_web(url, element_name, selector, selector_name):
 # get_all_href_web(url,element_name, selector, selector_name)
 
 
-original_urls  = read_file_to_list("pythontest\\tranform_github_link.txt")
-converted_urls = convert_github_url(original_urls)
+# original_urls  = read_file_to_list("pythontest\\tranform_github_link.txt")
+# converted_urls = convert_github_url(original_urls)
 
 # clear_file("pythontest\\output\\output_github_link.txt")
 # for url in converted_urls:
@@ -304,21 +308,18 @@ converted_urls = convert_github_url(original_urls)
 
 # url_convered_github = read_file_to_list('pythontest\\tranform_github_link.txt')
 # for url in url_convered_github[81:100]:
-#     webbrowser.open_new_tab(url)  
+#     webbrowser.open_new_tab(url)
 #     # print(url)
-
-
-
 
 
 # def change_dns_windows(interface, new_dns):
 #     # Set primary DNS server
 #     os.system(f"netsh interface ip set dns name=\"{interface}\" source=static addr={new_dns[0]}")
-    
+
 #     # Add secondary DNS server
 #     for dns in new_dns[1:]:
 #         os.system(f"netsh interface ip add dns name=\"{interface}\" addr={dns} index=2")
-    
+
 #     print(f"DNS settings have been changed to: {', '.join(new_dns)} for interface {interface}")
 
 # Example usage
@@ -328,15 +329,14 @@ converted_urls = convert_github_url(original_urls)
 # change_dns_windows(interface_name, cloudflare_server)
 
 
-
 # def change_dns_ipv6(interface, new_dns):
 #     # Set primary DNS server
 #     os.system(f"netsh interface ipv6 set dns name=\"{interface}\" source=static addr={new_dns[0]} primary")
-    
+
 #     # Add secondary DNS server
 #     for dns in new_dns[1:]:
 #         os.system(f"netsh interface ipv6 add dns name=\"{interface}\" addr={dns} index=2")
-    
+
 #     print(f"DNS settings have been changed to: {', '.join(new_dns)} for interface {interface}")
 
 # # # Example usage
@@ -363,6 +363,7 @@ def get_file_names(directory):
             file_names.append(file_path)
     return file_names
 
+
 def write_to_file(file_names, output_file):
     with open(output_file, 'w') as f:
         for file_name in file_names:
@@ -381,8 +382,6 @@ def write_to_file(file_names, output_file):
 # write_to_file(get_file_names(directory), output_file)
 
 
-
-
 def edit_html_file(html_path, txt_path, element_name, selector, selector_name):
     # Đọc nội dung file HTML
     with open(f"{html_path}", 'r', encoding='utf-8') as file:
@@ -397,21 +396,24 @@ def edit_html_file(html_path, txt_path, element_name, selector, selector_name):
 
     # Sửa thuộc tính src của các thẻ img
     if (f"{element_name}" == 'img'):
-        content = soup.find_all(f"{element_name}", {f"{selector}": f"{selector_name}"})
+        content = soup.find_all(
+            f"{element_name}", {f"{selector}": f"{selector_name}"})
         index = 0
         while index < 24:
             src = content[index].get('src')
             if src and 'img/article/section-trending/' in src:
                 content[index]['src'] = src + text_content[index]
                 index = index + 1
-    elif(f"{element_name}" == 'span'):
-        content = soup.find_all(f"{element_name}", {f"{selector}": f"{selector_name}"})
+    elif (f"{element_name}" == 'span'):
+        content = soup.find_all(
+            f"{element_name}", {f"{selector}": f"{selector_name}"})
         index = 0
         while index < 24:
             content[index].string = text_content[index]
             index = index + 1
-    else: 
-        content = soup.find_all(f"{element_name}", {f"{selector}": f"{selector_name}"})
+    else:
+        content = soup.find_all(
+            f"{element_name}", {f"{selector}": f"{selector_name}"})
         index = 0
         while index < 24:
             span = content[index].find('span')
@@ -420,11 +422,10 @@ def edit_html_file(html_path, txt_path, element_name, selector, selector_name):
                 index = index + 1
 
     # Ghi lại nội dung đã chỉnh sửa vào file HTML
-    with open(f"{html_path}", 'w', encoding='utf-8') as file:
-        file.write(str(soup))
+    # with open(f"{html_path}", 'w', encoding='utf-8') as file:
+    #     file.write(str(soup))
 
-    print("Đã hoàn thành việc chỉnh sửa và lưu vào" + f"{html_path}")
-
+    # print("Đã hoàn thành việc chỉnh sửa và lưu vào" + f"{html_path}")
 
 
 # file_html_path = "test_trending.html"
@@ -438,7 +439,7 @@ def edit_html_file(html_path, txt_path, element_name, selector, selector_name):
 # for i in range(0, len(selector_value_list), 3):
 #     selectorValue.append((selector_value_list[i], selector_value_list[i+1], selector_value_list[i+2]))
 
-# indexx = 0 
+# indexx = 0
 # while indexx < 5:
 #     element_name = selectorValue[indexx][0]
 #     selector = selectorValue[indexx][1]
@@ -467,7 +468,8 @@ def check_and_add_class(html_path, element_name, selector, selector_name):
     with open(f"{html_path}", 'w', encoding='utf-8') as file:
         file.write(str(soup))
 
-    print("Đã hoàn thành việc chỉnh sửa" + f"{selector_name}" + "và lưu vào" + f"{html_path}")
+    print("Đã hoàn thành việc chỉnh sửa" +
+          f"{selector_name}" + "và lưu vào" + f"{html_path}")
 
 
 # file_html_path = "test_trending.html"
@@ -478,3 +480,42 @@ def check_and_add_class(html_path, element_name, selector, selector_name):
 # for selector_name in selector_name:
 #     check_and_add_class(file_html_path, element_name, selector, selector_name)
     # print(selector_name)
+
+
+# Hàm để dịch nội dung của các thẻ
+
+def translate_html_content(html_content, src_lang='en', dest_lang='vi'):
+    # Khởi tạo BeautifulSoup
+    soup = BeautifulSoup(html_content, 'html.parser')
+    # Khởi tạo Translator
+    translator = Translator()
+
+    # Duyệt qua tất cả các thẻ và dịch nội dung
+    for element in soup.find_all(text=True):
+        if element.parent.name not in ['style', 'script', 'head', 'title', 'meta', '[document]']:
+            # Dịch nội dung văn bản
+            # element = element.strip()
+            print(element.strip())
+            # translated_text = translator.translate(
+            #     element, src=src_lang, dest=dest_lang).text
+
+            # element.replace_with(translated_text)
+
+    return str(soup)
+
+
+# # Đọc nội dung HTML từ file
+# input_file_path = 'pythontest/save.html'
+# with open(input_file_path, 'r', encoding='utf-8') as file:
+#     html_content = file.read()
+
+# # Dịch nội dung HTML
+# translated_html_content = translate_html_content(html_content)
+
+# # Ghi nội dung đã dịch vào file mới
+# output_file_path = 'pythontest/output/translate.html'
+# clear_file(output_file_path)
+# with open(output_file_path, 'w', encoding='utf-8') as file:
+#     file.write(translated_html_content)
+
+# print(f'File đã được dịch và lưu tại: {output_file_path}')
