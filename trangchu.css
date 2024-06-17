@@ -6,16 +6,17 @@ Author       : LeThienHuy.
     CSS INDEX
   =============================
   01.GENERAL STYLE
-  02.START HEADER STYLE
-	03.START MENU MAIN
-	04.START SUBMENU
-	05.START SUBMENU INSIDE
-	06.START SIGN IN
-	07.START MENU TRAY
-	08.START BANNER
+  02.HEADER STYLE
+	03.MENU MAIN
+	04.SUBMENU
+	05.SUBMENU INSIDE
+	06.SIGN IN
+	07.MENU TRAY
+	08.BANNER
 	09.SECTION NEW GAME
 	10.SECTION TRENDING
-	24.START ELEMENT DESIGN
+  11.SECTION BROWSE
+	13.FOOTER STYLE
 		
 *=============================================================*/
 
@@ -1718,7 +1719,7 @@ main {
 
 
 /*===================================*
-  1.START SECTION BROWSE
+  11.START SECTION BROWSE
 *===================================*/
 .browse-list {
   display: flex;
@@ -1783,7 +1784,7 @@ main {
 }
 
 /*===================================*
-  1.END SECTION BROWSE
+  11.END SECTION BROWSE
 *===================================*/
 
 
@@ -1791,7 +1792,7 @@ main {
 
 
 /*===================================*
-  9.START FOOTER
+  13.START FOOTER
 *===================================*/
 footer {
   padding: 30px 0 36px;
@@ -1950,5 +1951,5 @@ footer {
 }
 
 /*===================================*
-  9.START FOOTER
+  13.START FOOTER
 *===================================*/
