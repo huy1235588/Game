@@ -73,7 +73,7 @@ header {
 
 }
 
-.sign-in-img{
+.sign-in-img {
     position: absolute;
     left: -200;
     z-index: -1;
@@ -84,13 +84,17 @@ header {
 .logo {
     position: absolute;
     top: 25;
-    left: 25;
+    left: -540;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100px;
     height: 45px;
     z-index: 10;
+}
+
+.logo img{
+    filter: drop-shadow(2px 4px 6px black);
 }
 
 .logo-icon {
@@ -115,12 +119,16 @@ header {
     display: flex;
     flex-wrap: nowrap;
     height: 100vh;
+    margin-bottom: 50px;
     overflow: hidden;
-    
+
 }
 
 form {
- margin: auto 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto 0;
     /* grid-column: 5 / span 4; */
     width: 40%;
     height: 100%;
@@ -137,7 +145,6 @@ form {
     padding-top: 24px;
     color: #000;
 }
-
 
 
 .input-text {
