@@ -448,6 +448,7 @@ body:has(.menu-main-item:hover) footer {
     display: none;
     width: 230px;
     padding: 9px 0;
+    border-radius: 10px;
     background-color: var(--submenu-bg);
     border-spacing: 0 10px;
     transition: all 0.9s;

@@ -447,6 +447,7 @@ body:has(.menu-main-item:hover) footer {
     display: none;
     width: 230px;
     padding: 9px 0;
+    border-radius: 10px;
     background-color: var(--submenu-bg);
     border-spacing: 0 10px;
     transition: all 0.9s;
@@ -1410,25 +1411,28 @@ footer {
 main {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(11, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     color: #fff;
-    padding: 40px 0;
     max-width: 1920px;
-    margin: 25px auto 0;
-    gap: 0 24px;
-    grid-template-columns: 1fr 0.5fr;
-    top: 60;
-    height: 500px;
+    margin: 60px auto 0;
+    /* gap: 0 64px; */
+    min-height: 500px;
 }
 
 main.container {
-    margin-top: 25px;
+    margin-top: 60px;
+    padding: 40px 0;
 }
 
+.product-info {
+    margin-right: 55px;
+}
+
+/* Name */
 .product-name {
+    grid-column: 1 / 12;
     display: block;
     width: 100%;
     /* font-size: 16px; */
@@ -1437,6 +1441,46 @@ main.container {
     transition: all 0.3s;
 }
 
+.product-info {
+    grid-column: 1 / 8;
+}
+
+/* Product img */
+/* List */
+.product-img-list {
+    position: relative;
+}
+
+.product-img-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.product-img-item img {
+    width: 708px;
+    height: 398px;
+}
+
+/* Strip */
+.product-img-strip {
+    display: flex;
+    width: 708px;
+    overflow: hidden;
+}
+
+.product-img-strip::-webkit-scrollbar {
+    height: 8px;
+}
+
+.product-img-strip-item {
+    margin: 2px 5px;
+    cursor: pointer;
+}
+
+.product-img-strip-item:nth-child(2) {
+    margin-left: 0;
+}
 /*===================================*
     10.END PRODUCT INFO
 *===================================*/
@@ -1455,7 +1499,14 @@ main.container {
 /*===================================*
     11.START PRODUCT PURCHASE
 *===================================*/
+.purchase {
+    grid-column: 8 / 12;
+}
 
+.purchase-img {
+    width: 436px;
+    height: 230px;
+}
 /*===================================*
     11.END PRODUCT PURCHASE
 *===================================*/
