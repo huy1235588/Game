@@ -5,16 +5,16 @@ Author       : LeThienHuy.
 /*=============================================================
     CSS INDEX
   =============================
-  01.GENERAL STYLE
-  02.START HEADER STYLE
+    01.GENERAL STYLE
+    02.START HEADER STYLE
 	03.START MENU MAIN
 	04.START SUBMENU
 	05.START SUBMENU INSIDE
 	06.START SIGN IN
 	07.START MENU TRAY
-	08.START BANNER
-	09.SECTION NEW GAME
-	10.SECTION TRENDING
+	08.START FOOTER
+	10.PRODUCT INFO
+	11.PRODUCT PURCHASE
 	24.START ELEMENT DESIGN
 		
 *=============================================================*/
@@ -23,1611 +23,1458 @@ Author       : LeThienHuy.
   01.GENERAL STYLE
 *===================================*/
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 :root {
-  --brown: #8d6e63;
-  --white-cream: #f5f5dc;
-  --white: #fff;
-  --gray: #e0e0e0;
-  --yellow: #020202;
+    --brown: #8d6e63;
+    --white-cream: #f5f5dc;
+    --white: #fff;
+    --gray: #e0e0e0;
+    --yellow: #020202;
 
-  /* --header-bg: #266A29; */
-  --body-bg: #d9d9d9;
-  --body-bg: #1b2838;
-  --header-bg: #393939;
-  /* --header-bg: transparent; */
-  --header-text: #e0e0e0;
-  --header-text-hover: #ffcc00;
-  --submenu-bg: #fff;
-  --submenu-bg-hover: #f1f1f1;
-  --submenu-text: #4b4b4b;
-  --submenu-text-hover: #000;
-  --menu-submenu-separator: #e6e6e6;
-  --bg-discount: #788795;
-  --menu-link-anonymous-text: #de8ae5;
-  --menu-link-anonymous-text-hover: #f9b2ff;
-  --menu-inside-info-bg: #e1e1e1;
-  --menu-inside-title: #333333;
-  --menu-inside-price-text: #686868;
-  --menu-inside-collection-text: #5b5b5b;
-  --menu-inside-collection-bg: #e1e1e1;
-  --menu-inside-button-playstation: linear-gradient(
-    180deg,
-    #dbdbdb 0%,
-    #ededed 100%
-  );
-  --menu-inside-button-playstation-hover: brightness(1.05);
-  --menu-inside-button: linear-gradient(
-    to bottom,
-    rgba(204, 204, 204, 0.2) 0%,
-    rgba(204, 204, 204, 0.2) 4%,
-    rgba(217, 217, 217, 0.2) 100%
-  );
-  --menu-inside-button-hover: linear-gradient(
-    to top,
-    rgba(204, 204, 204, 0.55) 0%,
-    rgba(204, 204, 204, 0.55) 4%,
-    rgba(217, 217, 217, 0.55) 100%
-  );
-  --box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
-    0px 0px 15px 5px rgba(0, 0, 0, 0.15);
-  --signin-button-bg: #f2f2f2;
-  --signin-button-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15),
-    0px 1px 3px 0px rgba(0, 0, 0, 0.15);
-  --signup-text: #4c4c4c;
-  --signup-bg: #e6e6e6;
-  --signup-bg-hover: #f3f3f3;
-  --signin-bg: linear-gradient(to bottom, #985fb2 0%, #713b8d 100%);
-  --signin-bg-hover: #713b8d;
-  --signin-text: #fff;
-  --signin-about-text: #4c4c4c;
-  --signin-features-text: #4c4c4c;
-  --menu-signin-features-title-dash: #e5e5e5;
-  --button-lang: #19c430;
-  --footer-title-text: #9f9f9f;
-  --footer-link-hover: #9f9f9f;
-  --footer-legal-link-hover: #9f9f9f;
-  --banner-button-bg: #19c430;
-  --product-button-bg: #19c430;
-  --section-header-text: #000;
-  --section-header-link: #c7d5e0;
-  --section-text: #c7d5e0;
-  --product-boxshadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
-  --product-info-bg: linear-gradient(
-    -45deg,
-    rgba(64, 121, 153, 1) 5%,
-    rgba(42, 62, 89, 1) 95%
-  );
-  --product-info-bg-hover: linear-gradient(
-    to right,
-    rgba(56, 107, 135, 1) 5%,
-    rgba(68, 130, 163, 1) 95%
-  );
-  --product-name-hover: #19c430;
-  --product-header-link: #ffffff66;
-  --discount-bg: #4c6b22;
-  --discount-text: #beee11;
+    /* --header-bg: #266A29; */
+    --body-bg: #d9d9d9;
+    --body-bg: #1b2838;
+    --header-bg: #393939;
+    /* --header-bg: transparent; */
+    --header-text: #e0e0e0;
+    --header-text-hover: #ffcc00;
+    --submenu-bg: #fff;
+    --submenu-bg-hover: #f1f1f1;
+    --submenu-text: #4b4b4b;
+    --submenu-text-hover: #000;
+    --menu-submenu-separator: #e6e6e6;
+    --bg-discount: #788795;
+    --menu-link-anonymous-text: #de8ae5;
+    --menu-link-anonymous-text-hover: #f9b2ff;
+    --menu-inside-info-bg: #e1e1e1;
+    --menu-inside-title: #333333;
+    --menu-inside-price-text: #686868;
+    --menu-inside-collection-text: #5b5b5b;
+    --menu-inside-collection-bg: #e1e1e1;
+    --menu-inside-button-playstation: linear-gradient(
+        180deg,
+        #dbdbdb 0%,
+        #ededed 100%
+    );
+    --menu-inside-button-playstation-hover: brightness(1.05);
+    --menu-inside-button: linear-gradient(
+        to bottom,
+        rgba(204, 204, 204, 0.2) 0%,
+        rgba(204, 204, 204, 0.2) 4%,
+        rgba(217, 217, 217, 0.2) 100%
+    );
+    --menu-inside-button-hover: linear-gradient(
+        to top,
+        rgba(204, 204, 204, 0.55) 0%,
+        rgba(204, 204, 204, 0.55) 4%,
+        rgba(217, 217, 217, 0.55) 100%
+    );
+    --box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
+        0px 0px 15px 5px rgba(0, 0, 0, 0.15);
+    --signin-button-bg: #f2f2f2;
+    --signin-button-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15),
+        0px 1px 3px 0px rgba(0, 0, 0, 0.15);
+    --signup-text: #4c4c4c;
+    --signup-bg: #e6e6e6;
+    --signup-bg-hover: #f3f3f3;
+    --signin-bg: linear-gradient(to bottom, #985fb2 0%, #713b8d 100%);
+    --signin-bg-hover: #713b8d;
+    --signin-text: #fff;
+    --signin-about-text: #4c4c4c;
+    --signin-features-text: #4c4c4c;
+    --menu-signin-features-title-dash: #e5e5e5;
+    --button-lang: #19c430;
+    --footer-title-text: #9f9f9f;
+    --footer-link-hover: #9f9f9f;
+    --footer-legal-link-hover: #9f9f9f;
+    --banner-button-bg: #19c430;
+    --product-button-bg: #19c430;
+    --section-header-text: #000;
+    --section-header-link: #c7d5e0;
+    --section-text: #c7d5e0;
+    --product-boxshadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+    --product-info-bg: linear-gradient(
+        -45deg,
+        rgba(64, 121, 153, 1) 5%,
+        rgba(42, 62, 89, 1) 95%
+    );
+    --product-info-bg-hover: linear-gradient(
+        to right,
+        rgba(56, 107, 135, 1) 5%,
+        rgba(68, 130, 163, 1) 95%
+    );
+    --product-name-hover: #19c430;
+    --product-header-link: #ffffff66;
+    --discount-bg: #4c6b22;
+    --discount-text: #beee11;
 }
 
 body {
-  background-color: var(--body-bg);
-  font-family: Lato, sans-serif;
-  color: #000;
+    background-color: var(--body-bg);
+    font-family: Lato, sans-serif;
+    color: #000;
 }
 
 tbody {
-  border: none;
+    border: none;
 }
 
 a,
 ul,
 li {
-  text-decoration: none;
-  list-style: none;
-  color: #fff;
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
 }
 
 button {
-  border: none;
-  margin: 0;
-  text-decoration: none;
-  background: none;
-  color: #fff;
-  cursor: pointer;
+    border: none;
+    margin: 0;
+    text-decoration: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
 }
 
 .container {
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 15px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 @media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
+    .container {
+        max-width: 540px;
+    }
 }
 
 @media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
+    .container {
+        max-width: 720px;
+    }
 }
 
 @media (min-width: 992px) {
-  .container {
-    max-width: 900px;
-  }
+    .container {
+        max-width: 900px;
+    }
 }
 
 @media (min-width: 1200px) {
-  .container {
-    max-width: 1200px;
-  }
+    .container {
+        max-width: 1200px;
+    }
 }
 
 @media (min-width: 1440px) {
-  .container {
-    max-width: 1280px;
-  }
+    .container {
+        max-width: 1280px;
+    }
 }
 
 .ngl-hide {
-  display: none;
+    display: none;
 }
 
 :root {
-  --scrollbar-width: 17px;
-  --mesh-column: 4;
-  --mesh-gutter: var(--space-5);
-  --mesh-margin: var(--space-6);
-  --mesh-container-width: calc(
-    (100vw - var(--scrollbar-width, 0)) - var(--mesh-margin) -
-      var(--mesh-margin) + var(--mesh-gutter)
-  );
-  --mesh-column-width: calc(var(--mesh-container-width) / var(--mesh-column));
+    --scrollbar-width: 17px;
+    --mesh-column: 4;
+    --mesh-gutter: var(--space-5);
+    --mesh-margin: var(--space-6);
+    --mesh-container-width: calc(
+        (100vw - var(--scrollbar-width, 0)) - var(--mesh-margin) -
+            var(--mesh-margin) + var(--mesh-gutter)
+    );
+    --mesh-column-width: calc(var(--mesh-container-width) / var(--mesh-column));
 }
 
 :root {
-  --space-1: 2px;
-  --space-2: 4px;
-  --space-3: 7px;
-  --space-4: 10px;
-  --space-5: 14px;
-  --space-6: 21px;
-  --space-7: 28px;
-  --space-8: 35px;
-  --space-9: 42px;
-  --space-10: 56px;
-  --space-11: 70px;
-  --space-12: 112px;
-  --space-13: 224px;
+    --space-1: 2px;
+    --space-2: 4px;
+    --space-3: 7px;
+    --space-4: 10px;
+    --space-5: 14px;
+    --space-6: 21px;
+    --space-7: 28px;
+    --space-8: 35px;
+    --space-9: 42px;
+    --space-10: 56px;
+    --space-11: 70px;
+    --space-12: 112px;
+    --space-13: 224px;
 }
 
 @media (min-width: 360px) {
-  :root {
-    --mesh-margin: var(--space-7);
-  }
+    :root {
+        --mesh-margin: var(--space-7);
+    }
 }
 
 @media (min-width: 768px) {
-  :root {
-    --mesh-column: 12;
-    --mesh-margin: var(--space-9);
-  }
+    :root {
+        --mesh-column: 12;
+        --mesh-margin: var(--space-9);
+    }
 }
 
 @media (min-width: 1367px) {
-  :root {
-    --mesh-margin: var(--space-11);
-  }
+    :root {
+        --mesh-margin: var(--space-11);
+    }
 }
 
 @media (min-width: 1920px) {
-  :root {
-    --mesh-column: 24;
-  }
+    :root {
+        --mesh-column: 24;
+    }
 }
 
 /*===================================*
     01.END GENERAL STYLE
-  *===================================*/
+*===================================*/
+/*
 
+
+
+
+
+
+
+
+
+
+*/
 /*===================================*
     02.START HEADER STYLE
-  *===================================*/
+*===================================*/
 header,
 footer {
-  background-color: var(--header-bg);
+    background-color: var(--header-bg);
 }
 
 header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 9;
-  opacity: 0.96;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+    opacity: 0.96;
 }
 
 header:has(.menu-main-item:hover) {
-  opacity: 1;
+    opacity: 1;
 }
 
 body:has(.menu-main-item:hover) main,
 body:has(.menu-main-item:hover) footer {
-  opacity: 0.5;
+    opacity: 0.5;
 }
 
 /*===================================*
     02.END HEADER STYLE
-  *===================================*/
+*===================================*/
+/*
 
+
+
+
+
+
+
+
+
+
+*/
 /*===================================*
     03.START MENU MAIN
-  *===================================*/
+*===================================*/
 .menu-overlay {
-  visibility: hidden;
-  position: fixed;
-  z-index: 9;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transition: opacity 0.25s ease, visibility 0.25s linear;
+    visibility: hidden;
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.25s ease, visibility 0.25s linear;
 }
 
 .menu-overlay:has(+ header .menu-main-item:hover) {
-  visibility: inherit;
-  opacity: 1;
-  transition: opacity 0.45s ease 0.1s, visibility 0.45s linear 0.1s;
+    visibility: inherit;
+    opacity: 1;
+    transition: opacity 0.45s ease 0.1s, visibility 0.45s linear 0.1s;
 }
 
 .menu {
-  top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1060px;
-  margin: 0 auto;
-  height: 50px;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1060px;
+    margin: 0 auto;
+    height: 50px;
 }
 
 @media (min-width: 1440px) {
-  .menu {
-    max-width: 1200px;
-  }
+    .menu {
+        max-width: 1200px;
+    }
 }
 
 @media (min-width: 1600px) {
-  .menu {
-    max-width: 1440px;
-  }
+    .menu {
+        max-width: 1440px;
+    }
 }
 
 /*  Style logo  */
 .logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 10%;
-  height: 60%;
-  margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    height: 60%;
+    margin-right: 20px;
 }
 
 .logo-icon {
-  width: 60px;
+    width: 60px;
 }
 
 .menu-main {
-  display: flex;
-  align-items: center;
-  width: 60%;
-  height: 100%;
+    display: flex;
+    align-items: center;
+    width: 60%;
+    height: 100%;
 }
 
 .menu-main-item {
-  position: relative;
-  height: 100%;
-  font-weight: 600;
-  z-index: 11;
+    position: relative;
+    height: 100%;
+    font-weight: 600;
+    z-index: 11;
 }
 
 /* transform Effect */
 @keyframes transformEffect {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
 
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
 
 .menu-triangle {
-  position: absolute;
-  display: none;
-  border: 7px solid transparent;
-  border-bottom: 7px solid #fff;
-  top: auto;
-  bottom: 0;
-  left: auto;
-  right: 7px;
-  z-index: 3;
+    position: absolute;
+    display: none;
+    border: 7px solid transparent;
+    border-bottom: 7px solid #fff;
+    top: auto;
+    bottom: 0;
+    left: auto;
+    right: 7px;
+    z-index: 3;
 }
 
 .menu-main-item:hover .menu-triangle {
-  display: block;
-  animation: 0.3s transformEffect forwards;
+    display: block;
+    animation: 0.3s transformEffect forwards;
 }
 
 .menu-main-item .menu-link {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  padding: 10px;
-  color: var(--header-text);
-  text-transform: uppercase;
-  transition: color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+    color: var(--header-text);
+    text-transform: uppercase;
+    transition: color 0.2s ease-in-out;
 }
 
-/* .menu-main-item:last-child {
-  display: flex;
-  align-items: center;
-} */
+.menu-main-item:last-child {
+    display: flex;
+    align-items: center;
+}
 
 .menu-main-item .menu-link:hover {
-  color: var(--header-text-hover);
+    color: var(--header-text-hover);
 }
 
 .menu-main-item .menu-link-anonymous {
-  color: var(--menu-link-anonymous-text);
-  transition: color 0.3s;
+    color: var(--menu-link-anonymous-text);
+    transition: color 0.3s;
 }
 
 .menu-main-item .menu-link-anonymous:hover {
-  color: var(--menu-link-anonymous-text-hover);
+    color: var(--menu-link-anonymous-text-hover);
 }
 
 .chevron-down {
-  margin-left: 5px;
+    margin-left: 5px;
 }
 
 /*===================================*
     03.End MENU MAIN
-  *===================================*/
+*===================================*/
+/*
 
+
+
+
+
+
+
+
+
+
+*/
 /*===================================*
     04.START SUBMENU
-  *===================================*/
+*===================================*/
 .menu-submenu {
-  position: absolute;
-  display: none;
-  width: 230px;
-  padding: 9px 0;
-  background-color: var(--submenu-bg);
-  border-spacing: 0 10px;
-  transition: all 0.9s;
-  z-index: 10;
+    position: absolute;
+    display: none;
+    width: 230px;
+    padding: 9px 0;
+    background-color: var(--submenu-bg);
+    border-spacing: 0 10px;
+    transition: all 0.9s;
+    z-index: 10;
 }
 
 .menu-main-item:nth-child(2) .menu-submenu {
-  padding-top: 0;
+    padding-top: 0;
 }
 
 .playstation {
-  padding-top: 9px;
-  padding-bottom: 8px;
+    padding-top: 9px;
+    padding-bottom: 8px;
 }
 
 .menu-submenu-separator:first-of-type {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 .menu-main-item:hover .menu-submenu {
-  display: block;
-  animation: transformEffect 0.3s forwards;
+    display: block;
+    animation: transformEffect 0.3s forwards;
 }
 
 .menu-submenu::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  height: 100%;
-  width: 100%;
-  box-shadow: var(--box-shadow);
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    box-shadow: var(--box-shadow);
 }
 
 .menu-submenu-item .menu-submenu-link {
-  color: var(--submenu-text);
+    color: var(--submenu-text);
 }
 
 .menu-submenu-separator {
-  margin-top: 8px;
-  margin-bottom: 7px;
-  border-top: 0px;
-  border-color: var(--menu-submenu-separator);
+    margin-top: 8px;
+    margin-bottom: 7px;
+    border-top: 0px;
+    border-color: var(--menu-submenu-separator);
 }
 
 .menu-submenu-link {
-  position: relative;
-  display: block;
-  max-width: 90%;
-  margin: 0 auto;
-  padding: 5px 8px;
-  font-size: 14px;
+    position: relative;
+    display: block;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 5px 8px;
+    font-size: 14px;
 }
 
 .playstation .menu-submenu-link,
 .playstation .menu-submenu-link path {
-  color: red;
-  fill: red;
-  text-transform: uppercase;
+    color: red;
+    fill: red;
+    text-transform: uppercase;
 }
 
 .playstation:hover .menu-submenu-link path {
-  fill: red;
+    fill: red;
 }
 
 .menu-submenu-link:hover {
-  background-color: var(--submenu-bg-hover);
-  color: var(--submenu-text-hover);
+    background-color: var(--submenu-bg-hover);
+    color: var(--submenu-text-hover);
 }
 
 .submenu-icon {
-  position: absolute;
-  right: 10;
-  top: 10;
+    position: absolute;
+    right: 10;
+    top: 10;
 }
 
 .submenu-icon path {
-  fill: #9c8181;
+    fill: #9c8181;
 }
 
 .submenu-icon:first-child {
-  display: none;
-  right: 14;
+    display: none;
+    right: 14;
 }
 
 .menu-submenu-link:hover .submenu-icon:first-child,
 .menu-submenu-link:hover .submenu-icon path {
-  display: block;
-  fill: #686868;
+    display: block;
+    fill: #686868;
 }
 
 /*===================================*
     04.END SUBMENU
-  *===================================*/
+*===================================*/
+/*
 
+
+
+
+
+
+
+
+
+
+*/
 /*===================================*
     05.START SUBMENU INSIDE
-  *===================================*/
+*===================================*/
 .menu-inside-layout {
-  display: none;
+    display: none;
 }
 
 .menu-submenu-item:not(:first-child):not(:nth-last-child(4)):hover
-  ~ .menu-inside-layout,
+    ~ .menu-inside-layout,
 .menu-inside-layout:hover {
-  display: block;
+    display: block;
 }
 
 .menu-inside {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 716px;
-  height: 100%;
-  min-height: 469px;
-  background-color: #b1e5e5;
-  padding: 0 48px;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 716px;
+    height: 100%;
+    min-height: 469px;
+    background-color: #b1e5e5;
+    padding: 0 48px;
 }
 
 .menu-inside::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
-  box-shadow: var(--box-shadow);
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    box-shadow: var(--box-shadow);
 }
 
 .menu-inside-title,
 .menu-inside-button {
-  color: #000;
+    color: #000;
 }
 
 .menu-inside-title {
-  margin-bottom: 17px;
-  color: var(--menu-inside-title);
-  font-weight: 400;
-  text-transform: uppercase;
-  cursor: default;
+    margin-bottom: 17px;
+    color: var(--menu-inside-title);
+    font-weight: 400;
+    text-transform: uppercase;
+    cursor: default;
 }
 
 .menu-inside-button {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .menu-inside-product {
-  width: 100%;
-  border-spacing: 16px 16px;
-  margin: -16px -16px;
+    width: 100%;
+    border-spacing: 16px 16px;
+    margin: -16px -16px;
 }
 
 .menu-inside-item {
-  position: relative;
+    position: relative;
 }
 
 .menu-inside-list:last-child .menu-inside-item {
-  padding-bottom: 0;
+    padding-bottom: 0;
 }
 
 .menu-inside-item:last-child {
-  padding-right: 0;
+    padding-right: 0;
 }
 
 .menu-inside-link {
-  display: inline-block;
-  width: 100%;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    width: 100%;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
 }
 
 .menu-inside-img {
-  width: 100%;
+    width: 100%;
 }
 
 .menu-inside-info {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 36px;
-  background-color: var(--menu-inside-info-bg);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 36px;
+    background-color: var(--menu-inside-info-bg);
 }
 
 /* image */
 .menu-inside-img {
-  width: 196px;
-  height: 110px;
+    width: 196px;
+    height: 110px;
 }
 
 /* discount */
 .menu-inside-discount-text {
-  position: absolute;
-  bottom: 7px;
-  right: 66px;
+    position: absolute;
+    bottom: 7px;
+    right: 66px;
 }
 
 .menu-inside-discount-percent {
-  display: inline-block;
-  height: 23px;
-  padding: 0 5px;
-  border-radius: 2px;
-  background-color: var(--bg-discount);
-  color: #fff;
-  font-size: 12px;
-  line-height: 21px;
+    display: inline-block;
+    height: 23px;
+    padding: 0 5px;
+    border-radius: 2px;
+    background-color: var(--bg-discount);
+    color: #fff;
+    font-size: 12px;
+    line-height: 21px;
 }
 
 .menu-inside-discount-percent::before {
-  content: "\2010";
-  margin-right: -0.15em;
+    content: "\2010";
+    margin-right: -0.15em;
 }
 
 /* os support */
 .icon-os-list {
-  display: flex;
-  align-items: center;
-  margin-left: 10px;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
 }
 
 .menu-inside-os-icon {
-  display: inline-block;
-  width: 13px;
-  height: 13px;
-  margin-right: 2px;
-  background-image: url(icon/icon-os.png);
-  opacity: 0.5;
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin-right: 2px;
+    background-image: url(icon/icon-os.png);
+    opacity: 0.5;
 }
 
 .windows-icon {
-  background-position: 0 0;
+    background-position: 0 0;
 }
 
 .mac-icon {
-  margin-right: 3px;
-  background-position: 13px -0.7px;
-  opacity: 0.4;
+    margin-right: 3px;
+    background-position: 13px -0.7px;
+    opacity: 0.4;
 }
 
 .linux-icon {
-  margin-right: 3px;
-  background-position: 0px 15px;
+    margin-right: 3px;
+    background-position: 0px 15px;
 }
 
 /* price */
 .menu-inside-price-text {
-  position: absolute;
-  top: 116px;
-  left: 133px;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 57px;
-  height: 23px;
-  padding: 0 6px;
-  border: 1px solid var(--menu-inside-price-text);
-  border-radius: 3px;
-  color: var(--menu-inside-price-text);
-  text-align: center;
-  font-size: 12px;
-  line-height: 22px;
-  cursor: pointer;
-  transition: all 0.3s;
+    position: absolute;
+    top: 116px;
+    left: 133px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 57px;
+    height: 23px;
+    padding: 0 6px;
+    border: 1px solid var(--menu-inside-price-text);
+    border-radius: 3px;
+    color: var(--menu-inside-price-text);
+    text-align: center;
+    font-size: 12px;
+    line-height: 22px;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
 .menu-inside-price-text ._price::before {
-  content: "$";
+    content: "$";
 }
 
 .menu-inside-item:hover .menu-inside-price-text {
-  color: #fff;
-  background: linear-gradient(to bottom, #9fbf00, #80ab00);
+    color: #fff;
+    background: linear-gradient(to bottom, #9fbf00, #80ab00);
 }
 
 .menu-inside-item:hover ._owner {
-  display: none;
+    display: none;
 }
 
 .menu-inside-item:hover ._owner:not(.ngl-hide) ~ ._price {
-  display: block;
+    display: block;
 }
 
 /* button read more */
 .menu-inside-button {
-  width: 100%;
-  height: 40px;
-  margin-top: 17px;
-  color: #4c4c4c;
-  background: var(--menu-inside-button);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.3);
-  text-transform: uppercase;
-  font-size: 13px;
-  line-height: 40px;
-  transition: all 0.3s;
+    width: 100%;
+    height: 40px;
+    margin-top: 17px;
+    color: #4c4c4c;
+    background: var(--menu-inside-button);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    font-size: 13px;
+    line-height: 40px;
+    transition: all 0.3s;
 }
 
 .menu-inside-button:hover {
-  background: var(--menu-inside-button-hover);
+    background: var(--menu-inside-button-hover);
 }
 
 /* playstation Namco Entertainment */
 .menu-inside-layout-playstation {
-  position: relative;
-  display: none;
+    position: relative;
+    display: none;
 }
 
 .menu-inside-playstation {
-  position: absolute;
-  top: -459px;
-  left: 100%;
+    position: absolute;
+    top: -459px;
+    left: 100%;
 
-  width: 716px;
-  height: 100%;
-  min-height: 469px;
-  background-color: #bfbfbf;
+    width: 716px;
+    height: 100%;
+    min-height: 469px;
+    background-color: #bfbfbf;
 }
 
 .menu-submenu-item:first-child:hover ~ .menu-inside-layout-playstation,
 .menu-inside-layout-playstation:hover {
-  display: block;
+    display: block;
 }
 
 .menu-inside-playstation-background {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  object-position: top left;
-  width: 716px;
-  z-index: 0;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    object-position: top left;
+    width: 716px;
+    z-index: 0;
 }
 
 .menu-inside-playstation-section {
-  height: 100%;
-  padding: 20px 48px 0;
+    height: 100%;
+    padding: 20px 48px 0;
 }
 
 .menu-inside-title-playstation {
-  position: relative;
-  height: 76px;
-  margin-top: 30px;
-  color: #fff;
-  font-size: 32px;
-  font-weight: bold;
-  cursor: default;
+    position: relative;
+    height: 76px;
+    margin-top: 30px;
+    color: #fff;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: default;
 }
 
 .menu-inside-product-title {
-  text-align: start;
-  margin-left: 16px;
-  color: #fff;
-  cursor: default;
+    text-align: start;
+    margin-left: 16px;
+    color: #fff;
+    cursor: default;
 }
 
 .menu-inside-product-playstation {
-  position: relative;
-  margin-top: 15px;
+    position: relative;
+    margin-top: 15px;
 }
 
 .menu-inside-playstation-link {
-  position: absolute;
-  bottom: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 87%;
+    position: absolute;
+    bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 87%;
 }
 
 .playstation-link {
-  color: #e0e0e0;
+    color: #e0e0e0;
 }
 
 .playstation-link b {
-  color: #fff;
+    color: #fff;
 }
 
 .playstation-link:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .menu-inside-button-playstation {
-  padding: 9px 16px;
-  color: #4c4c4c;
-  background: var(--menu-inside-button-playstation);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.3);
-  font-size: 14px;
-  line-height: 17px;
-  transition: all 0.3s;
+    padding: 9px 16px;
+    color: #4c4c4c;
+    background: var(--menu-inside-button-playstation);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.3);
+    font-size: 14px;
+    line-height: 17px;
+    transition: all 0.3s;
 }
 
 .menu-inside-button-playstation:hover {
-  filter: var(--menu-inside-button-playstation-hover);
+    filter: var(--menu-inside-button-playstation-hover);
 }
 
 /* Browse all games */
 .menu-inside-layout-other {
-  display: none;
+    display: none;
 }
 
 .menu-submenu-item:nth-last-child(4):hover ~ .menu-inside-layout-other,
 .menu-inside-layout-other:hover {
-  display: block;
+    display: block;
 }
 
 .menu-inside-other {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 716px;
-  height: 100%;
-  min-height: 459px;
-  background-color: #bfbfbf;
-  padding: 0 48px;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 716px;
+    height: 100%;
+    min-height: 459px;
+    background-color: #bfbfbf;
+    padding: 0 48px;
 }
 
 .menu-inside-other::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
-  box-shadow: var(--box-shadow);
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    box-shadow: var(--box-shadow);
 }
 
 .menu-inside-collection-img {
-  transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 .menu-inside-collection-img:hover {
-  opacity: 0.9;
+    opacity: 0.9;
 }
 
 .menu-inside-collection-name {
-  height: 36px;
-  padding: 0 8px;
-  color: var(--menu-inside-collection-text);
-  background-color: var(--menu-inside-collection-bg);
-  font-size: 14px;
-  line-height: 36px;
+    height: 36px;
+    padding: 0 8px;
+    color: var(--menu-inside-collection-text);
+    background-color: var(--menu-inside-collection-bg);
+    font-size: 14px;
+    line-height: 36px;
 }
 
 /*===================================*
     05.END SUB MENU INSIDE
-  *===================================*/
+*===================================*/
+/*
 
+
+
+
+
+
+
+
+
+
+*/
 /*===================================*
     06.START SIGN IN
-  *===================================*/
+*===================================*/
 .menu-signin {
-  position: absolute;
-  left: -170px;
-  top: 50px;
-  display: none;
-  width: 500px;
-  background-color: #fff;
-  z-index: 10;
+    position: absolute;
+    left: -170px;
+    top: 50px;
+    display: none;
+    width: 500px;
+    background-color: #fff;
+    z-index: 10;
 }
 
 ._sign-in:hover .menu-signin {
-  display: block;
-  animation: transformEffect 0.3s forwards;
+    display: block;
+    animation: transformEffect 0.3s forwards;
 }
 
 .menu-signin-link {
-  display: inline-block;
-  width: 48%;
-  height: 36px;
-  border-radius: 3px;
-  font-size: 13px;
-  font-weight: 600;
-  text-align: center;
-  line-height: 36px;
-  text-transform: uppercase;
+    display: inline-block;
+    width: 48%;
+    height: 36px;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 36px;
+    text-transform: uppercase;
 }
 
 .signin-button {
-  padding: 14px 15px 18px;
-  margin-bottom: 10px;
-  background-color: var(--signin-button-bg);
+    padding: 14px 15px 18px;
+    margin-bottom: 10px;
+    background-color: var(--signin-button-bg);
 }
 
 .signin-button a {
-  box-shadow: var(--signin-button-box-shadow);
-  transition: color 0.3s;
+    box-shadow: var(--signin-button-box-shadow);
+    transition: color 0.3s;
 }
 
 .signup {
-  margin-right: 3%;
-  color: var(--signup-text);
-  background-color: var(--signup-bg);
+    margin-right: 3%;
+    color: var(--signup-text);
+    background-color: var(--signup-bg);
 }
 
 .signin {
-  color: var(--signin-text);
-  background: var(--signin-bg);
+    color: var(--signin-text);
+    background: var(--signin-bg);
 }
 
 .signup:hover {
-  background-color: var(--signup-bg-hover);
+    background-color: var(--signup-bg-hover);
 }
 
 .signin:hover {
-  background: var(--signin-bg-hover);
+    background: var(--signin-bg-hover);
 }
 
 .menu-signin-img {
-  width: 100%;
-  height: 144px;
+    width: 100%;
+    height: 144px;
 }
 
 .menu-signin-about {
-  padding: 0 30px;
-  color: var(--signin-about-text);
-  text-align: center;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  cursor: default;
+    padding: 0 30px;
+    color: var(--signin-about-text);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    cursor: default;
 }
 
 .menu-signin-features-title {
-  position: relative;
-  margin-top: 14px;
-  color: var(--signin-features-text);
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  overflow: hidden;
-  cursor: default;
+    position: relative;
+    margin-top: 14px;
+    color: var(--signin-features-text);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    overflow: hidden;
+    cursor: default;
 }
 
 .menu-signin-features-title::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 37%;
-  height: 1px;
-  background-color: var(--menu-signin-features-title-dash);
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 37%;
+    height: 1px;
+    background-color: var(--menu-signin-features-title-dash);
 }
 
 .menu-signin-features-title::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 0;
-  width: 37%;
-  height: 1px;
-  background-color: var(--menu-signin-features-title-dash);
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 37%;
+    height: 1px;
+    background-color: var(--menu-signin-features-title-dash);
 }
 
 /* features */
 @keyframes ChangeScene {
-  0%,
-  33.33% {
-    opacity: 1;
-  }
+    0%,
+    33.33% {
+        opacity: 1;
+    }
 
-  33.34%,
-  100% {
-    opacity: 0;
-  }
+    33.34%,
+    100% {
+        opacity: 0;
+    }
 }
 
 .menu-signin-features-list {
-  position: relative;
-  height: 115px;
-  padding: 0 65px 20px;
-  cursor: default;
+    position: relative;
+    height: 115px;
+    padding: 0 65px 20px;
+    cursor: default;
 }
 
 .menu-signin-features-item {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  width: 370px;
-  height: 90px;
-  opacity: 0;
-  color: #000;
-  font-size: 13px;
-  transition: opacity 1s;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 370px;
+    height: 90px;
+    opacity: 0;
+    color: #000;
+    font-size: 13px;
+    transition: opacity 1s;
 }
 
 .menu-signin-features-item:first-child {
-  opacity: 1;
+    opacity: 1;
 }
 
 ._sign-in:hover .menu-signin-features-item:first-child {
-  animation: ChangeScene 15s linear infinite 0s;
+    animation: ChangeScene 15s linear infinite 0s;
 }
 
 ._sign-in:hover .menu-signin-features-item:nth-child(2) {
-  animation: ChangeScene 15s linear infinite 5s;
+    animation: ChangeScene 15s linear infinite 5s;
 }
 
 ._sign-in:hover .menu-signin-features-item:nth-child(3) {
-  animation: ChangeScene 15s linear infinite 10s;
+    animation: ChangeScene 15s linear infinite 10s;
 }
 
 .menu-signin-features-text {
-  padding: 14px 0;
-  line-height: 21px;
+    padding: 14px 0;
+    line-height: 21px;
 }
 
 .menu-signin-features-item:first-child .menu-signin-features-highlight {
-  color: #007db8;
+    color: #007db8;
 }
 
 .menu-signin-features-item:nth-child(2) .menu-signin-features-highlight {
-  color: #a90000;
+    color: #a90000;
 }
 
 .menu-signin-features-item:last-child .menu-signin-features-highlight {
-  color: #7d00c9;
+    color: #7d00c9;
 }
 
 .menu-signin-icon {
-  width: 16px;
-  vertical-align: middle;
+    width: 16px;
+    vertical-align: middle;
 }
 
 @keyframes timer {
-  0% {
-    width: 0%;
-  }
+    0% {
+        width: 0%;
+    }
 
-  100% {
-    width: 100%;
-  }
+    100% {
+        width: 100%;
+    }
 }
 
 .menu-signin-timer {
-  position: absolute;
-  bottom: 1;
-  left: 0;
-  right: 0;
-  height: 5px;
+    position: absolute;
+    bottom: 1;
+    left: 0;
+    right: 0;
+    height: 5px;
 }
 
 .menu-signin-timer span {
-  width: calc(100% / 3);
-  height: 5px;
-  float: left;
-  background: #e5d3e9;
+    width: calc(100% / 3);
+    height: 5px;
+    float: left;
+    background: #e5d3e9;
 }
 
 .menu-signin-timer span::after {
-  content: "";
-  position: absolute;
-  width: 1px;
-  height: 5px;
-  background: #fff;
-  z-index: 1;
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 5px;
+    background: #fff;
+    z-index: 1;
 }
 
 .menu-signin-timer span::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 5px;
-  background: #a86cb6;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 5px;
+    background: #a86cb6;
 }
 
 ._sign-in:hover .menu-signin-timer span::before {
-  animation: timer 15s linear infinite forwards;
+    animation: timer 15s linear infinite forwards;
 }
 
 /*===================================*
     06.END SIGN IN
-  *===================================*/
+*===================================*/
+/*
 
+
+
+
+
+
+
+
+
+
+*/
 /*===================================*
     07.START MENU TRAY
-  *===================================*/
+*===================================*/
 .menu-tray {
-  display: flex;
-  justify-content: right;
-  align-items: center;
-  height: 100%;
-  width: 40%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 100%;
+    width: 40%;
 }
 
 .menu-tray-item {
-  height: 100%;
+    height: 100%;
 }
 
 .menu-tray-item a {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  padding: 0 15px;
-  text-transform: uppercase;
-  transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 15px;
+    text-transform: uppercase;
+    transition: color 0.3s;
 }
 
 .menu-tray-item a path,
 .menu-tray-item button path {
-  fill: var(--header-text);
+    fill: var(--header-text);
 }
 
 .menu-tray-item button {
-  position: absolute;
-  right: 7;
-  height: 100%;
-  padding: 10px;
-  cursor: pointer;
-  transition: color 0.3s;
+    position: absolute;
+    right: 7;
+    height: 100%;
+    padding: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
 .menu-tray-item a:hover path,
 .menu-tray-item:hover button path {
-  fill: #fff;
+    fill: #fff;
 }
 
 .search {
-  position: relative;
-  display: flex;
-  justify-content: right;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 /*===================================*
     07.END MENU TRAY
-  *===================================*/
-.info-game {
-  color: #fff;
-  margin-top: 25px;
-}
-
-.sumary-value {
-  margin-left: 15px;
-}
-.Genre {
-  margin-top: 25px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.genree {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-.genree li {
-  margin: 0 10px;
-  width: 48%;
-}
-
-/*===================================*
-  08.START PRODUCT CART
 *===================================*/
-main {
-  position: relative;
-  display: grid;
-  padding: 40px 0;
-  max-width: 1920px;
-  margin: 25px auto 0;
-  gap: 0 24px;
-  grid-template-columns: 1fr 0.5fr;
-  top: 60;
-  height: 500px;
-}
+/*
 
-main.container {
-  margin-top: 25px;
-}
 
-.product-cart {
-  /* background-color: #9a2121; */
-}
 
-.summary {
-  grid-column: 2 / 3;
-  grid-row: 1 / 4;
-}
 
-.header-title {
-  color: #fff;
-  margin-bottom: 25px;
-  font-size: 22px;
-  font-weight: 800;
-}
 
-.product-cart-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
 
-.product-cart-item {
-  display: grid;
-  justify-items: center;
-  grid-template-columns: auto 1fr auto;
-  grid-template-rows: 0.5fr 0.5fr auto 1fr 0.01fr;
-  background-color: var(--cart-item-bg);
-  gap: 0 15px;
-}
 
-.product-cart-item .product-cart-img {
-  grid-column: 1 / 2;
-  grid-row: 1 / 6;
-}
 
-.product-cart-item > *:nth-child(2) {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-}
 
-.product-cart-item > *:nth-child(3) {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-}
 
-.product-cart-item > *:nth-child(4) {
-  grid-column: 2 / 3;
-  grid-row: 5 / 6;
-}
-
-.product-cart-name {
-  display: block;
-  width: 100%;
-  font-size: 16px;
-  font-weight: 600;
-  margin-top: 15px;
-  transition: all 0.3s;
-}
-
-.product-cart-name:hover {
-  text-decoration: underline;
-}
-
-.product-cart-img {
-  width: 300px;
-  /* height: 100%; */
-}
-
-.product-cart-img img {
-  width: 100%;
-  height: 100%;
-  transition: opacity 0.3s;
-}
-
-.product-cart-img:hover img {
-  opacity: 0.5;
-}
-
-.product-cart-edition {
-  color: var(--section-text);
-  color: #5c646a;
-  margin-left: -73%;
-}
-
-.product-cart-action {
-  display: flex;
-  align-items: flex-end;
-}
-
-.button-remove {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-
-.button-remove-text {
-  display: inline-block;
-  height: 16px;
-  line-height: 16px;
-  color: #606f7f;
-  text-decoration: underline;
-}
-
-.product-cart-action:hover .button-remove-text {
-  color: #fff;
-}
-
-.product-cart-action:hover img {
-  filter: brightness(100);
-}
-
-.product-cart-detail {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding-bottom: 16px;
-}
-
-.product-cart-price {
-  display: flex;
-}
-
-.discount {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  padding: 3px 10px;
-  background-color: var(--discount-bg);
-  color: var(--discount-text);
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.price-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 10px;
-}
-
-.price-base {
-  color: var(--section-text);
-  font-size: 11px;
-  text-decoration: line-through;
-}
-
-.price-final {
-}
-
-.discount.ngl-hide,
-.price-base.ngl-hide {
-  display: none;
-}
-
+*/
 /*===================================*
-    08.END PRODUCT CARTs
-  *===================================*/
-
-/*===================================*
-    08.START SUMARY
-  *===================================*/
-.summary-title {
-  color: #fff;
-  margin-bottom: 25px;
-  font-size: 22px;
-  font-weight: 800;
-}
-
-.sumary-list {
-  position: relative;
-  padding: 12px 24px;
-  background-color: var(--cart-item-bg);
-}
-
-.sumary-item {
-  display: flex;
-  /* justify-content: space-between; */
-  padding: 10px 0;
-}
-
-.sumary-item:nth-child(2) {
-  border-bottom: #fff dashed 1px;
-}
-
-.sumary-label-taxes {
-  font-size: 12px;
-  color: #929db6;
-}
-
-.sumray-button {
-  display: flex;
-  justify-content: center;
-  margin-top: 24px;
-}
-
-.sumray-button button {
-  /* max-width: 200px; */
-  width: 80%;
-  padding: 10px 20px;
-  border-radius: 50px;
-  background-color: #00c248;
-  color: #000000;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-.sumray-continue,
-.sumray-refund {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-}
-
-.sumray-continue a {
-  text-decoration: underline;
-}
-
-.sumray-refund {
-  margin-top: 30px;
-  padding: 9px 0;
-}
-
-.sumray-refund::before {
-  content: "";
-  position: absolute;
-  bottom: 50;
-  width: 100%;
-  border-top: 0.5px solid #ffffff23;
-}
-
-.sumray-refund button {
-  color: var(--section-text);
-  text-decoration: underline;
-}
-
-.sumray-button button:hover {
-  background-color: #12e25f;
-}
-
-.summary-secured {
-  display: flex;
-  justify-content: center;
-  margin-top: 24px;
-  color: var(--section-text);
-}
-
-.summary-secured span {
-  margin-left: 5px;
-}
-
-.card-payment {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  gap: 5px;
-}
-
-.sumary-list .add button {
-  color: #fff;
-  background-color: transparent;
-  border: 1px solid white;
-}
-.sumary-list .add button:hover {
-  background-color: #9e9999;
-}
-
-/*===================================*
-    08.END SUMARY
-  *===================================*/
-
-/*===================================*
-  9.START FOOTER
+    08.START FOOTER
 *===================================*/
 footer {
-  padding: 30px 0 36px;
-  transition: opacity 0.5s;
+    padding: 30px 0 36px;
+    transition: opacity 0.5s;
 }
 
 .footer-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .footer-item:first-child {
-  width: 50%;
+    width: 50%;
 }
 
 .footer-item:last-child {
-  width: 50%;
+    width: 50%;
 }
 
 .footer-logo {
-  display: block;
-  width: 60px;
-  margin-bottom: 20px;
+    display: block;
+    width: 60px;
+    margin-bottom: 20px;
 }
 
 .lang-button {
-  display: inline-flex;
-  margin-top: 7px;
-  padding: 7px 0;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  cursor: pointer;
+    display: inline-flex;
+    margin-top: 7px;
+    padding: 7px 0;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    cursor: pointer;
 }
 
 .lang-button-highlight {
-  display: inline-flex;
-  align-items: center;
-  margin-left: 14px;
-  color: var(--button-lang);
-  font-size: 14px;
-  transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 14px;
+    color: var(--button-lang);
+    font-size: 14px;
+    transition: all 0.2s;
 }
 
 .lang-button-highlight svg {
-  margin-left: 5px;
+    margin-left: 5px;
 }
 
 .lang-button:hover .lang-button-highlight {
-  color: #ff0000;
+    color: #ff0000;
 }
 
 .footer-info {
-  width: 100%;
-  height: 162px;
+    width: 100%;
+    height: 162px;
 }
 
 .footer-social-td {
-  vertical-align: top;
+    vertical-align: top;
 }
 
 .footer-social-td .footer-title {
-  margin-top: 23px;
+    margin-top: 23px;
 }
 
 .footer-social {
-  display: flex;
+    display: flex;
 }
 
 .footer-social-item {
-  padding: 10px;
+    padding: 10px;
 }
 
 .footer-social-item:first-child {
-  margin-left: -10px;
+    margin-left: -10px;
 }
 
 .footer-social-link path {
-  transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 .footer-social-link:hover path {
-  fill: #ff0000;
+    fill: #ff0000;
 }
 
 .footer-social-icon {
-  width: 20px;
+    width: 20px;
 }
 
 .footer-social-icon:nth-child(2) {
-  width: 23px;
+    width: 23px;
 }
 
 .footer-title {
-  margin-bottom: 5px;
-  color: var(--footer-title-text);
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 26px;
-  cursor: default;
+    margin-bottom: 5px;
+    color: var(--footer-title-text);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 26px;
+    cursor: default;
 }
 
 .footer-link {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 26px;
-  transition: all 0.3s;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 26px;
+    transition: all 0.3s;
 }
 
 .footer-link:hover {
-  color: var(--footer-link-hover);
+    color: var(--footer-link-hover);
 }
 
 .footer-section {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .footer-copyright {
-  width: 50%;
-  color: #fff;
-  cursor: default;
+    width: 50%;
+    color: #fff;
+    cursor: default;
 }
 
 .footer-legal-list {
-  display: flex;
-  width: 50%;
+    display: flex;
+    width: 50%;
 }
 
 .footer-legal-item {
-  padding-right: 8px;
-  margin-right: 8px;
-  border-right: 1px solid #fff;
+    padding-right: 8px;
+    margin-right: 8px;
+    border-right: 1px solid #fff;
 }
 
 .footer-legal-link {
-  transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 .footer-legal-link:hover {
-  color: var(--footer-legal-link-hover);
+    color: var(--footer-legal-link-hover);
 }
 
 .footer-legal-item:last-child {
-  padding: 0;
-  margin: 0;
-  border: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
 }
 
 .footer-legal-text {
-  line-height: 26px;
+    line-height: 26px;
 }
 
 /*===================================*
-    9.START FOOTER
-  *===================================*/
+    08.END FOOTER
+*===================================*/
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+/*===================================*
+    10.START PRODUCT INFO
+*===================================*/
+main {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    color: #fff;
+    padding: 40px 0;
+    max-width: 1920px;
+    margin: 25px auto 0;
+    gap: 0 24px;
+    grid-template-columns: 1fr 0.5fr;
+    top: 60;
+    height: 500px;
+}
+
+main.container {
+    margin-top: 25px;
+}
+
+.product-name {
+    display: block;
+    width: 100%;
+    /* font-size: 16px; */
+    font-weight: 600;
+    margin-top: 15px;
+    transition: all 0.3s;
+}
+
+/*===================================*
+    10.END PRODUCT INFO
+*===================================*/
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+/*===================================*
+    11.START PRODUCT PURCHASE
+*===================================*/
+
+/*===================================*
+    11.END PRODUCT PURCHASE
+*===================================*/
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+/*===================================*
+    12.START MAIN
+*===================================*/
+
+/*===================================*
+    12.START MAIN
+*===================================*/

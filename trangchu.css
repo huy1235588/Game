@@ -5,8 +5,8 @@ Author       : LeThienHuy.
 /*=============================================================
     CSS INDEX
   =============================
-  01.GENERAL STYLE
-  02.HEADER STYLE
+    01.GENERAL STYLE
+    02.HEADER STYLE
 	03.MENU MAIN
 	04.SUBMENU
 	05.SUBMENU INSIDE
@@ -15,13 +15,13 @@ Author       : LeThienHuy.
 	08.BANNER
 	09.SECTION NEW GAME
 	10.SECTION TRENDING
-  11.SECTION BROWSE
+    11.SECTION BROWSE
 	13.FOOTER STYLE
 		
 *=============================================================*/
 
 /*===================================*
-  01.GENERAL STYLE
+    01.GENERAL STYLE
 *===================================*/
 * {
   box-sizing: border-box;
@@ -235,11 +235,22 @@ button {
 }
 
 /*===================================*
-  01.END GENERAL STYLE
+    01.END GENERAL STYLE
 *===================================*/
+/*
 
+
+
+
+
+
+
+
+
+
+*/
 /*===================================*
-  02.START HEADER STYLE
+    02.START HEADER STYLE
 *===================================*/
 header,
 footer {
@@ -263,11 +274,22 @@ body:has(.menu-main-item:hover) footer {
 }
 
 /*===================================*
-  02.END HEADER STYLE
+    02.END HEADER STYLE
 *===================================*/
+/*
 
+
+
+
+
+
+
+
+
+
+*/
 /*===================================*
-  03.START MENU MAIN
+    03.START MENU MAIN
 *===================================*/
 .menu-overlay {
   visibility: hidden;
@@ -405,7 +427,18 @@ body:has(.menu-main-item:hover) footer {
 /*===================================*
   03.End MENU MAIN
 *===================================*/
+/*
 
+
+
+
+
+
+
+
+
+
+*/
 /*===================================*
   04.START SUBMENU
 *===================================*/
@@ -507,11 +540,22 @@ body:has(.menu-main-item:hover) footer {
 }
 
 /*===================================*
-  04.END SUBMENU
+    04.END SUBMENU
 *===================================*/
+/*
 
+
+
+
+
+
+
+
+
+
+*/
 /*===================================*
-  05.START SUBMENU INSIDE
+    05.START SUBMENU INSIDE
 *===================================*/
 .menu-inside-layout {
   display: none;
@@ -867,11 +911,22 @@ body:has(.menu-main-item:hover) footer {
 }
 
 /*===================================*
-  05.END SUB MENU INSIDE
+    05.END SUB MENU INSIDE
 *===================================*/
+/*
 
+
+
+
+
+
+
+
+
+
+*/
 /*===================================*
-  06.START SIGN IN
+    06.START SIGN IN
 *===================================*/
 .menu-signin {
   position: absolute;
@@ -1095,11 +1150,22 @@ body:has(.menu-main-item:hover) footer {
 }
 
 /*===================================*
-  06.END SIGN IN
+    06.END SIGN IN
 *===================================*/
+/*
 
+
+
+
+
+
+
+
+
+
+*/
 /*===================================*
-  07.START MENU TRAY
+    07.START MENU TRAY
 *===================================*/
 .menu-tray {
   display: flex;
@@ -1151,11 +1217,22 @@ body:has(.menu-main-item:hover) footer {
 }
 
 /*===================================*
-  07.END MENU TRAY
+    07.END MENU TRAY
 *===================================*/
+/*
 
+
+
+
+
+
+
+
+
+
+*/
 /*===================================*
-  08.START BANNER
+    08.START BANNER
 *===================================*/
 main {
   transition: opacity 0.5s;
@@ -1287,11 +1364,22 @@ main {
 }
 
 /*===================================*
-  08.END BANNER
+    08.END BANNER
 *===================================*/
+/*
 
+
+
+
+
+
+
+
+
+
+*/
 /*===================================*
-  09.START SECTION NEW GAME
+    09.START SECTION NEW GAME
 *===================================*/
 .new-releases-title {
   margin-bottom: 70px;
@@ -1447,11 +1535,22 @@ main {
 }
 
 /*===================================*
-09.END SECTION NEW GAME
+    09.END SECTION NEW GAME
 *===================================*/
+/*
 
+
+
+
+
+
+
+
+
+
+*/
 /*===================================*
-  10.START SECTION TRENDING
+    10.START SECTION TRENDING
 *===================================*/
 .main-content {
   margin-top: 0;
@@ -1689,11 +1788,22 @@ main {
 }
 
 /*===================================*
-  10.END SECTION TRENDING
+    10.END SECTION TRENDING
 *===================================*/
+/*
 
+
+
+
+
+
+
+
+
+
+*/
 /*===================================*
-  11.START SECTION BROWSE
+    11.START SECTION BROWSE
 *===================================*/
 .browse-list {
   display: flex;
@@ -1920,5 +2030,5 @@ footer {
 }
 
 /*===================================*
-  13.START FOOTER
+    13.START FOOTER
 *===================================*/
