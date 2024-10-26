@@ -19,10 +19,6 @@ Author       : LeThienHuy.
 		
 *=============================================================*/
 
-
-
-
-
 /*===================================*
   01.GENERAL STYLE
 *===================================*/
@@ -59,17 +55,29 @@ Author       : LeThienHuy.
   --menu-inside-price-text: #686868;
   --menu-inside-collection-text: #5b5b5b;
   --menu-inside-collection-bg: #e1e1e1;
-  --menu-inside-button-playstation: linear-gradient(180deg, #dbdbdb 0%, #ededed 100%);
+  --menu-inside-button-playstation: linear-gradient(
+    180deg,
+    #dbdbdb 0%,
+    #ededed 100%
+  );
   --menu-inside-button-playstation-hover: brightness(1.05);
-  --menu-inside-button: linear-gradient(to bottom, rgba(204, 204, 204, 0.2) 0%,
-      rgba(204, 204, 204, 0.2) 4%,
-      rgba(217, 217, 217, 0.2) 100%);
-  --menu-inside-button-hover: linear-gradient(to top, rgba(204, 204, 204, 0.55) 0%,
-      rgba(204, 204, 204, 0.55) 4%,
-      rgba(217, 217, 217, 0.55) 100%);
-  --box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 0px 15px 5px rgba(0, 0, 0, 0.15);
+  --menu-inside-button: linear-gradient(
+    to bottom,
+    rgba(204, 204, 204, 0.2) 0%,
+    rgba(204, 204, 204, 0.2) 4%,
+    rgba(217, 217, 217, 0.2) 100%
+  );
+  --menu-inside-button-hover: linear-gradient(
+    to top,
+    rgba(204, 204, 204, 0.55) 0%,
+    rgba(204, 204, 204, 0.55) 4%,
+    rgba(217, 217, 217, 0.55) 100%
+  );
+  --box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
+    0px 0px 15px 5px rgba(0, 0, 0, 0.15);
   --signin-button-bg: #f2f2f2;
-  --signin-button-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
+  --signin-button-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.15);
   --signup-text: #4c4c4c;
   --signup-bg: #e6e6e6;
   --signup-bg-hover: #f3f3f3;
@@ -80,7 +88,7 @@ Author       : LeThienHuy.
   --signin-features-text: #4c4c4c;
   --menu-signin-features-title-dash: #e5e5e5;
   --button-lang: #19c430;
-  --footer-title-text: #9F9F9F;
+  --footer-title-text: #9f9f9f;
   --footer-link-hover: #9f9f9f;
   --footer-legal-link-hover: #9f9f9f;
   --banner-button-bg: #19c430;
@@ -89,12 +97,20 @@ Author       : LeThienHuy.
   --section-header-link: #c7d5e0;
   --section-text: #c7d5e0;
   --product-boxshadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
-  --product-info-bg: linear-gradient(-45deg, rgba(64, 121, 153, 1) 5%, rgba(42, 62, 89, 1) 95%);
-  --product-info-bg-hover: linear-gradient(to right, rgba(56, 107, 135, 1) 5%, rgba(68, 130, 163, 1) 95%);
+  --product-info-bg: linear-gradient(
+    -45deg,
+    rgba(64, 121, 153, 1) 5%,
+    rgba(42, 62, 89, 1) 95%
+  );
+  --product-info-bg-hover: linear-gradient(
+    to right,
+    rgba(56, 107, 135, 1) 5%,
+    rgba(68, 130, 163, 1) 95%
+  );
   --product-name-hover: #19c430;
   --product-header-link: #ffffff66;
   --discount-bg: #4c6b22;
-  --discount-text: #BEEE11;
+  --discount-text: #beee11;
   --cart-item-bg: #00000040;
 }
 
@@ -133,31 +149,31 @@ button {
 
 @media (min-width: 576px) {
   .container {
-    max-width: 540px
+    max-width: 540px;
   }
 }
 
 @media (min-width: 768px) {
   .container {
-    max-width: 720px
+    max-width: 720px;
   }
 }
 
 @media (min-width: 992px) {
   .container {
-    max-width: 900px
+    max-width: 900px;
   }
 }
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 1080px
+    max-width: 1080px;
   }
 }
 
 @media (min-width: 1440px) {
   .container {
-    max-width: 1280px
+    max-width: 1280px;
   }
 }
 
@@ -170,8 +186,11 @@ button {
   --mesh-column: 4;
   --mesh-gutter: var(--space-5);
   --mesh-margin: var(--space-6);
-  --mesh-container-width: calc((100vw - var(--scrollbar-width, 0)) - var(--mesh-margin) - var(--mesh-margin) + var(--mesh-gutter));
-  --mesh-column-width: calc(var(--mesh-container-width) / var(--mesh-column))
+  --mesh-container-width: calc(
+    (100vw - var(--scrollbar-width, 0)) - var(--mesh-margin) -
+      var(--mesh-margin) + var(--mesh-gutter)
+  );
+  --mesh-column-width: calc(var(--mesh-container-width) / var(--mesh-column));
 }
 
 :root {
@@ -219,10 +238,6 @@ button {
     01.END GENERAL STYLE
   *===================================*/
 
-
-
-
-
 /*===================================*
     02.START HEADER STYLE
   *===================================*/
@@ -232,7 +247,8 @@ footer {
 }
 
 header {
-  /* position: fixed; */
+  position: fixed;
+  top: 0;
   width: 100%;
   z-index: 9;
   opacity: 0.96;
@@ -251,10 +267,6 @@ body:has(.menu-main-item:hover) footer {
     02.END HEADER STYLE
   *===================================*/
 
-
-
-
-
 /*===================================*
     03.START MENU MAIN
   *===================================*/
@@ -270,10 +282,10 @@ body:has(.menu-main-item:hover) footer {
   height: 100%;
   background: rgba(0, 0, 0, 0.1);
   opacity: 0;
-  transition: opacity 0.25s ease, visibility 0.25s linear
+  transition: opacity 0.25s ease, visibility 0.25s linear;
 }
 
-.menu-overlay:has(+header .menu-main-item:hover) {
+.menu-overlay:has(+ header .menu-main-item:hover) {
   visibility: inherit;
   opacity: 1;
   transition: opacity 0.45s ease 0.1s, visibility 0.45s linear 0.1s;
@@ -326,6 +338,7 @@ body:has(.menu-main-item:hover) footer {
   position: relative;
   height: 100%;
   font-weight: 600;
+  z-index: 11;
 }
 
 /* transform Effect */
@@ -368,10 +381,10 @@ body:has(.menu-main-item:hover) footer {
   transition: color 0.2s ease-in-out;
 }
 
-.menu-main-item:last-child {
+/* .menu-main-item:last-child {
   display: flex;
   align-items: center;
-}
+} */
 
 .menu-main-item .menu-link:hover {
   color: var(--header-text-hover);
@@ -393,10 +406,6 @@ body:has(.menu-main-item:hover) footer {
 /*===================================*
     03.End MENU MAIN
   *===================================*/
-
-
-
-
 
 /*===================================*
     04.START SUBMENU
@@ -427,11 +436,11 @@ body:has(.menu-main-item:hover) footer {
 
 .menu-main-item:hover .menu-submenu {
   display: block;
-  animation: transformEffect .3s forwards;
+  animation: transformEffect 0.3s forwards;
 }
 
 .menu-submenu::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
@@ -502,10 +511,6 @@ body:has(.menu-main-item:hover) footer {
     04.END SUBMENU
   *===================================*/
 
-
-
-
-
 /*===================================*
     05.START SUBMENU INSIDE
   *===================================*/
@@ -513,7 +518,8 @@ body:has(.menu-main-item:hover) footer {
   display: none;
 }
 
-.menu-submenu-item:not(:first-child):not(:nth-last-child(4)):hover~.menu-inside-layout,
+.menu-submenu-item:not(:first-child):not(:nth-last-child(4)):hover
+  ~ .menu-inside-layout,
 .menu-inside-layout:hover {
   display: block;
 }
@@ -528,7 +534,7 @@ body:has(.menu-main-item:hover) footer {
   width: 716px;
   height: 100%;
   min-height: 469px;
-  background-color: #B1E5E5;
+  background-color: #b1e5e5;
   padding: 0 48px;
 }
 
@@ -689,12 +695,11 @@ body:has(.menu-main-item:hover) footer {
   background: linear-gradient(to bottom, #9fbf00, #80ab00);
 }
 
-
 .menu-inside-item:hover ._owner {
   display: none;
 }
 
-.menu-inside-item:hover ._owner:not(.ngl-hide)~._price {
+.menu-inside-item:hover ._owner:not(.ngl-hide) ~ ._price {
   display: block;
 }
 
@@ -705,8 +710,7 @@ body:has(.menu-main-item:hover) footer {
   margin-top: 17px;
   color: #4c4c4c;
   background: var(--menu-inside-button);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25),
-    0 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
   font-size: 13px;
   line-height: 40px;
@@ -734,7 +738,7 @@ body:has(.menu-main-item:hover) footer {
   background-color: #bfbfbf;
 }
 
-.menu-submenu-item:first-child:hover~.menu-inside-layout-playstation,
+.menu-submenu-item:first-child:hover ~ .menu-inside-layout-playstation,
 .menu-inside-layout-playstation:hover {
   display: block;
 }
@@ -800,8 +804,7 @@ body:has(.menu-main-item:hover) footer {
   padding: 9px 16px;
   color: #4c4c4c;
   background: var(--menu-inside-button-playstation);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25),
-    0 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.3);
   font-size: 14px;
   line-height: 17px;
   transition: all 0.3s;
@@ -811,13 +814,12 @@ body:has(.menu-main-item:hover) footer {
   filter: var(--menu-inside-button-playstation-hover);
 }
 
-
 /* Browse all games */
 .menu-inside-layout-other {
   display: none;
 }
 
-.menu-submenu-item:nth-last-child(4):hover~.menu-inside-layout-other,
+.menu-submenu-item:nth-last-child(4):hover ~ .menu-inside-layout-other,
 .menu-inside-layout-other:hover {
   display: block;
 }
@@ -853,7 +855,7 @@ body:has(.menu-main-item:hover) footer {
 }
 
 .menu-inside-collection-img:hover {
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .menu-inside-collection-name {
@@ -869,9 +871,233 @@ body:has(.menu-main-item:hover) footer {
     05.END SUB MENU INSIDE
   *===================================*/
 
+/*===================================*
+  06.START SIGN IN
+*===================================*/
+.menu-signin {
+  position: absolute;
+  left: -170px;
+  top: 50px;
+  display: none;
+  width: 500px;
+  background-color: #fff;
+  z-index: 10;
+}
 
+._sign-in:hover .menu-signin {
+  display: block;
+  animation: transformEffect 0.3s forwards;
+}
 
+.menu-signin-link {
+  display: inline-block;
+  width: 48%;
+  height: 36px;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 36px;
+  text-transform: uppercase;
+}
 
+.signin-button {
+  padding: 14px 15px 18px;
+  margin-bottom: 10px;
+  background-color: var(--signin-button-bg);
+}
+
+.signin-button a {
+  box-shadow: var(--signin-button-box-shadow);
+  transition: color 0.3s;
+}
+
+.signup {
+  margin-right: 3%;
+  color: var(--signup-text);
+  background-color: var(--signup-bg);
+}
+
+.signin {
+  color: var(--signin-text);
+  background: var(--signin-bg);
+}
+
+.signup:hover {
+  background-color: var(--signup-bg-hover);
+}
+
+.signin:hover {
+  background: var(--signin-bg-hover);
+}
+
+.menu-signin-img {
+  width: 100%;
+  height: 144px;
+}
+
+.menu-signin-about {
+  padding: 0 30px;
+  color: var(--signin-about-text);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  cursor: default;
+}
+
+.menu-signin-features-title {
+  position: relative;
+  margin-top: 14px;
+  color: var(--signin-features-text);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  overflow: hidden;
+  cursor: default;
+}
+
+.menu-signin-features-title::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 37%;
+  height: 1px;
+  background-color: var(--menu-signin-features-title-dash);
+}
+
+.menu-signin-features-title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 37%;
+  height: 1px;
+  background-color: var(--menu-signin-features-title-dash);
+}
+
+/* features */
+@keyframes ChangeScene {
+  0%,
+  33.33% {
+    opacity: 1;
+  }
+
+  33.34%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.menu-signin-features-list {
+  position: relative;
+  height: 115px;
+  padding: 0 65px 20px;
+  cursor: default;
+}
+
+.menu-signin-features-item {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 370px;
+  height: 90px;
+  opacity: 0;
+  color: #000;
+  font-size: 13px;
+  transition: opacity 1s;
+}
+
+.menu-signin-features-item:first-child {
+  opacity: 1;
+}
+
+._sign-in:hover .menu-signin-features-item:first-child {
+  animation: ChangeScene 15s linear infinite 0s;
+}
+
+._sign-in:hover .menu-signin-features-item:nth-child(2) {
+  animation: ChangeScene 15s linear infinite 5s;
+}
+
+._sign-in:hover .menu-signin-features-item:nth-child(3) {
+  animation: ChangeScene 15s linear infinite 10s;
+}
+
+.menu-signin-features-text {
+  padding: 14px 0;
+  line-height: 21px;
+}
+
+.menu-signin-features-item:first-child .menu-signin-features-highlight {
+  color: #007db8;
+}
+
+.menu-signin-features-item:nth-child(2) .menu-signin-features-highlight {
+  color: #a90000;
+}
+
+.menu-signin-features-item:last-child .menu-signin-features-highlight {
+  color: #7d00c9;
+}
+
+.menu-signin-icon {
+  width: 16px;
+  vertical-align: middle;
+}
+
+@keyframes timer {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+.menu-signin-timer {
+  position: absolute;
+  bottom: 1;
+  left: 0;
+  right: 0;
+  height: 5px;
+}
+
+.menu-signin-timer span {
+  width: calc(100% / 3);
+  height: 5px;
+  float: left;
+  background: #e5d3e9;
+}
+
+.menu-signin-timer span::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 5px;
+  background: #fff;
+  z-index: 1;
+}
+
+.menu-signin-timer span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  background: #a86cb6;
+}
+
+._sign-in:hover .menu-signin-timer span::before {
+  animation: timer 15s linear infinite forwards;
+}
+
+/*===================================*
+    06.END SIGN IN
+  *===================================*/
 
 /*===================================*
     07.START MENU TRAY
@@ -929,20 +1155,6 @@ body:has(.menu-main-item:hover) footer {
     07.END MENU TRAY
   *===================================*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*===================================*
   08.START PRODUCT CART
 *===================================*/
@@ -958,10 +1170,10 @@ main {
 
 main.container {
   margin-top: 25px;
-
 }
 
-.product-cart {}
+.product-cart {
+}
 
 .summary {
   grid-column: 2 / 3;
@@ -995,17 +1207,17 @@ main.container {
   grid-row: 1 / 6;
 }
 
-.product-cart-item>*:nth-child(2) {
+.product-cart-item > *:nth-child(2) {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
 }
 
-.product-cart-item>*:nth-child(3) {
+.product-cart-item > *:nth-child(3) {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
 }
 
-.product-cart-item>*:nth-child(4) {
+.product-cart-item > *:nth-child(4) {
   grid-column: 2 / 3;
   grid-row: 5 / 6;
 }
@@ -1105,7 +1317,8 @@ main.container {
   text-decoration: line-through;
 }
 
-.price-final {}
+.price-final {
+}
 
 .discount.ngl-hide,
 .price-base.ngl-hide {
@@ -1115,15 +1328,6 @@ main.container {
 /*===================================*
   08.END PRODUCT CARTs
 *===================================*/
-
-
-
-
-
-
-
-
-
 
 /*===================================*
   08.START SUMARY
@@ -1151,7 +1355,7 @@ main.container {
   border-bottom: #fff dashed 1px;
 }
 
-.sumary-label-taxes{
+.sumary-label-taxes {
   font-size: 12px;
   color: #929db6;
 }
@@ -1172,7 +1376,7 @@ main.container {
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .sumray-continue,
@@ -1204,7 +1408,6 @@ main.container {
   text-decoration: underline;
 }
 
-
 .sumray-button button:hover {
   background-color: #12e25f;
 }
@@ -1230,15 +1433,6 @@ main.container {
 /*===================================*
   08.END SUMARY
 *===================================*/
-
-
-
-
-
-
-
-
-
 
 /*===================================*
   9.START FOOTER
@@ -1309,7 +1503,6 @@ footer {
 
 .footer-social-td .footer-title {
   margin-top: 23px;
-
 }
 
 .footer-social {

@@ -20,10 +20,6 @@ Author       : LeThienHuy.
 		
 *=============================================================*/
 
-
-
-
-
 /*===================================*
   01.GENERAL STYLE
 *===================================*/
@@ -60,17 +56,29 @@ Author       : LeThienHuy.
   --menu-inside-price-text: #686868;
   --menu-inside-collection-text: #5b5b5b;
   --menu-inside-collection-bg: #e1e1e1;
-  --menu-inside-button-playstation: linear-gradient(180deg, #dbdbdb 0%, #ededed 100%);
+  --menu-inside-button-playstation: linear-gradient(
+    180deg,
+    #dbdbdb 0%,
+    #ededed 100%
+  );
   --menu-inside-button-playstation-hover: brightness(1.05);
-  --menu-inside-button: linear-gradient(to bottom, rgba(204, 204, 204, 0.2) 0%,
-      rgba(204, 204, 204, 0.2) 4%,
-      rgba(217, 217, 217, 0.2) 100%);
-  --menu-inside-button-hover: linear-gradient(to top, rgba(204, 204, 204, 0.55) 0%,
-      rgba(204, 204, 204, 0.55) 4%,
-      rgba(217, 217, 217, 0.55) 100%);
-  --box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 0px 15px 5px rgba(0, 0, 0, 0.15);
+  --menu-inside-button: linear-gradient(
+    to bottom,
+    rgba(204, 204, 204, 0.2) 0%,
+    rgba(204, 204, 204, 0.2) 4%,
+    rgba(217, 217, 217, 0.2) 100%
+  );
+  --menu-inside-button-hover: linear-gradient(
+    to top,
+    rgba(204, 204, 204, 0.55) 0%,
+    rgba(204, 204, 204, 0.55) 4%,
+    rgba(217, 217, 217, 0.55) 100%
+  );
+  --box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
+    0px 0px 15px 5px rgba(0, 0, 0, 0.15);
   --signin-button-bg: #f2f2f2;
-  --signin-button-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
+  --signin-button-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.15);
   --signup-text: #4c4c4c;
   --signup-bg: #e6e6e6;
   --signup-bg-hover: #f3f3f3;
@@ -81,7 +89,7 @@ Author       : LeThienHuy.
   --signin-features-text: #4c4c4c;
   --menu-signin-features-title-dash: #e5e5e5;
   --button-lang: #19c430;
-  --footer-title-text: #9F9F9F;
+  --footer-title-text: #9f9f9f;
   --footer-link-hover: #9f9f9f;
   --footer-legal-link-hover: #9f9f9f;
   --banner-button-bg: #19c430;
@@ -90,12 +98,20 @@ Author       : LeThienHuy.
   --section-header-link: #c7d5e0;
   --section-text: #c7d5e0;
   --product-boxshadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
-  --product-info-bg: linear-gradient(-45deg, rgba(64, 121, 153, 1) 5%, rgba(42, 62, 89, 1) 95%);
-  --product-info-bg-hover: linear-gradient(to right, rgba(56, 107, 135, 1) 5%, rgba(68, 130, 163, 1) 95%);
+  --product-info-bg: linear-gradient(
+    -45deg,
+    rgba(64, 121, 153, 1) 5%,
+    rgba(42, 62, 89, 1) 95%
+  );
+  --product-info-bg-hover: linear-gradient(
+    to right,
+    rgba(56, 107, 135, 1) 5%,
+    rgba(68, 130, 163, 1) 95%
+  );
   --product-name-hover: #19c430;
   --product-header-link: #ffffff66;
   --discount-bg: #4c6b22;
-  --discount-text: #BEEE11;
+  --discount-text: #beee11;
 }
 
 body {
@@ -133,31 +149,31 @@ button {
 
 @media (min-width: 576px) {
   .container {
-    max-width: 540px
+    max-width: 540px;
   }
 }
 
 @media (min-width: 768px) {
   .container {
-    max-width: 720px
+    max-width: 720px;
   }
 }
 
 @media (min-width: 992px) {
   .container {
-    max-width: 900px
+    max-width: 900px;
   }
 }
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 1000px
+    max-width: 1000px;
   }
 }
 
 @media (min-width: 1440px) {
   .container {
-    max-width: 1280px
+    max-width: 1280px;
   }
 }
 
@@ -170,8 +186,11 @@ button {
   --mesh-column: 4;
   --mesh-gutter: var(--space-5);
   --mesh-margin: var(--space-6);
-  --mesh-container-width: calc((100vw - var(--scrollbar-width, 0)) - var(--mesh-margin) - var(--mesh-margin) + var(--mesh-gutter));
-  --mesh-column-width: calc(var(--mesh-container-width) / var(--mesh-column))
+  --mesh-container-width: calc(
+    (100vw - var(--scrollbar-width, 0)) - var(--mesh-margin) -
+      var(--mesh-margin) + var(--mesh-gutter)
+  );
+  --mesh-column-width: calc(var(--mesh-container-width) / var(--mesh-column));
 }
 
 :root {
@@ -219,10 +238,6 @@ button {
   01.END GENERAL STYLE
 *===================================*/
 
-
-
-
-
 /*===================================*
   02.START HEADER STYLE
 *===================================*/
@@ -251,10 +266,6 @@ body:has(.menu-main-item:hover) footer {
   02.END HEADER STYLE
 *===================================*/
 
-
-
-
-
 /*===================================*
   03.START MENU MAIN
 *===================================*/
@@ -270,10 +281,10 @@ body:has(.menu-main-item:hover) footer {
   height: 100%;
   background: rgba(0, 0, 0, 0.1);
   opacity: 0;
-  transition: opacity 0.25s ease, visibility 0.25s linear
+  transition: opacity 0.25s ease, visibility 0.25s linear;
 }
 
-.menu-overlay:has(+header .menu-main-item:hover) {
+.menu-overlay:has(+ header .menu-main-item:hover) {
   visibility: inherit;
   opacity: 1;
   transition: opacity 0.45s ease 0.1s, visibility 0.45s linear 0.1s;
@@ -326,6 +337,7 @@ body:has(.menu-main-item:hover) footer {
   position: relative;
   height: 100%;
   font-weight: 600;
+  z-index: 11;
 }
 
 /* transform Effect */
@@ -394,10 +406,6 @@ body:has(.menu-main-item:hover) footer {
   03.End MENU MAIN
 *===================================*/
 
-
-
-
-
 /*===================================*
   04.START SUBMENU
 *===================================*/
@@ -427,11 +435,11 @@ body:has(.menu-main-item:hover) footer {
 
 .menu-main-item:hover .menu-submenu {
   display: block;
-  animation: transformEffect .3s forwards;
+  animation: transformEffect 0.3s forwards;
 }
 
 .menu-submenu::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
@@ -502,10 +510,6 @@ body:has(.menu-main-item:hover) footer {
   04.END SUBMENU
 *===================================*/
 
-
-
-
-
 /*===================================*
   05.START SUBMENU INSIDE
 *===================================*/
@@ -513,7 +517,8 @@ body:has(.menu-main-item:hover) footer {
   display: none;
 }
 
-.menu-submenu-item:not(:first-child):not(:nth-last-child(4)):hover~.menu-inside-layout,
+.menu-submenu-item:not(:first-child):not(:nth-last-child(4)):hover
+  ~ .menu-inside-layout,
 .menu-inside-layout:hover {
   display: block;
 }
@@ -528,7 +533,7 @@ body:has(.menu-main-item:hover) footer {
   width: 716px;
   height: 100%;
   min-height: 469px;
-  background-color: #B1E5E5;
+  background-color: #b1e5e5;
   padding: 0 48px;
 }
 
@@ -689,12 +694,11 @@ body:has(.menu-main-item:hover) footer {
   background: linear-gradient(to bottom, #9fbf00, #80ab00);
 }
 
-
 .menu-inside-item:hover ._owner {
   display: none;
 }
 
-.menu-inside-item:hover ._owner:not(.ngl-hide)~._price {
+.menu-inside-item:hover ._owner:not(.ngl-hide) ~ ._price {
   display: block;
 }
 
@@ -705,8 +709,7 @@ body:has(.menu-main-item:hover) footer {
   margin-top: 17px;
   color: #4c4c4c;
   background: var(--menu-inside-button);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25),
-    0 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
   font-size: 13px;
   line-height: 40px;
@@ -734,7 +737,7 @@ body:has(.menu-main-item:hover) footer {
   background-color: #bfbfbf;
 }
 
-.menu-submenu-item:first-child:hover~.menu-inside-layout-playstation,
+.menu-submenu-item:first-child:hover ~ .menu-inside-layout-playstation,
 .menu-inside-layout-playstation:hover {
   display: block;
 }
@@ -800,8 +803,7 @@ body:has(.menu-main-item:hover) footer {
   padding: 9px 16px;
   color: #4c4c4c;
   background: var(--menu-inside-button-playstation);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25),
-    0 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.3);
   font-size: 14px;
   line-height: 17px;
   transition: all 0.3s;
@@ -811,13 +813,12 @@ body:has(.menu-main-item:hover) footer {
   filter: var(--menu-inside-button-playstation-hover);
 }
 
-
 /* Browse all games */
 .menu-inside-layout-other {
   display: none;
 }
 
-.menu-submenu-item:nth-last-child(4):hover~.menu-inside-layout-other,
+.menu-submenu-item:nth-last-child(4):hover ~ .menu-inside-layout-other,
 .menu-inside-layout-other:hover {
   display: block;
 }
@@ -853,7 +854,7 @@ body:has(.menu-main-item:hover) footer {
 }
 
 .menu-inside-collection-img:hover {
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .menu-inside-collection-name {
@@ -868,10 +869,6 @@ body:has(.menu-main-item:hover) footer {
 /*===================================*
   05.END SUB MENU INSIDE
 *===================================*/
-
-
-
-
 
 /*===================================*
   06.START SIGN IN
@@ -888,7 +885,7 @@ body:has(.menu-main-item:hover) footer {
 
 ._sign-in:hover .menu-signin {
   display: block;
-  animation: transformEffect .3s forwards;
+  animation: transformEffect 0.3s forwards;
 }
 
 .menu-signin-link {
@@ -981,7 +978,6 @@ body:has(.menu-main-item:hover) footer {
 
 /* features */
 @keyframes ChangeScene {
-
   0%,
   33.33% {
     opacity: 1;
@@ -1051,7 +1047,6 @@ body:has(.menu-main-item:hover) footer {
 }
 
 @keyframes timer {
-
   0% {
     width: 0%;
   }
@@ -1073,7 +1068,7 @@ body:has(.menu-main-item:hover) footer {
   width: calc(100% / 3);
   height: 5px;
   float: left;
-  background: #E5D3E9;
+  background: #e5d3e9;
 }
 
 .menu-signin-timer span::after {
@@ -1086,7 +1081,7 @@ body:has(.menu-main-item:hover) footer {
 }
 
 .menu-signin-timer span::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -1102,9 +1097,6 @@ body:has(.menu-main-item:hover) footer {
 /*===================================*
   06.END SIGN IN
 *===================================*/
-
-
-
 
 /*===================================*
   07.START MENU TRAY
@@ -1162,11 +1154,6 @@ body:has(.menu-main-item:hover) footer {
   07.END MENU TRAY
 *===================================*/
 
-
-
-
-
-
 /*===================================*
   08.START BANNER
 *===================================*/
@@ -1198,7 +1185,7 @@ main {
   width: 10%;
   height: 10%;
   border-radius: 16px;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
   transition: opacity 0.9s;
 }
 
@@ -1216,10 +1203,10 @@ main {
   visibility: hidden;
   background-size: cover;
   margin: 0px;
-  transition: left 0s .75s;
+  transition: left 0s 0.75s;
 }
 
-[id^="banner"]:checked+.banner {
+[id^="banner"]:checked + .banner {
   z-index: 4;
   opacity: 1;
   visibility: visible;
@@ -1255,7 +1242,9 @@ main {
   transition: top 0.1s ease 0s;
 }
 
-.banner-aside label:has(+input[type="radio"]:checked) .banner-button-img::before {
+.banner-aside
+  label:has(+ input[type="radio"]:checked)
+  .banner-button-img::before {
   content: "";
   position: absolute;
   top: -7;
@@ -1273,11 +1262,11 @@ main {
   height: 100%;
 }
 
-.banner-aside label:not(:has(+input[type="radio"]:checked)) {
+.banner-aside label:not(:has(+ input[type="radio"]:checked)) {
   opacity: 0.5;
 }
 
-.banner-aside .banner-button:has(~.hover):hover {
+.banner-aside .banner-button:has(~ .hover):hover {
   opacity: 1;
 }
 
@@ -1286,13 +1275,12 @@ main {
   box-shadow: 0 12px 8px rgba(0, 0, 0, 0.18);
 }
 
-
-.banner-aside label:not(:hover):has(~label:hover),
-.banner-aside label:hover~label:not(:hover) {
+.banner-aside label:not(:hover):has(~ label:hover),
+.banner-aside label:hover ~ label:not(:hover) {
   opacity: 0.3;
 }
 
-.banner-link{
+.banner-link {
   position: absolute;
   top: 0;
   z-index: 6;
@@ -1302,10 +1290,6 @@ main {
   08.END BANNER
 *===================================*/
 
-
-
-
-
 /*===================================*
   09.START SECTION NEW GAME
 *===================================*/
@@ -1313,7 +1297,7 @@ main {
   margin-bottom: 70px;
   line-height: 42px;
   font-weight: 300;
-  letter-spacing: .1px;
+  letter-spacing: 0.1px;
 }
 
 .new-list {
@@ -1335,8 +1319,8 @@ main {
   box-shadow: 0 var(--space-2) var(--space-5) var(--space-1) rgba(0, 0, 0, 0.8);
 }
 
-.new-item:not(:hover):has(~.new-item:hover) .new-img,
-.new-item:hover~.new-item:not(:hover) .new-img {
+.new-item:not(:hover):has(~ .new-item:hover) .new-img,
+.new-item:hover ~ .new-item:not(:hover) .new-img {
   opacity: 0.3;
 }
 
@@ -1387,7 +1371,7 @@ main {
   background: #1f2e41;
   color: #fff;
   border-radius: 16px;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
   transition: opacity 0.9s;
   transition: color 0.5s;
 }
@@ -1401,11 +1385,11 @@ main {
   visibility: hidden;
   background-size: cover;
   margin: 0px;
-  transition: left 0s .75s;
+  transition: left 0s 0.75s;
   /* z-index: 10; */
 }
 
-[id^="new"]:checked+.new-list {
+[id^="new"]:checked + .new-list {
   position: relative;
   z-index: 5;
   opacity: 1;
@@ -1421,7 +1405,6 @@ main {
 .new-releases .new-button2 {
   left: 50%;
 }
-
 
 @media (min-width: 600px) {
   .new-releases .new-button1 {
@@ -1457,7 +1440,7 @@ main {
   color: #19c430;
 }
 
-.new-releases label:has(+input[type="radio"]:checked) {
+.new-releases label:has(+ input[type="radio"]:checked) {
   background-color: #fff;
   color: #000;
   z-index: 5;
@@ -1466,10 +1449,6 @@ main {
 /*===================================*
 09.END SECTION NEW GAME
 *===================================*/
-
-
-
-
 
 /*===================================*
   10.START SECTION TRENDING
@@ -1571,11 +1550,11 @@ main {
   border-radius: 50px;
   background: #8a8a8a;
   cursor: pointer;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 .trending label:hover {
-  background: var(--product-button-bg)
+  background: var(--product-button-bg);
 }
 
 .product-list {
@@ -1585,15 +1564,14 @@ main {
   margin: 0px;
   color: #000;
   background-size: cover;
-  transition: left 0s .75s;
+  transition: left 0s 0.75s;
 }
 
-[id^="product"]:checked+.product-list {
+[id^="product"]:checked + .product-list {
   left: 0;
   z-index: 6;
-  transition: left .65s ease-out;
+  transition: left 0.65s ease-out;
 }
-
 
 .trending .product-button1 {
   left: 43%;
@@ -1607,7 +1585,7 @@ main {
   left: 57%;
 }
 
-.trending label:has(+input[type="radio"]:checked) {
+.trending label:has(+ input[type="radio"]:checked) {
   background-color: var(--product-button-bg);
 }
 
@@ -1699,24 +1677,20 @@ main {
   font-weight: 700;
   line-height: 16px;
   text-align: right;
-  color: #BEEE11;
+  color: #beee11;
 }
 
 .__discount.ngl-hide {
   opacity: 0;
 }
 
-.__discount.ngl-hide~.__final-price {
+.__discount.ngl-hide ~ .__final-price {
   color: #fff;
 }
 
 /*===================================*
   10.END SECTION TRENDING
 *===================================*/
-
-
-
-
 
 /*===================================*
   11.START SECTION BROWSE
@@ -1787,10 +1761,6 @@ main {
   11.END SECTION BROWSE
 *===================================*/
 
-
-
-
-
 /*===================================*
   13.START FOOTER
 *===================================*/
@@ -1859,7 +1829,6 @@ footer {
 
 .footer-social-td .footer-title {
   margin-top: 23px;
-
 }
 
 .footer-social {
