@@ -1510,14 +1510,17 @@ main.container {
     position: absolute;
     top: 0;
     left: 0;
-    display: none;
+    /* display: none; */
     opacity: 0;
-    transition: opacity 0.5s;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0s 0.5s;
 }
 
 .product-img-item.active {
-    display: block;
+    /* display: block; */
     opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s;
 }
 
 /* Strip */
@@ -1532,7 +1535,7 @@ main.container {
     display: flex;
     align-items: center;
     width: 600px;
-    /* overflow-x: hidden; */
+    transition: right 0.5s ease-in-out;
 }
 
 .product-img-strip-item {
@@ -1675,7 +1678,7 @@ main.container {
 
 .product-price {
     display: flex;
-    gap: 20px;
+    gap: 10px;
     align-items: center;
     margin: 30px 0 0;
     margin-left: 0;
