@@ -16,6 +16,7 @@ Author       : LeThienHuy.
 	10.PRODUCT INFO
 	11.PRODUCT IMAGE
 	12.PRODUCT PURCHASE
+	12.PRODUCT TAG
 	24.START ELEMENT DESIGN
 		
 *=============================================================*/
@@ -137,6 +138,21 @@ Author       : LeThienHuy.
     --slider-bg: #00000033;
     --slider-handle: #233c5166;
     --slider-handle-hover: linear-gradient(135deg, #3d6c8d 0%, #2e5470 100%);
+
+    /* tag */
+    --tag-header: #ffffff80;
+    --tag-bg: #67c1f533;
+    --tag-bg-hover: linear-gradient(135deg, #67c1f5 0%, #417a9b 100%);
+
+    /* details */
+    --details-title: #ffffff55;
+    --details-content: #a5afb9;
+    --details-link: #67c1f5;
+    --details-link-hover: #fff;
+
+    /* share report */
+    --share-report-bg: #67c1f533;
+    --share-report-bg-hover: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%);
 }
 
 body {
@@ -1457,8 +1473,8 @@ main.container {
 }
 
 .product-info {
-    width: 600px;
-    margin-right: 66px;
+    /* width: 600px; */
+    margin-right: 58px;
 }
 
 /* Name */
@@ -1671,7 +1687,6 @@ main.container {
 }
 
 /* Price */
-
 .product-info li {
     color: var(--section-text);
 }
@@ -1729,7 +1744,7 @@ main.container {
 }
 
 /* Button */
-.button-container {
+.button-purchase-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -1754,6 +1769,59 @@ main.container {
     background: var(--btn-buy-purchase-hover);
     color: var(--btn-buy-purchase-text-hover);
 }
+
+/* Details */
+.product-details {
+    table-layout: auto;
+    margin-top: 10px;
+}
+
+.details-row th,
+.details-row td {
+    padding: 10px 0;
+    border-bottom: #ffffff40 1px solid;
+}
+
+.details-title {
+    width: 100px;
+    color: var(--details-title);
+    font-size: 14px;
+    text-align: left;
+}
+
+.details-content {
+    color: var(--details-content);
+}
+
+.details-link {
+    color: var(--details-link);
+}
+
+.details-link:hover {
+    color: var(--details-link-hover);
+}
+
+/* Share Report */
+.share-report {
+    display: flex;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.share-btn,
+.report-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: var(--share-report-bg);
+}
+
+.share-btn:hover,
+.report-btn:hover {
+    background: var(--share-report-bg-hover);
+}
+
 /*===================================*
     12.END PRODUCT PURCHASE
 *===================================*/
@@ -1770,9 +1838,27 @@ main.container {
 
 */
 /*===================================*
-    23.START MAIN
+    13.START TAG
 *===================================*/
+.tag-header {
+    margin-bottom: 10px;
+    color: var(--tag-header);
+}
 
+.tags {
+    display: flex;
+    gap: 8px;
+}
+
+.tag {
+    padding: 6px;
+    border-radius: 5px;
+    background-color: var(--tag-bg);
+}
+
+.tag:hover {
+    background: var(--tag-bg-hover);
+}
 /*===================================*
-    23.START MAIN
+    13.START TAG
 *===================================*/
