@@ -14,7 +14,8 @@ Author       : LeThienHuy.
 	07.START MENU TRAY
 	08.START FOOTER
 	10.PRODUCT INFO
-	11.PRODUCT PURCHASE
+	11.PRODUCT IMAGE
+	12.PRODUCT PURCHASE
 	24.START ELEMENT DESIGN
 		
 *=============================================================*/
@@ -109,8 +110,33 @@ Author       : LeThienHuy.
     );
     --product-name-hover: #19c430;
     --product-header-link: #ffffff66;
+
+    /* price */
     --discount-bg: #4c6b22;
     --discount-text: #beee11;
+    --discount-price-text: #beee11;
+    --base-price-text: #f5f5f599;
+
+    /* button purchase */
+    --btn-buy-purchase: linear-gradient(to right, #75b022 5%, #588a1b 95%);
+    --btn-buy-purchase-text: #d2efa9;
+    --btn-buy-purchase-hover: linear-gradient(
+        to right,
+        #8ed629 5%,
+        #6aa621 95%
+    );
+    --btn-buy-purchase-text-hover: #fff;
+    --btn-purchase: #ffffff59;
+    --btn-purchase-hover: #ffffff28;
+    --btn-purchase-hover: #ffffff59;
+    --btn-purchase: #ffffff28;
+
+    /* slider */
+    --slider-btn-hover: #2977b866;
+    --slider-btn: #233c5166;
+    --slider-bg: #00000033;
+    --slider-handle: #233c5166;
+    --slider-handle-hover: linear-gradient(135deg, #3d6c8d 0%, #2e5470 100%);
 }
 
 body {
@@ -166,7 +192,7 @@ button {
 
 @media (min-width: 1200px) {
     .container {
-        max-width: 1200px;
+        max-width: 1000px;
     }
 }
 
@@ -231,6 +257,13 @@ button {
     :root {
         --mesh-column: 24;
     }
+}
+
+.no-select {
+    user-select: none; /* Đối với hầu hết trình duyệt */
+    -webkit-user-select: none; /* Đối với Safari */
+    -moz-user-select: none; /* Đối với Firefox */
+    -ms-user-select: none; /* Đối với Internet Explorer/Edge */
 }
 
 /*===================================*
@@ -1410,14 +1443,11 @@ footer {
 *===================================*/
 main {
     position: relative;
-    display: grid;
-    grid-template-columns: repeat(11, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    display: flex;
+    justify-content: center;
     color: #fff;
     max-width: 1920px;
     margin: 60px auto 0;
-    /* gap: 0 64px; */
     min-height: 500px;
 }
 
@@ -1427,59 +1457,23 @@ main.container {
 }
 
 .product-info {
-    margin-right: 55px;
+    width: 600px;
+    margin-right: 66px;
 }
 
 /* Name */
 .product-name {
-    grid-column: 1 / 12;
     display: block;
     width: 100%;
-    /* font-size: 16px; */
+    font-size: 28px;
     font-weight: 600;
-    margin-top: 15px;
+    /* margin-top: 15px; */
     transition: all 0.3s;
 }
 
-.product-info {
-    grid-column: 1 / 8;
-}
-
-/* Product img */
-/* List */
-.product-img-list {
-    position: relative;
-}
-
-.product-img-item {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.product-img-item img {
-    width: 708px;
-    height: 398px;
-}
-
-/* Strip */
-.product-img-strip {
-    display: flex;
-    width: 708px;
-    overflow: hidden;
-}
-
-.product-img-strip::-webkit-scrollbar {
-    height: 8px;
-}
-
-.product-img-strip-item {
-    margin: 2px 5px;
-    cursor: pointer;
-}
-
-.product-img-strip-item:nth-child(2) {
-    margin-left: 0;
+/* Info details */
+.info-details {
+    margin-top: 50px;
 }
 /*===================================*
     10.END PRODUCT INFO
@@ -1497,18 +1491,139 @@ main.container {
 
 */
 /*===================================*
-    11.START PRODUCT PURCHASE
+    11.START PRODUCT IMAGE
 *===================================*/
-.purchase {
-    grid-column: 8 / 12;
+.product-img-container {
+    position: relative;
+    margin-top: 20px;
+    width: 600px;
+    height: 450px;
+    overflow-x: hidden;
 }
 
-.purchase-img {
-    width: 436px;
-    height: 230px;
+/* List */
+.product-img-list {
+    position: relative;
+}
+
+.product-img-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.product-img-item.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Strip */
+.product-img-strip-container {
+    position: relative;
+    width: 600px;
+    height: 71px;
+}
+
+.product-img-strip {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 600px;
+    /* overflow-x: hidden; */
+}
+
+.product-img-strip-item {
+    height: 65px;
+    margin: 3px;
+    cursor: pointer;
+}
+
+.product-img-strip-item img {
+    -webkit-user-drag: none;
+}
+
+.product-img-strip-item:nth-child(2) {
+    margin-left: 0;
+}
+
+.product-img-strip-item-selector {
+    position: absolute;
+    width: 115px;
+    height: 65px;
+    /* top: 3; */
+    z-index: 1000;
+    border: #fff 2px solid;
+    pointer-events: none;
+}
+
+.product-img-strip-item-selector::before {
+    content: "";
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* Tạo hình tam giác */
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid rgb(255, 255, 255);
+    z-index: 10;
+}
+
+/* Slider */
+.slider-container {
+    position: relative;
+    display: flex;
+    height: 24px;
+}
+
+.slider-btn {
+    position: absolute;
+    padding: 2px 15px;
+    background-color: var(--slider-btn);
+}
+
+.slider-btn:hover {
+    background-color: var(--slider-btn-hover);
+}
+
+.slider-left {
+    left: 0;
+}
+
+.slider-right {
+    right: 0;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 60px;
+    right: 60px;
+    border-radius: 5px;
+    background-color: var(--slider-bg);
+}
+
+.slider-handle {
+    position: absolute;
+    top: 0;
+    height: 24px;
+    border-radius: 5px;
+    background: var(--slider-handle);
+    cursor: pointer;
+}
+
+.slider-handle:hover {
+    background: var(--slider-handle-hover);
 }
 /*===================================*
-    11.END PRODUCT PURCHASE
+    11.END PRODUCT IMAGE
 *===================================*/
 /*
 
@@ -1523,9 +1638,138 @@ main.container {
 
 */
 /*===================================*
-    12.START MAIN
+    12.START PRODUCT PURCHASE
+*===================================*/
+.purchase {
+    width: 320px;
+}
+
+/* Img */
+.purchase-img-containter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.purchase-img {
+    width: 285px;
+    height: 140px;
+}
+
+/* Type */
+.product-type {
+    margin-top: 30px;
+}
+
+.product-type-text {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+/* Price */
+
+.product-info li {
+    color: var(--section-text);
+}
+
+.product-price {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 30px 0 0;
+    margin-left: 0;
+}
+
+.discount {
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--discount-bg);
+    color: var(--discount-text);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 13px;
+}
+
+.base-price {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 12px;
+    text-align: left;
+    text-decoration: line-through;
+    color: var(--base-price-text);
+}
+
+.final-price {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 16px;
+    text-align: left;
+    color: var(--discount-price-text);
+}
+
+.discount.ngl-hide {
+    opacity: 0;
+}
+
+.discount.ngl-hide ~ .final-price {
+    color: #fff;
+}
+
+/* Sale end */
+.sale-end {
+    margin-top: 20px;
+}
+
+/* Button */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button-purchase {
+    padding: 12px 20px;
+    border-radius: 10px;
+    background-color: var(--btn-purchase);
+}
+.button-purchase:hover {
+    background-color: var(--btn-purchase-hover);
+}
+
+.buy {
+    background: var(--btn-buy-purchase);
+    color: var(--btn-buy-purchase-text);
+}
+
+.buy:hover {
+    background: var(--btn-buy-purchase-hover);
+    color: var(--btn-buy-purchase-text-hover);
+}
+/*===================================*
+    12.END PRODUCT PURCHASE
+*===================================*/
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+/*===================================*
+    23.START MAIN
 *===================================*/
 
 /*===================================*
-    12.START MAIN
+    23.START MAIN
 *===================================*/
