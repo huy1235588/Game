@@ -84,12 +84,32 @@ sliderRightBtn.addEventListener('click', () => {
         // Thay đổi vị trí selector
         imgStripItemSelector.style.left = targetScrollLeft;
     }
+    else if (currentIndex === imgStripItems.length - 1) {
+        currentIndex = 0;
+        showImage(currentIndex);
+
+        // Vị trí cuộn đến item
+        let targetScrollLeft = imgStripItems[currentIndex].offsetLeft;
+
+        // Thay đổi vị trí selector
+        imgStripItemSelector.style.left = targetScrollLeft;
+    }
 });
 
 // Nút "Trái" để chuyển đến hình ảnh trước đó
 sliderLeftBtn.addEventListener('click', () => {
     if (currentIndex > 0) {
         showImage(currentIndex - 1);
+
+        // Vị trí cuộn đến item
+        let targetScrollLeft = imgStripItems[currentIndex].offsetLeft;
+
+        // Thay đổi vị trí selector
+        imgStripItemSelector.style.left = targetScrollLeft;
+    }
+    else if (currentIndex === 0) {
+        currentIndex = imgStripItems.length - 1;
+        showImage(currentIndex);
 
         // Vị trí cuộn đến item
         let targetScrollLeft = imgStripItems[currentIndex].offsetLeft;
@@ -126,6 +146,7 @@ sliderHandle.addEventListener('mousedown', (e) => {
 
     // Xóa hiệu ứng transition khi bắt đầu kéo
     productImgStrip.style.transition = 'none';
+    sliderHandle.style.transition = 'none';
 
     e.preventDefault();
 });
@@ -149,11 +170,12 @@ document.addEventListener('mousemove', (e) => {
 });
 
 // Kết thúc kéo
-sliderHandle.addEventListener('mouseup', () => {
+document.addEventListener('mouseup', () => {
     isDragging = false;
 
     // Khôi phục transition khi kết thúc kéo
     productImgStrip.style.transition = 'right 0.5s ease-in-out';
+    sliderHandle.style.transition = 'left 0.5s ease-in-out';
 });
 
 // Hàm kiểm tra phần tử có bị che bởi overflow
