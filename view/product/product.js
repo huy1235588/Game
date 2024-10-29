@@ -168,3 +168,18 @@ function isChildHiddenHorizontally(childElement) {
 
     return isHiddenLeft || isHiddenRight;
 }
+/*******************************************
+ * 
+ *          Xem thêm
+ * 
+ *******************************************/
+const readMoreBtn = document.querySelector('.description-read-more');
+const descriptionFade = document.querySelector('.description-fade');
+const descriptionArena = document.querySelector('.description-arena');
+
+readMoreBtn.addEventListener('click', () => {
+    descriptionArena.style.overflow = "visible";
+    descriptionArena.style.maxHeight = "none";
+    descriptionFade.style.display = "none";
+});
+

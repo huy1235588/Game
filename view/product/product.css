@@ -15,9 +15,10 @@ Author       : LeThienHuy.
 	08.START FOOTER
 	10.PRODUCT INFO
 	11.PRODUCT IMAGE
-	12.PRODUCT PURCHASE
 	12.PRODUCT TAG
-	24.START ELEMENT DESIGN
+    13.PRODUCT DESCRIPTION
+	
+    20.PRODUCT PURCHASE
 		
 *=============================================================*/
 
@@ -153,6 +154,12 @@ Author       : LeThienHuy.
     /* share report */
     --share-report-bg: #67c1f533;
     --share-report-bg-hover: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%);
+
+    /* description */
+    --description-text: #acb2b8;
+    --description-tag-text: #2f89bc;
+    --description-read-more: #537ca6;
+    --description-read-more-hover: #fff;
 }
 
 body {
@@ -208,7 +215,7 @@ button {
 
 @media (min-width: 1200px) {
     .container {
-        max-width: 1000px;
+        max-width: 960px;
     }
 }
 
@@ -735,26 +742,23 @@ body:has(.menu-main-item:hover) footer {
 
 .menu-inside-os-icon {
     display: inline-block;
-    width: 13px;
-    height: 13px;
-    margin-right: 2px;
-    background-image: url(icon/icon-os.png);
-    opacity: 0.5;
+    width: 15px;
+    height: 17px;
+    margin-right: 5px;
+    opacity: 0.7;
 }
 
 .windows-icon {
-    background-position: 0 0;
+    background-image: url(/icon/platform/windows.svg);
 }
 
 .mac-icon {
-    margin-right: 3px;
-    background-position: 13px -0.7px;
-    opacity: 0.4;
+    background-image: url(/icon/platform/masOS.svg);
+    margin-bottom: 3px;
 }
 
 .linux-icon {
-    margin-right: 3px;
-    background-position: 0px 15px;
+    background-image: url(/icon/platform/linux.svg);
 }
 
 /* price */
@@ -1474,7 +1478,7 @@ main.container {
 
 .product-info {
     /* width: 600px; */
-    margin-right: 58px;
+    margin-right: 64px;
 }
 
 /* Name */
@@ -1485,11 +1489,6 @@ main.container {
     font-weight: 600;
     /* margin-top: 15px; */
     transition: all 0.3s;
-}
-
-/* Info details */
-.info-details {
-    margin-top: 50px;
 }
 /*===================================*
     10.END PRODUCT INFO
@@ -1657,7 +1656,131 @@ main.container {
 
 */
 /*===================================*
-    12.START PRODUCT PURCHASE
+    12.START TAG
+*===================================*/
+.tag-header {
+    margin-bottom: 10px;
+    color: var(--tag-header);
+}
+
+.tags {
+    display: flex;
+    gap: 8px;
+}
+
+.tag {
+    padding: 6px;
+    border-radius: 5px;
+    background-color: var(--tag-bg);
+}
+
+.tag:hover {
+    background: var(--tag-bg-hover);
+}
+/*===================================*
+    12.START TAG
+*===================================*/
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+/*===================================*
+    13.START DESCRIPTION
+*===================================*/
+/* Info details */
+.product-description {
+    position: relative;
+    margin-top: 50px;
+    color: var(--description-text);
+    padding-bottom: 20px;
+}
+
+.description-arena {
+    max-height: 850px;
+    overflow: hidden;
+}
+
+.product-description h3 {
+    margin-bottom: 10px;
+    padding: 3px 0;
+    font-weight: n;
+
+    color: #fff;
+    border-bottom: 1px solid transparent;
+    background: linear-gradient(to right, #1b7ccc, transparent);
+    background-size: 100% 1px;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+}
+
+.description-tag {
+    margin: 18px 0 5px;
+    color: var(--description-tag-text);
+}
+
+.description-img {
+    -webkit-user-drag: none;
+}
+
+/* Fade */
+.description-fade {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 73px;
+    z-index: 1;
+
+    background: linear-gradient(
+        to top,
+        transparent 0px 20px,
+        transparent 20px,
+        #000000 0px,
+        transparent
+    );
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+}
+
+.description-read-more {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 20px;
+    color: var(--description-read-more);
+    font-size: 10px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.description-read-more:hover span {
+    color: var(--description-read-more-hover);
+}
+/*===================================*
+    13.START DESCRIPTION
+*===================================*/
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+/*===================================*
+    20.START PRODUCT PURCHASE
 *===================================*/
 .purchase {
     width: 320px;
@@ -1801,10 +1924,17 @@ main.container {
     color: var(--details-link-hover);
 }
 
+.details-content-platform {
+    width: 15px;
+    height: 17px;
+    filter: invert(99%) sepia(1%) saturate(0%) hue-rotate(233deg)
+        brightness(106%) contrast(101%);
+}
+
 /* Share Report */
 .share-report {
     display: flex;
-    margin-top: 10px;
+    margin-top: 30px;
     gap: 10px;
 }
 
@@ -1823,42 +1953,5 @@ main.container {
 }
 
 /*===================================*
-    12.END PRODUCT PURCHASE
-*===================================*/
-/*
-
-
-
-
-
-
-
-
-
-
-*/
-/*===================================*
-    13.START TAG
-*===================================*/
-.tag-header {
-    margin-bottom: 10px;
-    color: var(--tag-header);
-}
-
-.tags {
-    display: flex;
-    gap: 8px;
-}
-
-.tag {
-    padding: 6px;
-    border-radius: 5px;
-    background-color: var(--tag-bg);
-}
-
-.tag:hover {
-    background: var(--tag-bg-hover);
-}
-/*===================================*
-    13.START TAG
+    20.END PRODUCT PURCHASE
 *===================================*/
