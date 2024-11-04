@@ -79,7 +79,7 @@
                     <ul class="sidebar-list">
                         <!-- DASHBOARDS -->
                         <li class="sidebar-item-has-menu">
-                            <a class="sidebar-item-link active" href="">
+                            <a class="sidebar-item-link sidebar-link active" href="javascript:;">
                                 <span class="sidebar-item-icon">
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0"
                                         viewBox="0 0 1024 1024" height="18px" width="18px"
@@ -94,9 +94,9 @@
                                 </span>
                             </a>
                             <!-- SUBMENU -->
-                            <ul class="sidebar-submenu-list">
-                                <li class="sidebar-submenu-item">
-                                    <a class="sidebar-submenu-item-link active" href="">
+                            <ul class="sidebar-submenu-list nav show">
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link active" href="javascript:;">
                                         <span class="sidebar-submenu-item-icon">
                                             <img src="assets/icon/circle.svg" alt="">
                                         </span>
@@ -105,8 +105,8 @@
                                         </span>
                                     </a>
                                 </li>
-                                <li class="sidebar-submenu-item">
-                                    <a class="sidebar-submenu-item-link" href="">
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link" href="javascript:;">
                                         <span class="sidebar-submenu-item-icon">
                                             <img src="assets/icon/circle.svg" alt="">
                                         </span>
@@ -120,7 +120,7 @@
 
                         <!-- Pages -->
                         <li class="sidebar-item-has-menu">
-                            <a class="sidebar-item-link " href="">
+                            <a class="sidebar-item-link sidebar-link" href="javascript:;">
                                 <span class="sidebar-item-icon">
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0"
                                         viewBox="0 0 1024 1024" height="18px" width="18px"
@@ -135,9 +135,10 @@
                                 </span>
                             </a>
                             <!-- SUBMENU -->
-                            <ul class="sidebar-submenu-list">
-                                <li class="sidebar-submenu-item">
-                                    <a class="sidebar-submenu-item-link" href="">
+                            <ul class="sidebar-submenu-list nav">
+                                <!-- USER -->
+                                <li class="sidebar-item sidebar-submenu-item-has-menu">
+                                    <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                         <span class="sidebar-submenu-item-icon">
                                             <img src="assets/icon/circle.svg" alt="">
                                         </span>
@@ -145,9 +146,47 @@
                                             Users
                                         </span>
                                     </a>
+
+                                    <!-- SUBMENU -->
+                                    <ul class="sidebar-submenu-list">
+                                        <!-- OVERVIEW -->
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
+                                                <span class="sidebar-submenu-item-icon">
+                                                    <img src="assets/icon/circle-north.svg" alt="">
+                                                </span>
+                                                <span class="sidebar-item-text">
+                                                    Overview
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <!-- LEADERBOARD -->
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
+                                                <span class="sidebar-submenu-item-icon">
+                                                    <img src="assets/icon/circle-north.svg" alt="">
+                                                </span>
+                                                <span class="sidebar-item-text">
+                                                    Leaderboard
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <!-- ADD USER -->
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
+                                                <span class="sidebar-submenu-item-icon">
+                                                    <img src="assets/icon/circle-north.svg" alt="">
+                                                </span>
+                                                <span class="sidebar-item-text">
+                                                    Add User
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li class="sidebar-submenu-item">
-                                    <a class="sidebar-submenu-item-link" href="">
+                                <!-- USER PROFILE -->
+                                <li class="sidebar-item sidebar-submenu-item-has-menu">
+                                    <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                         <span class="sidebar-submenu-item-icon">
                                             <img src="assets/icon/circle.svg" alt="">
                                         </span>
@@ -156,17 +195,166 @@
                                         </span>
                                     </a>
                                 </li>
+                                <!-- ACCOUNT-->
+                                <li class="sidebar-item sidebar-submenu-item-has-menu">
+                                    <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
+                                        <span class="sidebar-submenu-item-icon">
+                                            <img src="assets/icon/circle.svg" alt="">
+                                        </span>
+                                        <span class="sidebar-item-text">
+                                            Acount
+                                        </span>
+                                    </a>
+                                </li>
+                                <!-- E-COMMERCE -->
+                                <li class="sidebar-item sidebar-submenu-item-has-menu">
+                                    <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
+                                        <span class="sidebar-submenu-item-icon">
+                                            <img src="assets/icon/circle.svg" alt="">
+                                        </span>
+                                        <span class="sidebar-item-text">
+                                            E-commerce
+                                        </span>
+                                    </a>
+                                </li>
+                                <!-- PROJECTS -->
+                                <li class="sidebar-item sidebar-submenu-item-has-menu">
+                                    <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
+                                        <span class="sidebar-submenu-item-icon">
+                                            <img src="assets/icon/circle.svg" alt="">
+                                        </span>
+                                        <span class="sidebar-item-text">
+                                            Projects
+                                        </span>
+                                    </a>
+                                </li>
+                                <!-- PROJECT -->
+                                <li class="sidebar-item sidebar-submenu-item-has-menu">
+                                    <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
+                                        <span class="sidebar-submenu-item-icon">
+                                            <img src="assets/icon/circle.svg" alt="">
+                                        </span>
+                                        <span class="sidebar-item-text">
+                                            Project
+                                        </span>
+                                    </a>
+                                </li>
+                                <!-- REFERRALS -->
+                                <li class="sidebar-item sidebar-submenu-item-has-menu">
+                                    <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
+                                        <span class="sidebar-submenu-item-icon">
+                                            <img src="assets/icon/circle.svg" alt="">
+                                        </span>
+                                        <span class="sidebar-item-text">
+                                            Referrals
+                                        </span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
                         <!-- Apps -->
                         <li class="sidebar-item-has-menu">
-
+                            <a class="sidebar-item-link sidebar-link" href="javascript:;">
+                                <span class="sidebar-item-icon">
+                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                                        viewBox="0 0 1024 1024" height="18px" width="18px"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M946.5 505L560.1 118.8l-25.9-25.9a31.5 31.5 0 0 0-44.4 0L77.5 505a63.9 63.9 0 0 0-18.8 46c.4 35.2 29.7 63.3 64.9 63.3h42.5V940h691.8V614.3h43.4c17.1 0 33.2-6.7 45.3-18.8a63.6 63.6 0 0 0 18.7-45.3c0-17-6.7-33.1-18.8-45.2zM568 868H456V664h112v204zm217.9-325.7V868H632V640c0-22.1-17.9-40-40-40H432c-22.1 0-40 17.9-40 40v228H238.1V542.3h-96l370-369.7 23.1 23.1L882 542.3h-96.1z">
+                                        </path>
+                                    </svg>
+                                </span>
+                                <span class="sidebar-item-text">
+                                    Apps
+                                </span>
+                            </a>
+                            <!-- SUBMENU -->
+                            <ul class="sidebar-submenu-list nav">
+                                <!-- CALENDAR -->
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link" href="javascript:;">
+                                        <span class="sidebar-submenu-item-icon">
+                                            <img src="assets/icon/circle.svg" alt="">
+                                        </span>
+                                        <span class="sidebar-item-text">
+                                            Calendars
+                                        </span>
+                                    </a>
+                                </li>
+                                <!-- FILE MANAGER -->
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link" href="javascript:;">
+                                        <span class="sidebar-submenu-item-icon">
+                                            <img src="assets/icon/circle.svg" alt="">
+                                        </span>
+                                        <span class="sidebar-item-text">
+                                            File Manager
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
 
                         <!-- Authentication -->
                         <li class="sidebar-item-has-menu">
+                            <a class="sidebar-item-link sidebar-link" href="javascript:;">
+                                <span class="sidebar-item-icon">
+                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                                        viewBox="0 0 1024 1024" height="18px" width="18px"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M946.5 505L560.1 118.8l-25.9-25.9a31.5 31.5 0 0 0-44.4 0L77.5 505a63.9 63.9 0 0 0-18.8 46c.4 35.2 29.7 63.3 64.9 63.3h42.5V940h691.8V614.3h43.4c17.1 0 33.2-6.7 45.3-18.8a63.6 63.6 0 0 0 18.7-45.3c0-17-6.7-33.1-18.8-45.2zM568 868H456V664h112v204zm217.9-325.7V868H632V640c0-22.1-17.9-40-40-40H432c-22.1 0-40 17.9-40 40v228H238.1V542.3h-96l370-369.7 23.1 23.1L882 542.3h-96.1z">
+                                        </path>
+                                    </svg>
+                                </span>
+                                <span class="sidebar-item-text">
+                                    Authentication
+                                </span>
+                            </a>
+                            <!-- SUBMENU -->
+                            <ul class="sidebar-submenu-list nav">
+                                <!-- SIGN IN -->
+                                <li class="sidebar-item">
+                                    <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
+                                        <span class="sidebar-submenu-item-icon">
+                                            <img src="assets/icon/circle.svg" alt="">
+                                        </span>
+                                        <span class="sidebar-item-text">
+                                            Sign In
+                                        </span>
+                                    </a>
+                                </li>
+                                <!-- SIGN UP -->
+                                <li class="sidebar-item">
+                                    <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
+                                        <span class="sidebar-submenu-item-icon">
+                                            <img src="assets/icon/circle.svg" alt="">
+                                        </span>
+                                        <span class="sidebar-item-text">
+                                            Sign Up
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
+                        <!-- WELCOME PAGE -->
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="">
+                                <span class="sidebar-item-icon">
+                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                                        viewBox="0 0 1024 1024" height="18px" width="18px"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M946.5 505L560.1 118.8l-25.9-25.9a31.5 31.5 0 0 0-44.4 0L77.5 505a63.9 63.9 0 0 0-18.8 46c.4 35.2 29.7 63.3 64.9 63.3h42.5V940h691.8V614.3h43.4c17.1 0 33.2-6.7 45.3-18.8a63.6 63.6 0 0 0 18.7-45.3c0-17-6.7-33.1-18.8-45.2zM568 868H456V664h112v204zm217.9-325.7V868H632V640c0-22.1-17.9-40-40-40H432c-22.1 0-40 17.9-40 40v228H238.1V542.3h-96l370-369.7 23.1 23.1L882 542.3h-96.1z">
+                                        </path>
+                                    </svg>
+                                </span>
+                                <span class="sidebar-item-text">
+                                    Welcome Page
+                                </span>
+                            </a>
                         </li>
                     </ul>
                 </main>

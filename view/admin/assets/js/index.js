@@ -73,7 +73,6 @@ tooltipElements.forEach(element => {
     });
 });
 
-
 /*******************************************
  * 
  *          Sidebar
@@ -94,4 +93,52 @@ btnCollapse.addEventListener('click', () => {
     } else {
         body.classList.add('navbar-vertical-aside-mini-mode');
     }
+});
+
+/*******************************************
+ * 
+ *          Sidebar Submenu
+ * 
+ *******************************************/
+const sidebarItemHasMenu = document.querySelectorAll('.sidebar-item-has-menu .sidebar-item-link');
+
+sidebarItemHasMenu.forEach(element => {
+    element.addEventListener('click', () => {
+        const submenu = element.nextElementSibling;
+
+        if (element.classList.contains("active")) {
+            submenu.classList.remove("show");
+            element.classList.remove("active");
+        }
+
+        else {
+            // Loại bỏ lớp 'active' và ẩn tất cả các submenu
+            sidebarItemHasMenu.forEach(el => {
+                el.classList.remove("active");
+                el.nextElementSibling.classList.remove("show");
+            });
+            // Thêm lớp 'active' vào element hiện tại và hiển thị submenu của nó
+            submenu.classList.add("show");
+            element.classList.add("active");
+        }
+    });
+})
+
+const sidebarSubmenuList1 = document.querySelectorAll('.sidebar-item-has-menu');
+
+const sidebarLink = document.querySelectorAll('.sidebar-link');
+
+sidebarLink.forEach(element => {
+    element.addEventListener('click', () => {
+        if (element.classList.contains("active")) {
+            element.classList.remove("active");
+        }
+        else {
+            sidebarLink.forEach(el => {
+                el.classList.remove("active");
+            });
+
+            element.classList.add("active");
+        }
+    });
 });
