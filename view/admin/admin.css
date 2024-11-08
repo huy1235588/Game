@@ -526,7 +526,7 @@ body.navbar-vertical-aside-mini-mode .sidebar-logo-mini-icon {
     display: block;
 }
 
-.sidebar-submenu-item-has-menu .sidebar-link::after {
+.sidebar-submenu-item-has-menu > .sidebar-link::after {
     display: inline-block;
     width: 1rem;
     height: 1rem;
@@ -535,7 +535,7 @@ body.navbar-vertical-aside-mini-mode .sidebar-logo-mini-icon {
     transition: 0.5s ease;
 }
 
-.sidebar-submenu-item-has-menu .sidebar-link.active::after {
+.sidebar-submenu-item-has-menu > .sidebar-link.active::after {
     -webkit-transform: rotate(-180deg);
     transform: rotate(-180deg);
 }
@@ -566,6 +566,17 @@ body.navbar-vertical-aside-mini-mode .sidebar-logo-mini-icon {
 .sidebar-link.active .sidebar-submenu-item-icon img {
     filter: invert(1) brightness(1000%);
 }
+
+/* Submenu 2 */
+.sidebar-list .nav .nav .sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 0.375rem 1.75rem 0.375rem 4.25rem;
+    border: 3px solid transparent;
+    border-width: 0 0 0 3px;
+}
+
+
 /*===================================*
     05.END SIDEBAR SUBMENU
 *===================================*/
@@ -674,5 +685,5 @@ body.navbar-vertical-aside-mini-mode .sidebar-logo-mini-icon {
     border-left-color: #132144;
 }
 /*===================================*
-    03.END TOOLTIP
+    20.END TOOLTIP
 *===================================*/

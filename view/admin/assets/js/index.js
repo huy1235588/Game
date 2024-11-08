@@ -100,7 +100,7 @@ btnCollapse.addEventListener('click', () => {
  *          Sidebar Submenu
  * 
  *******************************************/
-const sidebarItemHasMenu = document.querySelectorAll('.sidebar-item-has-menu .sidebar-item-link');
+const sidebarItemHasMenu = document.querySelectorAll('.sidebar-item-has-menu > .sidebar-link');
 
 sidebarItemHasMenu.forEach(element => {
     element.addEventListener('click', () => {
@@ -124,20 +124,25 @@ sidebarItemHasMenu.forEach(element => {
     });
 })
 
-const sidebarSubmenuList1 = document.querySelectorAll('.sidebar-item-has-menu');
+// Submenu level 2
+const sidebarSubMenuLink = document.querySelectorAll('.sidebar-submenu-item-has-menu > .sidebar-link');
 
-const sidebarLink = document.querySelectorAll('.sidebar-link');
-
-sidebarLink.forEach(element => {
+sidebarSubMenuLink.forEach(element => {
     element.addEventListener('click', () => {
+        const submenu = element.nextElementSibling;
+
         if (element.classList.contains("active")) {
+            submenu.classList.remove("show");
             element.classList.remove("active");
         }
         else {
-            sidebarLink.forEach(el => {
+            sidebarSubMenuLink.forEach(el => {
+                // Loại bỏ lớp 'active' và ẩn tất cả các submenu
                 el.classList.remove("active");
+                // el.nextElementSibling.classList.remove("show");
             });
-
+            // Thêm lớp 'active' vào element hiện tại và hiển thị submenu của nó
+            submenu.classList.add("show");
             element.classList.add("active");
         }
     });
