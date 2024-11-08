@@ -489,14 +489,14 @@ body.navbar-vertical-aside-mini-mode .sidebar-logo-mini-icon {
     color: var(--sidebar-text);
 }
 
-.sidebar-item-link:hover .sidebar-item-icon svg,
-.sidebar-item-link.active .sidebar-item-icon svg {
+.sidebar-link:hover .sidebar-item-icon svg,
+.sidebar-link.active .sidebar-item-icon svg {
     fill: #fff;
     stroke: #fff;
 }
 
-.sidebar-item-link:hover .sidebar-item-text,
-.sidebar-item-link.active .sidebar-item-text {
+.sidebar-link:hover .sidebar-item-text,
+.sidebar-link.active .sidebar-item-text {
     color: #fff;
 }
 /*===================================*
@@ -520,10 +520,6 @@ body.navbar-vertical-aside-mini-mode .sidebar-logo-mini-icon {
 .sidebar-submenu-list {
     display: none;
 }
-
-/* .sidebar-submenu-list.show {
-    display: block;
-} */
 
 .sidebar-list .nav .sidebar-link {
     display: flex;
