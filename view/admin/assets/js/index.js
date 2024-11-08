@@ -95,55 +95,92 @@ btnCollapse.addEventListener('click', () => {
     }
 });
 
+
+// Kiểm tra nếu có thanh scrollbar trong sidebar-content
+$(function () {
+    const sidebarContent = $('.sidebar-content');
+    const sidebarList = document.querySelector('.sidebar-list');
+
+    function updateSidebarWidth() {
+        if (sidebarContent.hasScrollBar()) {
+            sidebarList.style.width = 'initial';
+        } else {
+            sidebarList.style.width = "calc(100% - 0.6125rem)";
+        }
+    }
+
+    updateSidebarWidth();
+
+    $(window).on('click', updateSidebarWidth);
+
+});
+
+(function ($) {
+    $.fn.hasScrollBar = function () {
+        return this.get(0).scrollHeight > this.get(0).clientHeight;
+    }
+})(jQuery);
+
+
 /*******************************************
  * 
  *          Sidebar Submenu
  * 
  *******************************************/
-const sidebarItemHasMenu = document.querySelectorAll('.sidebar-item-has-menu > .sidebar-link');
+function toggleSidebarSubMenu(elements) {
+    elements.forEach(element => {
+        element.addEventListener('click', () => {
+            const submenu = element.nextElementSibling;
 
-sidebarItemHasMenu.forEach(element => {
-    element.addEventListener('click', () => {
-        const submenu = element.nextElementSibling;
+            if (element.classList.contains("active")) {
+                element.classList.remove("active");
+            }
 
-        if (element.classList.contains("active")) {
-            submenu.classList.remove("show");
-            element.classList.remove("active");
-        }
-
-        else {
-            // Loại bỏ lớp 'active' và ẩn tất cả các submenu
-            sidebarItemHasMenu.forEach(el => {
-                el.classList.remove("active");
-                el.nextElementSibling.classList.remove("show");
-            });
-            // Thêm lớp 'active' vào element hiện tại và hiển thị submenu của nó
-            submenu.classList.add("show");
-            element.classList.add("active");
-        }
+            else {
+                // Loại bỏ lớp 'active' và ẩn tất cả các submenu
+                elements.forEach(el => {
+                    el.classList.remove("active");
+                });
+                // Thêm lớp 'active' vào element hiện tại và hiển thị submenu của nó
+                element.classList.add("active");
+            }
+        });
     });
-})
+}
+
+// Submenu level 1
+const sidebarItemHasMenu = document.querySelectorAll('.sidebar-item-has-menu > .sidebar-link');
+toggleSidebarSubMenu(sidebarItemHasMenu);
 
 // Submenu level 2
-const sidebarSubMenuLink = document.querySelectorAll('.sidebar-submenu-item-has-menu > .sidebar-link');
+const sidebarSubMenuLink = document.querySelectorAll('.sidebar-item-has-menu > .nav > .sidebar-submenu-item-has-menu > .sidebar-link');
+toggleSidebarSubMenu(sidebarSubMenuLink);
 
-sidebarSubMenuLink.forEach(element => {
-    element.addEventListener('click', () => {
-        const submenu = element.nextElementSibling;
+// Submenu level 3
+const sidebarSubMenuLink3 = document.querySelectorAll('.sidebar-item-has-menu > .nav .nav .sidebar-submenu-item-has-menu > .sidebar-link');
+toggleSidebarSubMenu(sidebarSubMenuLink3);
 
-        if (element.classList.contains("active")) {
-            submenu.classList.remove("show");
-            element.classList.remove("active");
-        }
-        else {
-            sidebarSubMenuLink.forEach(el => {
-                // Loại bỏ lớp 'active' và ẩn tất cả các submenu
-                el.classList.remove("active");
-                // el.nextElementSibling.classList.remove("show");
+$(document).ready(function () {
+    // Gán class 'show' cho submenu đầu tiên khi trang tải (tùy chọn)
+    $('.sidebar-submenu-list').first().addClass('show').slideDown(0);
+    
+    // Event click để toggle các submenu
+    $('.sidebar-link').on('click', function (e) {
+        const $submenuList = $(e.currentTarget).siblings('.sidebar-submenu-list');
+
+        if ($submenuList.hasClass('show')) {
+            // Nếu submenu đang có class 'show', thực hiện đóng nó
+            $submenuList.slideUp(200, function () {
+                $submenuList.removeClass('show'); // Xóa class 'show' khi đóng
             });
-            // Thêm lớp 'active' vào element hiện tại và hiển thị submenu của nó
-            submenu.classList.add("show");
-            element.classList.add("active");
+        } else {
+            // Nếu submenu không có class 'show', mở nó và thêm class 'show'
+            $submenuList.addClass('show').slideDown(200);
         }
+
+        // Đóng tất cả các submenu khác khi một submenu được mở
+        $('.sidebar-submenu-list').not($submenuList).slideUp(200, function () {
+            $(this).removeClass('show'); // Xóa class 'show' cho các submenu khác
+        });
     });
 });

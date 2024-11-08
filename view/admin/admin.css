@@ -44,6 +44,9 @@ Author       : LeThienHuy.
     --sidebar-text: #96a2c1;
     --sidebar-icon: #96a2c1;
     --sidebar-subitem-active: #377dff;
+
+    /* SUBMENU */
+    --scrollbar-thumb: #bdc5d199;
 }
 
 body {
@@ -365,7 +368,10 @@ body.navbar-vertical-aside-mini-mode aside {
     height: 100%;
     min-height: 100%;
     max-width: 100%;
-    overflow-y: overlay;
+}
+
+.sidebar-offset{
+    height: 100%;
 }
 
 /* Logo */
@@ -418,11 +424,21 @@ body.navbar-vertical-aside-mini-mode .sidebar-logo-mini-icon {
 .sidebar-content {
     height: calc(100% - 3.75rem);
     font-size: 14px;
+    overflow-y: overlay;
+}
+
+.sidebar-content::-webkit-scrollbar {
+    width: 0.6125rem;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
 }
 
 .sidebar-list {
     display: flex;
     flex-direction: column;
+    width: calc(100% -  0.6125rem);
 }
 
 .sidebar-list .sidebar-link {
@@ -505,9 +521,9 @@ body.navbar-vertical-aside-mini-mode .sidebar-logo-mini-icon {
     display: none;
 }
 
-.sidebar-submenu-list.show {
+/* .sidebar-submenu-list.show {
     display: block;
-}
+} */
 
 .sidebar-list .nav .sidebar-link {
     display: flex;
@@ -572,6 +588,15 @@ body.navbar-vertical-aside-mini-mode .sidebar-logo-mini-icon {
     display: flex;
     align-items: center;
     padding: 0.375rem 1.75rem 0.375rem 4.25rem;
+    border: 3px solid transparent;
+    border-width: 0 0 0 3px;
+}
+
+/* Submenu 3 */
+.sidebar-list .nav .nav .nav .sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 0.375rem 1.75rem 0.375rem 5.25rem;
     border: 3px solid transparent;
     border-width: 0 0 0 3px;
 }
