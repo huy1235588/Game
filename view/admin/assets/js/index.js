@@ -127,60 +127,87 @@ $(function () {
  *          Sidebar Submenu
  * 
  *******************************************/
-function toggleSidebarSubMenu(elements) {
-    elements.forEach(element => {
-        element.addEventListener('click', () => {
-            const submenu = element.nextElementSibling;
+function toggleSidebarSubMenu(element, sidebarLink, e) {
+    console.log($(sidebarLink).not($(e.currentTarget)))
 
-            if (element.classList.contains("active")) {
-                element.classList.remove("active");
-            }
+    // Xóa toàn bộ lớp 'active' ngoài element đang nhấn
+    $(sidebarLink).not($(e.currentTarget)).removeClass("active");
 
-            else {
-                // Loại bỏ lớp 'active' và ẩn tất cả các submenu
-                elements.forEach(el => {
-                    el.classList.remove("active");
-                });
-                // Thêm lớp 'active' vào element hiện tại và hiển thị submenu của nó
-                element.classList.add("active");
-            }
-        });
-    });
+    // Xóa lớp 'active'
+    if (element.classList.contains("active")) {
+        element.classList.remove("active");
+    }
+
+    // Thêm lớp 'active'
+    else {
+        element.classList.add("active");
+    }
 }
-
-// Submenu level 1
-const sidebarItemHasMenu = document.querySelectorAll('.sidebar-item-has-menu > .sidebar-link');
-toggleSidebarSubMenu(sidebarItemHasMenu);
-
-// Submenu level 2
-const sidebarSubMenuLink = document.querySelectorAll('.sidebar-item-has-menu > .nav > .sidebar-submenu-item-has-menu > .sidebar-link');
-toggleSidebarSubMenu(sidebarSubMenuLink);
-
-// Submenu level 3
-const sidebarSubMenuLink3 = document.querySelectorAll('.sidebar-item-has-menu > .nav .nav .sidebar-submenu-item-has-menu > .sidebar-link');
-toggleSidebarSubMenu(sidebarSubMenuLink3);
 
 $(document).ready(function () {
     // Gán class 'show' cho submenu đầu tiên khi trang tải (tùy chọn)
-    $('.sidebar-submenu-list').first().addClass('show').slideDown(0);
-    
+    $('.sidebar-submenu-list.show').slideDown(0);
+
     // Event click để toggle các submenu
     $('.sidebar-link').on('click', function (e) {
-        const $submenuList = $(e.currentTarget).siblings('.sidebar-submenu-list');
+        // Submenu level 3
+        if ($(this).parent().parent().parent().hasClass("sidebar-submenu-item-has-menu")) {
+            if ($(e.currentTarget).siblings('.sidebar-submenu-list').hasClass('show')) {
+                // Nếu submenu đang có class 'show', thực hiện đóng nó
+                $(e.currentTarget).siblings('.sidebar-submenu-list').slideUp(200, function () {
+                    $(e.currentTarget).siblings('.sidebar-submenu-list').removeClass('show'); // Xóa class 'show' khi đóng
+                });
+            } else {
+                // Nếu submenu không có class 'show', mở nó và thêm class 'show'
+                $(e.currentTarget).siblings('.sidebar-submenu-list').addClass('show').slideDown(200);
+            }
 
-        if ($submenuList.hasClass('show')) {
-            // Nếu submenu đang có class 'show', thực hiện đóng nó
-            $submenuList.slideUp(200, function () {
-                $submenuList.removeClass('show'); // Xóa class 'show' khi đóng
+            // Đóng tất cả các submenu khác khi một submenu được mở
+            $(".sidebar-submenu-list.show > .sidebar-submenu-item-has-menu .sidebar-submenu-list .sidebar-submenu-item-has-menu .sidebar-submenu-list").not($(e.currentTarget).siblings('.sidebar-submenu-list')).slideUp(200, function () {
+                $(this).removeClass('show'); // Xóa class 'show' cho các submenu khác
             });
-        } else {
-            // Nếu submenu không có class 'show', mở nó và thêm class 'show'
-            $submenuList.addClass('show').slideDown(200);
+
+            toggleSidebarSubMenu($(this)[0], ".sidebar-item-has-menu > .sidebar-submenu-list > .sidebar-submenu-item-has-menu > .sidebar-submenu-list > .sidebar-submenu-item-has-menu > .sidebar-submenu-item-link", e);
         }
 
-        // Đóng tất cả các submenu khác khi một submenu được mở
-        $('.sidebar-submenu-list').not($submenuList).slideUp(200, function () {
-            $(this).removeClass('show'); // Xóa class 'show' cho các submenu khác
-        });
+        // Submenu level 2
+        else if ($(this).parent().hasClass("sidebar-submenu-item-has-menu")) {
+            if ($(e.currentTarget).siblings('.sidebar-submenu-list').hasClass('show')) {
+                // Nếu submenu đang có class 'show', thực hiện đóng nó
+                $(e.currentTarget).siblings('.sidebar-submenu-list').slideUp(200, function () {
+                    $(e.currentTarget).siblings('.sidebar-submenu-list').removeClass('show'); // Xóa class 'show' khi đóng
+                });
+            } else {
+                // Nếu submenu không có class 'show', mở nó và thêm class 'show'
+                $(e.currentTarget).siblings('.sidebar-submenu-list').addClass('show').slideDown(200);
+            }
+
+            // Đóng tất cả các submenu khác khi một submenu được mở
+            $(".sidebar-submenu-list.show > .sidebar-submenu-item-has-menu .sidebar-submenu-list").not($(e.currentTarget).siblings('.sidebar-submenu-list')).slideUp(200, function () {
+                $(this).removeClass('show'); // Xóa class 'show' cho các submenu khác
+            });
+
+            toggleSidebarSubMenu($(this)[0], ".sidebar-item-has-menu > .sidebar-submenu-list > .sidebar-submenu-item-has-menu > .sidebar-submenu-item-link", e);
+        }
+
+        // Submenu level 1
+        else {
+            if ($(e.currentTarget).siblings('.sidebar-submenu-list').hasClass('show')) {
+                // Nếu submenu đang có class 'show', thực hiện đóng nó
+                $(e.currentTarget).siblings('.sidebar-submenu-list').slideUp(200, function () {
+                    $(e.currentTarget).siblings('.sidebar-submenu-list').removeClass('show'); // Xóa class 'show' khi đóng
+                });
+            } else {
+                // Nếu submenu không có class 'show', mở nó và thêm class 'show'
+                $(e.currentTarget).siblings('.sidebar-submenu-list').addClass('show').slideDown(200);
+            }
+
+            // Đóng tất cả các submenu khác khi một submenu được mở
+            $('.sidebar-submenu-list').not($(e.currentTarget).siblings('.sidebar-submenu-list')).slideUp(200, function () {
+                $(this).removeClass('show'); // Xóa class 'show' cho các submenu khác
+            });
+
+            toggleSidebarSubMenu($(this)[0], ".sidebar-item-link", e);
+        }
     });
 });
