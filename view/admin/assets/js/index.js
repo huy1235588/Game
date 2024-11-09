@@ -1,8 +1,8 @@
 /*******************************************
- * 
- *          Search input
- * 
- *******************************************/
+* 
+*          Search input
+* 
+*******************************************/
 const searchClear = document.querySelector('.search-clear');
 const inputSearch = document.querySelector('.input-search');
 
@@ -18,10 +18,10 @@ inputSearch.addEventListener('input', (e) => {
 });
 
 /*******************************************
- * 
- *          Tooltip
- * 
- *******************************************/
+* 
+*          Tooltip
+* 
+*******************************************/
 // Get all elements with data-toggle="tooltip"
 const tooltipElements = document.querySelectorAll('[data-toggle="tooltip"]');
 
@@ -74,62 +74,11 @@ tooltipElements.forEach(element => {
 });
 
 /*******************************************
- * 
- *          Sidebar
- * 
- *******************************************/
-const body = document.getElementsByTagName('body')[0],
-    isMini = window.localStorage.getItem('hs-navbar-vertical-aside-mini') === null ? false : window.localStorage.getItem('hs-navbar-vertical-aside-mini');
-
-if (isMini) {
-    body.classList.add('navbar-vertical-aside-mini-mode')
-}
-
-// Thu nhỏ aside
-var btnCollapse = document.querySelector('.toggle-vertical-aside');
-btnCollapse.addEventListener('click', () => {
-    if (body.classList.contains('navbar-vertical-aside-mini-mode')) {
-        body.classList.remove('navbar-vertical-aside-mini-mode');
-    } else {
-        body.classList.add('navbar-vertical-aside-mini-mode');
-    }
-});
-
-
-// Kiểm tra nếu có thanh scrollbar trong sidebar-content
-$(function () {
-    const sidebarContent = $('.sidebar-content');
-    const sidebarList = document.querySelector('.sidebar-list');
-
-    function updateSidebarWidth() {
-        if (sidebarContent.hasScrollBar()) {
-            sidebarList.style.width = 'initial';
-        } else {
-            sidebarList.style.width = "calc(100% - 0.6125rem)";
-        }
-    }
-
-    updateSidebarWidth();
-
-    $(window).on('click', updateSidebarWidth);
-
-});
-
-(function ($) {
-    $.fn.hasScrollBar = function () {
-        return this.get(0).scrollHeight > this.get(0).clientHeight;
-    }
-})(jQuery);
-
-
-/*******************************************
- * 
- *          Sidebar Submenu
- * 
- *******************************************/
+* 
+*          Sidebar Submenu
+* 
+*******************************************/
 function toggleSidebarSubMenu(element, sidebarLink, e) {
-    console.log($(sidebarLink).not($(e.currentTarget)))
-
     // Xóa toàn bộ lớp 'active' ngoài element đang nhấn
     $(sidebarLink).not($(e.currentTarget)).removeClass("active");
 
@@ -210,4 +159,50 @@ $(document).ready(function () {
             toggleSidebarSubMenu($(this)[0], ".sidebar-item-link", e);
         }
     });
+});
+
+/*******************************************
+* 
+*          Toggle aside
+* 
+*******************************************/
+const body = document.getElementsByTagName('body')[0],
+    isMini = window.localStorage.getItem('hs-navbar-vertical-aside-mini') === null ? false : window.localStorage.getItem('hs-navbar-vertical-aside-mini');
+
+if (isMini) {
+    body.classList.add('navbar-vertical-aside-mini-mode')
+}
+
+// Thu nhỏ aside
+var btnCollapse = document.querySelector('.toggle-vertical-aside');
+btnCollapse.addEventListener('click', () => {
+    if (body.classList.contains('navbar-vertical-aside-mini-mode')) {
+        body.classList.remove('navbar-vertical-aside-mini-mode');
+        document.querySelector(".sidebar-item-has-menu > .sidebar-submenu-list.show").style.display = "block";
+        if (document.querySelector(".sidebar-list > .sidebar-item-has-menu > .sidebar-submenu-list.show > .sidebar-submenu-item-has-menu > .sidebar-submenu-list.show")) {
+            document.querySelector(".sidebar-list > .sidebar-item-has-menu > .sidebar-submenu-list.show > .sidebar-submenu-item-has-menu > .sidebar-submenu-list.show").style.display = "block";
+        }
+        if (document.querySelector(".sidebar-list > .sidebar-item-has-menu > .sidebar-submenu-list.show > .sidebar-submenu-item-has-menu > .sidebar-submenu-list.show > .sidebar-submenu-item-has-menu > .sidebar-submenu-list.show")) {
+            document.querySelector(".sidebar-list > .sidebar-item-has-menu > .sidebar-submenu-list.show > .sidebar-submenu-item-has-menu > .sidebar-submenu-list.show > .sidebar-submenu-item-has-menu > .sidebar-submenu-list.show").style.display = "block";
+        }
+
+        document.querySelectorAll(".nav-tabs > li").forEach(element => {
+            element.firstElementChild.style.pointerEvents = "auto";
+        });
+
+    } else {
+        body.classList.add('navbar-vertical-aside-mini-mode');
+
+        document.querySelector(".sidebar-list").style.width = "100%";
+
+        document.querySelectorAll(".sidebar-submenu-list").forEach(element => {
+            element.style.display = "none";
+        });
+
+        document.querySelectorAll(".nav-tabs > li").forEach(element => {
+            element.firstElementChild.style.pointerEvents = "none";
+            element.style.cursor = "pointer";
+        });
+
+    }
 });
