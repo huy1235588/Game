@@ -173,12 +173,25 @@ if (isMini) {
     body.classList.add('navbar-vertical-aside-mini-mode')
 }
 
+// Định nghĩa các hàm sự kiện
+function showMenu(event) {
+    event.currentTarget.lastElementChild.style.display = "block";
+}
+
+function hideMenu(event) {
+    event.currentTarget.lastElementChild.style.display = "none";
+}
+
 // Thu nhỏ aside
 var btnCollapse = document.querySelector('.toggle-vertical-aside');
 btnCollapse.addEventListener('click', () => {
     if (body.classList.contains('navbar-vertical-aside-mini-mode')) {
+        // Thu nhỏ aside
         body.classList.remove('navbar-vertical-aside-mini-mode');
-        document.querySelector(".sidebar-item-has-menu > .sidebar-submenu-list.show").style.display = "block";
+
+        if (document.querySelector(".sidebar-item-has-menu > .sidebar-submenu-list.show")) {
+            document.querySelector(".sidebar-item-has-menu > .sidebar-submenu-list.show").style.display = "block";
+        }
         if (document.querySelector(".sidebar-list > .sidebar-item-has-menu > .sidebar-submenu-list.show > .sidebar-submenu-item-has-menu > .sidebar-submenu-list.show")) {
             document.querySelector(".sidebar-list > .sidebar-item-has-menu > .sidebar-submenu-list.show > .sidebar-submenu-item-has-menu > .sidebar-submenu-list.show").style.display = "block";
         }
@@ -190,10 +203,15 @@ btnCollapse.addEventListener('click', () => {
             element.firstElementChild.style.pointerEvents = "auto";
         });
 
-    } else {
-        body.classList.add('navbar-vertical-aside-mini-mode');
+        // Xóa sự kiện hiện menu
+        document.querySelectorAll(".sidebar-item-has-menu").forEach(element => {
+            element.removeEventListener('mouseenter', showMenu);
+            element.removeEventListener('mouseleave', hideMenu);
+        });
 
-        document.querySelector(".sidebar-list").style.width = "100%";
+    } else {
+        // Phóng to aside
+        body.classList.add('navbar-vertical-aside-mini-mode');
 
         document.querySelectorAll(".sidebar-submenu-list").forEach(element => {
             element.style.display = "none";
@@ -204,5 +222,15 @@ btnCollapse.addEventListener('click', () => {
             element.style.cursor = "pointer";
         });
 
+        // Thêm sự kiện hiện menu
+        document.querySelectorAll(".sidebar-item-has-menu").forEach(element => {
+            element.addEventListener('mouseenter', showMenu);
+            element.addEventListener('mouseleave', hideMenu);
+        });
+
+        // Set vị trí hiện menu
+        document.querySelectorAll('.sidebar-submenu-list').forEach(element => {
+            element.style.top = `${element.previousElementSibling.offsetTop}px`;
+        })
     }
 });

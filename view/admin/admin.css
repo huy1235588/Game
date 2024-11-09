@@ -233,6 +233,16 @@ header {
     overflow-x: hidden;
 }
 
+.navbar-logo-wrapper .navbar-logo {
+    margin-right: 16px;
+}
+
+.navbar-logo-wrapper .navbar-logo img {
+    width: 100%;
+    min-width: 6.5rem;
+    max-width: 6.5rem;
+}
+
 .navbar-content-left {
     display: flex;
 }
@@ -439,6 +449,24 @@ aside {
     border-left-color: var(--sidebar-subitem-active);
 }
 
+.sidebar-item-has-menu .sidebar-item-link {
+    position: relative;
+}
+
+.sidebar-item-has-menu .sidebar-item-link::before {
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0;
+    transform: translateY(-50%);
+    transition: opacity 0.3s;
+}
+
 .sidebar-item-has-menu .sidebar-item-link::after {
     display: inline-block;
     width: 1rem;
@@ -622,19 +650,36 @@ body.navbar-vertical-aside-mini-mode .sidebar-logo-mini-icon {
 }
 
 /* Sidebar */
-body.navbar-vertical-aside-mini-mode .sidebar-item-text {
+body.navbar-vertical-aside-mini-mode
+    .sidebar-list
+    > li
+    > .sidebar-link
+    > .sidebar-item-text {
     display: none;
+}
+
+body.navbar-vertical-aside-mini-mode
+    .sidebar-item-has-menu
+    .sidebar-item-link::before {
+    opacity: 1;
 }
 
 body.navbar-vertical-aside-mini-mode .nav-tabs .sidebar-link.active {
     border-left-color: var(--sidebar-subitem-active);
 }
+
 /* Submenu */
-body.navbar-vertical-aside-mini-mode .sidebar-submenu-list {
+body.navbar-vertical-aside-mini-mode
+    .sidebar-list
+    > .sidebar-item-has-menu
+    > .sidebar-submenu-list {
     position: absolute;
     top: 0;
     left: calc(100% + 0.9125rem);
+    left: calc(100% + 0rem);
     min-width: 15rem;
+    padding: 0;
+    background-color: #132144;
     z-index: 2;
 }
 
@@ -642,6 +687,16 @@ body.navbar-vertical-aside-mini-mode
     .sidebar-submenu-item-link
     .sidebar-item-text {
     display: block;
+}
+
+/* Sidebar-link */
+body.navbar-vertical-aside-mini-mode
+    .sidebar-item-has-menu
+    > .sidebar-submenu-list
+    > .sidebar-item
+    > .sidebar-link {
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 /*===================================*
