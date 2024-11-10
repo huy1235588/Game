@@ -55,7 +55,7 @@ tooltipElements.forEach(element => {
     let tooltip;
 
     // Show tooltip khi mouseover
-    element.addEventListener('mouseover', (event) => {
+    element.addEventListener('mouseover', () => {
         // Set văn bản tooltip từ data-original-title
         const title = element.getAttribute('data-original-title');
         const rect = element.getBoundingClientRect();
@@ -182,11 +182,10 @@ function hideMenu(event) {
     event.currentTarget.lastElementChild.style.display = "none";
 }
 
-// Thu nhỏ aside
-var btnCollapse = document.querySelector('.toggle-vertical-aside');
-btnCollapse.addEventListener('click', () => {
+// Hàm toggle aside
+function toggleAside() {
+    // Thu nhỏ aside
     if (body.classList.contains('navbar-vertical-aside-mini-mode')) {
-        // Thu nhỏ aside
         body.classList.remove('navbar-vertical-aside-mini-mode');
 
         if (document.querySelector(".sidebar-item-has-menu > .sidebar-submenu-list.show")) {
@@ -209,8 +208,10 @@ btnCollapse.addEventListener('click', () => {
             element.removeEventListener('mouseleave', hideMenu);
         });
 
-    } else {
-        // Phóng to aside
+    }
+
+    // Phóng to aside
+    else {
         body.classList.add('navbar-vertical-aside-mini-mode');
 
         document.querySelectorAll(".sidebar-submenu-list").forEach(element => {
@@ -233,4 +234,61 @@ btnCollapse.addEventListener('click', () => {
             element.style.top = `${element.previousElementSibling.offsetTop}px`;
         })
     }
+}
+
+// Thu nhỏ aside
+var btnCollapse = document.querySelector('.toggle-vertical-aside');
+btnCollapse.addEventListener('click', () => {
+    // Kiểm tra có phải màn hình mobile
+    if (checkMobileScreen()) {
+        body.classList.remove("navbar-vertical-aside-closed-mode");
+
+        if (!(body.classList.contains("navbar-vertical-aside-closed-mode"))) {
+            const closeMenuOnClickOutside = (e) => {
+                if (!document.querySelector('.navbar-vertical-aside').contains(e.target) && e.target !== btnCollapse) {
+                    body.classList.add("navbar-vertical-aside-closed-mode");
+                    // Xóa listener khi menu bị đóng
+                    window.removeEventListener('click', closeMenuOnClickOutside);
+                }
+            };
+
+            // setTimeout để trì hoãn việc thêm listener
+            setTimeout(() => {
+                window.addEventListener('click', closeMenuOnClickOutside);
+            }, 0);
+        }
+    }
+
+    else {
+        toggleAside();
+    }
+});
+
+/*******************************************
+* 
+*          Moblile
+* 
+*******************************************/
+// Hàm kiểm tra mobile screen
+function checkMobileScreen() {
+    return window.innerWidth <= 1200;
+}
+
+function toggleNavbarMode() {
+    if (checkMobileScreen()) {
+        $(body).addClass("navbar-vertical-aside-closed-mode");
+        $(body).removeClass("navbar-vertical-aside-mini-mode");
+    } else {
+        $(body).removeClass("navbar-vertical-aside-closed-mode");
+    }
+}
+
+// Gọi hàm khi trang load
+$(document).ready(function () {
+    toggleNavbarMode();
+});
+
+// Gọi hàm khi thay đổi kích thước cửa sổ
+$(window).resize(function () {
+    toggleNavbarMode();
 });

@@ -10,7 +10,10 @@ Author       : LeThienHuy.
     03.ASIDE
     04.SIDEBAR CONTENT
     05.SIDEBAR SUBMENU
-    06.END SIDEBAR MINI MODE
+    06.SIDEBAR MINI MODE
+    07.MOBILE HEADER ASIDE
+    
+    10.MAIN CONTENT
 
 *=============================================================*/
 /*===================================*
@@ -357,6 +360,7 @@ aside {
     width: 16.25rem;
     background-color: var(--sidebar-bg);
     transition: width 0.3s ease-in-out;
+    z-index: 10;
 }
 
 .sidebar-container {
@@ -471,7 +475,7 @@ aside {
     display: inline-block;
     width: 1rem;
     height: 1rem;
-    background: url(assets/icon/arrow-down.svg);
+    background: url(../../../assets/icon/arrow-down.svg);
     content: "";
     transition: 0.5s ease;
 }
@@ -549,7 +553,7 @@ aside {
     display: inline-block;
     width: 1rem;
     height: 1rem;
-    background: url(assets/icon/arrow-down.svg);
+    background: url(../../../assets/icon/arrow-down.svg);
     content: "";
     transition: 0.5s ease;
 }
@@ -701,6 +705,83 @@ body.navbar-vertical-aside-mini-mode
 
 /*===================================*
     06.END SIDEBAR MINI MODE
+*===================================*/
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+/*===================================*
+    07.START MOBILE HEADER ASIDE
+*===================================*/
+@media (max-width: 1200px) {
+    /* Header */
+    header {
+        margin-left: 0px;
+        margin-top: 20px;
+    }
+
+    /* Aside */
+    .navbar-vertical-aside-closed-mode .navbar-vertical-aside {
+        margin-left: -100%;
+    }
+
+    /* Toggle aside */
+    .toggle-collapse {
+        display: none;
+    }
+
+    .toggle-expand {
+        display: block;
+    }
+
+    /* Logo */
+    .navbar-logo-wrapper .navbar-logo .logo-icon {
+        min-width: 4rem;
+        max-width: 4rem;
+    }
+
+    /* Search */
+    .navbar-content-search {
+        display: none;
+    }
+}
+/*===================================*
+    07.END MOBILE HEADER ASIDE
+*===================================*/
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+/*===================================*
+    10.START MAIN CONTENT
+*===================================*/
+.main {
+    padding-left: 16.25rem;
+    padding-top: 3.75rem;
+}
+
+.content {
+    width: 100%;
+    padding: 1.65rem 2rem 1.75rem;
+}
+/*===================================*
+    10.END MAIN CONTENT
 *===================================*/
 /*
 
