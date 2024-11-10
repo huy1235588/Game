@@ -236,6 +236,15 @@ function toggleAside() {
     }
 }
 
+// Hàm ẩn menu của mobile
+const closeMenuOnClickOutside = (e) => {
+    if (!document.querySelector('.navbar-vertical-aside').contains(e.target) && e.target !== btnCollapse) {
+        body.classList.add("navbar-vertical-aside-closed-mode");
+        // Xóa listener khi menu bị đóng
+        window.removeEventListener('click', closeMenuOnClickOutside);
+    }
+};
+
 // Thu nhỏ aside
 var btnCollapse = document.querySelector('.toggle-vertical-aside');
 btnCollapse.addEventListener('click', () => {
@@ -243,19 +252,11 @@ btnCollapse.addEventListener('click', () => {
     if (checkMobileScreen()) {
         body.classList.remove("navbar-vertical-aside-closed-mode");
 
-        if (!(body.classList.contains("navbar-vertical-aside-closed-mode"))) {
-            const closeMenuOnClickOutside = (e) => {
-                if (!document.querySelector('.navbar-vertical-aside').contains(e.target) && e.target !== btnCollapse) {
-                    body.classList.add("navbar-vertical-aside-closed-mode");
-                    // Xóa listener khi menu bị đóng
-                    window.removeEventListener('click', closeMenuOnClickOutside);
-                }
-            };
-
+        if (!(body.classList.contains("navbar-vertical-aside-closed-mode"))) {          
             // setTimeout để trì hoãn việc thêm listener
             setTimeout(() => {
                 window.addEventListener('click', closeMenuOnClickOutside);
-            }, 0);
+            }, 100);
         }
     }
 
@@ -291,4 +292,5 @@ $(document).ready(function () {
 // Gọi hàm khi thay đổi kích thước cửa sổ
 $(window).resize(function () {
     toggleNavbarMode();
+    window.removeEventListener('click', closeMenuOnClickOutside);
 });

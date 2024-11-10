@@ -7,12 +7,13 @@ Author       : LeThienHuy.
   =============================
     01.GENERAL STYLE
     02.HEADER STYLE
-    03.ASIDE
-    04.SIDEBAR CONTENT
-    05.SIDEBAR SUBMENU
-    06.SIDEBAR MINI MODE
-    07.MOBILE HEADER ASIDE
-    
+    03.NAVBAR
+    04.ASIDE
+    05.SIDEBAR CONTENT
+    06.SIDEBAR SUBMENU
+    07.SIDEBAR MINI MODE
+    08.MOBILE HEADER ASIDE
+
     10.MAIN CONTENT
 
 *=============================================================*/
@@ -51,6 +52,12 @@ Author       : LeThienHuy.
 
     /* SUBMENU */
     --scrollbar-thumb: #bdc5d199;
+
+    /* Navbar-right */
+    --navbar-right-btn-bg-hover: #377dff1a;
+    --navbar-right-btn-icon: #71869d;
+    --navbar-right-btn-icon-hover: #377dff;
+    --navbar-right-avatar-status: #00c9a7;
 }
 
 body {
@@ -78,6 +85,11 @@ button {
     background: none;
     color: #fff;
     cursor: pointer;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
 }
 
 .container {
@@ -180,6 +192,17 @@ input[type="search"]::-webkit-search-results-decoration {
     -webkit-appearance: none;
 }
 
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.2s ease;
+    background-color: #13214440;
+}
 /*===================================*
     01.END GENERAL STYLE
 *===================================*/
@@ -205,14 +228,16 @@ footer {
 
 header {
     position: fixed;
-    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 60px;
-    z-index: 9;
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
     padding: 0 32px;
     margin-left: 260px;
+    z-index: 9;
     transition: margin 0.3s ease-in-out;
 }
 
@@ -248,6 +273,7 @@ header {
 
 .navbar-content-left {
     display: flex;
+    order: 2;
 }
 
 /* Navbar Vertical Toggle */
@@ -333,6 +359,7 @@ header {
     width: 15px;
     height: 15px;
 }
+
 /*===================================*
     02.END HEADER STYLE
 *===================================*/
@@ -349,7 +376,111 @@ header {
 
 */
 /*===================================*
-    03.START ASIDE
+    03.START NAVBAR
+*===================================*/
+.navbar-content-right {
+    order: 4;
+    margin-left: auto;
+}
+
+.navbar-list {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-item {
+    margin-right: 0.5rem;
+}
+
+/* Avatar */
+.avatar {
+    position: relative;
+    display: inline-block;
+    width: 2.1875rem;
+    height: 2.1875rem;
+    border-radius: 50%;
+}
+
+.avatar-img {
+    display: block;
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.avatar-status {
+    position: absolute;
+    bottom: -1.2px;
+    right: -1.2px;
+    display: inline-flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: baseline;
+    color: #fff;
+    background-color: var(--navbar-right-avatar-status);
+    font-weight: 600;
+    border: 0.125rem solid #fff;
+    width: 12px;
+    height: 12px;
+    font-size: 0.4375rem;
+    line-height: 1;
+    border-radius: 50%;
+}
+
+/* Button */
+.navbar-btn {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.625rem;
+    height: 2.625rem;
+    border-radius: 50%;
+    font-size: 0.92969rem;
+    font-weight: 400;
+}
+
+/* Button icon */
+.navbar-btn-icon svg {
+    fill: var(--navbar-right-btn-icon);
+    stroke: var(--navbar-right-btn-icon);
+}
+
+.navbar-btn:hover {
+    background-color: var(--navbar-right-btn-bg-hover);
+}
+
+.navbar-btn:hover svg {
+    fill: var(--navbar-right-btn-icon-hover);
+    stroke: var(--navbar-right-btn-icon-hover);
+}
+
+/* Dropdown */
+.navbar-dropdown {
+    display: none;
+}
+/*===================================*
+    03.END NAVBAR
+*===================================*/
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+/*===================================*
+    04.START ASIDE
 *===================================*/
 aside {
     position: fixed;
@@ -359,7 +490,7 @@ aside {
     display: block;
     width: 16.25rem;
     background-color: var(--sidebar-bg);
-    transition: width 0.3s ease-in-out;
+    transition: margin, width 0.3s ease-in-out;
     z-index: 10;
 }
 
@@ -395,7 +526,7 @@ aside {
 }
 
 /*===================================*
-    03.END ASIDE
+    04.END ASIDE
 *===================================*/
 /*
 
@@ -410,7 +541,7 @@ aside {
 
 */
 /*===================================*
-    04.START SIDEBAR CONTENT
+    05.START SIDEBAR CONTENT
 *===================================*/
 .sidebar-content {
     height: calc(100% - 3.75rem);
@@ -515,7 +646,7 @@ aside {
 }
 
 /*===================================*
-    04.END SIDEBAR CONTENT
+    05.END SIDEBAR CONTENT
 *===================================*/
 /*
 
@@ -530,7 +661,7 @@ aside {
 
 */
 /*===================================*
-    05.START SIDEBAR SUBMENU
+    06.START SIDEBAR SUBMENU
 *===================================*/
 .sidebar-submenu-list {
     display: none;
@@ -608,7 +739,7 @@ aside {
 }
 
 /*===================================*
-    05.END SIDEBAR SUBMENU
+    06.END SIDEBAR SUBMENU
 *===================================*/
 /*
 
@@ -623,7 +754,7 @@ aside {
 
 */
 /*===================================*
-    06 START SIDEBAR MINI MODE
+    07 START SIDEBAR MINI MODE
 *===================================*/
 /* Header */
 body.navbar-vertical-aside-mini-mode header {
@@ -703,8 +834,12 @@ body.navbar-vertical-aside-mini-mode
     padding-right: 1rem;
 }
 
+/* Main Content */
+body.navbar-vertical-aside-mini-mode main.main {
+    padding-left: 5.25rem;
+}
 /*===================================*
-    06.END SIDEBAR MINI MODE
+    07.END SIDEBAR MINI MODE
 *===================================*/
 /*
 
@@ -719,7 +854,7 @@ body.navbar-vertical-aside-mini-mode
 
 */
 /*===================================*
-    07.START MOBILE HEADER ASIDE
+    08.START MOBILE HEADER ASIDE
 *===================================*/
 @media (max-width: 1200px) {
     /* Header */
@@ -731,6 +866,13 @@ body.navbar-vertical-aside-mini-mode
     /* Aside */
     .navbar-vertical-aside-closed-mode .navbar-vertical-aside {
         margin-left: -100%;
+    }
+
+    body:not(.navbar-vertical-aside-closed-mode) .menu-overlay {
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+        z-index: 9;
     }
 
     /* Toggle aside */
@@ -752,9 +894,14 @@ body.navbar-vertical-aside-mini-mode
     .navbar-content-search {
         display: none;
     }
+
+    /* Main Content */
+    main.main {
+        padding-left: 0;
+    }
 }
 /*===================================*
-    07.END MOBILE HEADER ASIDE
+    08.END MOBILE HEADER ASIDE
 *===================================*/
 /*
 
@@ -774,6 +921,7 @@ body.navbar-vertical-aside-mini-mode
 .main {
     padding-left: 16.25rem;
     padding-top: 3.75rem;
+    transition: padding 0.3s ease-in-out;
 }
 
 .content {
