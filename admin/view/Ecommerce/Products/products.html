@@ -57,8 +57,8 @@
             <nav class="navbar-content-right">
                 <ul class="navbar-list">
                     <!-- NOTIFICATION -->
-                    <li class="navbar-item">
-                        <div class="navbar-item-container">
+                    <li class="navbar-item d-none d-sm-inline-block">
+                        <div class="relative">
                             <!-- Button -->
                             <button class="navbar-btn">
                                 <!-- Icon -->
@@ -79,8 +79,8 @@
                         </div>
                     </li>
                     <!-- APPS -->
-                    <li class="navbar-item">
-                        <div class="navbar-item-container">
+                    <li class="navbar-item d-none d-sm-inline-block">
+                        <div class="relative">
                             <!-- Button -->
                             <button class="navbar-btn">
                                 <!-- Icon -->
@@ -100,8 +100,8 @@
                         </div>
                     </li>
                     <!-- ACTIVITY -->
-                    <li class="navbar-item">
-                        <div class="navbar-item-container">
+                    <li class="navbar-item d-none d-sm-inline-block">
+                        <div class="relative">
                             <!-- Button -->
                             <button class="navbar-btn">
                                 <span class="navbar-btn-icon">
@@ -120,17 +120,90 @@
                     </li>
                     <!-- Account -->
                     <li class="navbar-item">
-                        <div class="navbar-item-container">
+                        <div class="relative">
                             <!-- Avatar -->
                             <button class="navbar-button">
-                                <div class="avatar">
+                                <div class="avatar-btn">
                                     <img class="avatar-img" src="../../../assets/img/avatar/img2.jpg" alt="">
                                     <span class="avatar-status"></span>
                                 </div>
                             </button>
+                            <!-- Dropdown -->
+                            <div class="navbar-dropdown hs-hidden">
+                                <!-- Info -->
+                                <div class="dropdown-item-text">
+                                    <div class="avatar">
+                                        <img class="avatar-img" src="../../../assets/img/avatar/img2.jpg"
+                                            alt="Image Description">
+                                    </div>
+                                    <div class="dropdown-account-info">
+                                        <span class="card-title h5">Lê Huy</span>
+                                        <span class="card-text">haha@gmail.com</span>
+                                    </div>
+                                </div>
 
-                            <div class="navbar-dropdown">
+                                <div class="dropdown-divider"></div>
 
+                                <!-- Set status -->
+                                <div class="relative">
+                                    <a class="dropdown-item navbar-dropdown-submenu-btn" href="javascript:;">
+                                        <span class="text-truncate pr-2" title="Set status">Set status</span>
+                                        <img style="margin-left: auto;" src="../../../assets/icon/arrow-right.svg"
+                                            alt="">
+                                    </a>
+
+                                    <!-- Dropdown Submenu -->
+                                    <div class="navbar-dropdown navbar-dropdown-submenu hs-hidden">
+                                        <a class="dropdown-item" href="#">
+                                            <span class="dropdown-set-status border-status-available">
+
+                                            </span>
+                                            <span class="text-truncate pr-2" title="Available">
+                                                Available
+                                            </span>
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <span class="dropdown-set-status border-status-busy">
+
+                                            </span>
+                                            <span class="text-truncate pr-2" title="Busy">
+                                                Busy
+                                            </span>
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <span class="dropdown-set-status border-status-away">
+
+                                            </span>
+                                            <span class="text-truncate pr-2" title="Away">
+                                                Away
+                                            </span>
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">
+                                            <span class="text-truncate pr-2" title="Reset status">
+                                                Reset status
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Profile link -->
+                                <a class="dropdown-item" href="#">
+                                    <span class="text-truncate" title="Profile &amp; account">Profile &amp;
+                                        account</span>
+                                </a>
+
+                                <!-- Setting Link -->
+                                <a class="dropdown-item" href="#">
+                                    <span class="text-truncate" title="Settings">Settings</span>
+                                </a>
+
+                                <div class="dropdown-divider"></div>
+
+                                <!-- Sign out -->
+                                <a class="dropdown-item" href="#">
+                                    <span class="text-truncate pr-2" title="Sign out">Sign out</span>
+                                </a>
                             </div>
                         </div>
                     </li>

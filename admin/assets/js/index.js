@@ -7,7 +7,7 @@ const searchClear = document.querySelector('.search-clear');
 const inputSearch = document.querySelector('.input-search');
 
 
-inputSearch.addEventListener('input', (e) => {
+inputSearch.addEventListener('input', () => {
     searchClear.style.display = "flex";
 
     searchClear.addEventListener('click', () => {
@@ -252,7 +252,7 @@ btnCollapse.addEventListener('click', () => {
     if (checkMobileScreen()) {
         body.classList.remove("navbar-vertical-aside-closed-mode");
 
-        if (!(body.classList.contains("navbar-vertical-aside-closed-mode"))) {          
+        if (!(body.classList.contains("navbar-vertical-aside-closed-mode"))) {
             // setTimeout để trì hoãn việc thêm listener
             setTimeout(() => {
                 window.addEventListener('click', closeMenuOnClickOutside);
@@ -293,4 +293,74 @@ $(document).ready(function () {
 $(window).resize(function () {
     toggleNavbarMode();
     window.removeEventListener('click', closeMenuOnClickOutside);
+});
+
+/*******************************************
+* 
+*          Navbar-dropdown
+* 
+*******************************************/
+document.querySelectorAll(".navbar-content-right .navbar-button").forEach(element => {
+    const dropdown = element.nextElementSibling;
+
+    // Hàm để đóng dropdown khi click ra ngoài
+    const closeDropdownOnClickOutside = (e) => {
+        if (!dropdown.contains(e.target) && e.target !== element) {
+            dropdown.classList.add("hs-hidden");
+            dropdown.classList.remove("hs-visible");
+            // Xóa listener khi dropdown bị đóng
+            window.removeEventListener('click', closeDropdownOnClickOutside);
+        }
+    };
+
+    element.addEventListener('click', () => {
+        // Kiểm tra trạng thái dropdown
+        if (dropdown.classList.contains("hs-visible")) {
+            // Đóng dropdown nếu đang mở
+            dropdown.classList.add("hs-hidden");
+            dropdown.classList.remove("hs-visible");
+            window.removeEventListener('click', closeDropdownOnClickOutside);
+        } else {
+            // Mở dropdown và thêm listener để đóng khi nhấn ra ngoài
+            dropdown.classList.remove("hs-hidden");
+            dropdown.classList.add("hs-visible");
+
+            setTimeout(() => {
+                window.addEventListener('click', closeDropdownOnClickOutside);
+            }, 0);
+        }
+    });
+});
+
+// Navbar dropdown submenu
+document.querySelectorAll(".navbar-content-right .navbar-dropdown-submenu-btn").forEach(element => {
+    const dropdown = element.nextElementSibling;
+
+    element.parentElement.addEventListener('mouseover', () => {
+        // Kiểm tra trạng thái dropdown
+        if (dropdown.classList.contains("hs-visible")) {
+            // Đóng dropdown nếu đang mở
+            dropdown.classList.add("hs-hidden");
+            dropdown.classList.remove("hs-visible");
+            // window.removeEventListener('click', closeDropdownOnClickOutside);
+        } else {
+            // Mở dropdown và thêm listener để đóng khi nhấn ra ngoài
+            dropdown.classList.remove("hs-hidden");
+            dropdown.classList.add("hs-visible");
+        }
+    });
+
+    element.parentElement.addEventListener('mouseout', () => {
+        // Kiểm tra trạng thái dropdown
+        if (dropdown.classList.contains("hs-hidden")) {
+            // Đóng dropdown nếu đang mở
+            dropdown.classList.add("hs-visible");
+            dropdown.classList.remove("hs-hidden");
+            // window.removeEventListener('click', closeDropdownOnClickOutside);
+        } else {
+            // Mở dropdown và thêm listener để đóng khi nhấn ra ngoài
+            dropdown.classList.remove("hs-visible");
+            dropdown.classList.add("hs-hidden");
+        }
+    });
 });
