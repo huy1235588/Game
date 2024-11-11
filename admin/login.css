@@ -1,0 +1,318 @@
+/*=========================================================
+Author       : LeThienHuy.
+==============================================================*/
+
+/*=============================================================
+    CSS INDEX
+  =============================
+    01.GENERAL STYLE
+    02.MAIN
+
+*=============================================================*/
+/*===================================*
+    01.GENERAL STYLE
+*===================================*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    /* --header-bg: #266A29; */
+    --body-bg: #040d21;
+    --header-bg: #393939;
+    /* --header-bg: transparent; */
+
+    /* Input */
+    --input-border-color: #3d444d;
+    --input-border-color-focus: #1f6feb;
+    --input-box-shadow-bg: #0d1117;
+    --input-text: #f0f6fc;
+    --input-submit-bg: #238636;
+    --input-submit-bg-hover: #29903b;
+    --input-submit-border-color: #ffffff1a;
+}
+
+body {
+    background-color: var(--body-bg);
+    font-family: Lato, sans-serif;
+    color: #fff;
+    overflow: hidden;
+}
+
+tbody {
+    border: none;
+}
+
+a,
+ul,
+li {
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+}
+
+button {
+    border: none;
+    margin: 0;
+    text-decoration: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 900px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1000px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+.ngl-hide {
+    display: none;
+}
+
+:root {
+    --scrollbar-width: 17px;
+    --mesh-column: 4;
+    --mesh-gutter: var(--space-5);
+    --mesh-margin: var(--space-6);
+    --mesh-container-width: calc(
+        (100vw - var(--scrollbar-width, 0)) - var(--mesh-margin) -
+            var(--mesh-margin) + var(--mesh-gutter)
+    );
+    --mesh-column-width: calc(var(--mesh-container-width) / var(--mesh-column));
+}
+
+:root {
+    --space-1: 2px;
+    --space-2: 4px;
+    --space-3: 7px;
+    --space-4: 10px;
+    --space-5: 14px;
+    --space-6: 21px;
+    --space-7: 28px;
+    --space-8: 35px;
+    --space-9: 42px;
+    --space-10: 56px;
+    --space-11: 70px;
+    --space-12: 112px;
+    --space-13: 224px;
+}
+
+@media (min-width: 360px) {
+    :root {
+        --mesh-margin: var(--space-7);
+    }
+}
+
+@media (min-width: 768px) {
+    :root {
+        --mesh-column: 12;
+        --mesh-margin: var(--space-9);
+    }
+}
+
+@media (min-width: 1367px) {
+    :root {
+        --mesh-margin: var(--space-11);
+    }
+}
+
+@media (min-width: 1920px) {
+    :root {
+        --mesh-column: 24;
+    }
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.2s ease;
+    background-color: #13214440;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.w-full {
+    width: 100%;
+}
+
+/* Hidden */
+.hs-hidden {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Visible */
+.hs-visible {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* position */
+.relative {
+    position: relative;
+}
+
+/* display */
+.d-none {
+    display: none;
+}
+/*===================================*
+    01.END GENERAL STYLE
+*===================================*/
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+/*===================================*
+    02.START MAIN
+*===================================*/
+main {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background */
+.body-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    transform: translate(-25%, -25%);
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.auth-form {
+    width: 320px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Logo */
+.logo-container{
+    width: 100%;
+    padding: 2rem 0 1.5rem;
+    text-align: center;
+}
+
+.logo-img {
+    min-width: 6.5rem;
+    max-width: 6.5rem;
+    width: 4rem;
+}
+
+/* Header */
+.auth-form-header {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.form-input {
+    width: 100%;
+    display: block;
+    padding: 5px 12px;
+    margin: 0.25rem 0 1rem;
+    border: 1px solid var(--input-border-color);
+    border-radius: 6px;
+    box-shadow: inset 0 0 0 32px var(--input-box-shadow-bg);
+    color: var(--input-text);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--input-border-color-focus);
+    box-shadow: inset 0 0 0 32px var(--input-box-shadow-bg),
+        0 0 0 2px var(--input-border-color-focus);
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+/* Submit button */
+.form-submit {
+    width: 100%;
+    display: block;
+    padding: 5px 1rem;
+    margin-top: 1rem;
+    border-color: var(--input-submit-border-color);
+    cursor: pointer;
+    line-height: 20px;
+    font-weight: 500;
+    border-radius: 6px;
+    color: #fff;
+    background-color: var(--input-submit-bg);
+}
+
+.form-submit:hover {
+    background-color: var(--input-submit-bg-hover);
+}
+/*===================================*
+    02.END MAIN
+*===================================*/
