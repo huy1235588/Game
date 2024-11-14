@@ -1,6 +1,6 @@
 <?php
 // Lấy cấu hình từ tệp config.php
-$config = require __DIR__ . '/config.php';
+$config = require_once 'config.php';
 
 try {
     // Khởi tạo kết nối PDO
@@ -12,7 +12,7 @@ try {
     ];
 
     $pdo = new PDO($dsn, $config['database']['user'], $config['database']['password'], $options);
-    echo "Kết nối cơ sở dữ liệu thành công!\n";
+    // echo "Kết nối cơ sở dữ liệu thành công!\n";
 
 } catch (PDOException $e) {
     // Xử lý lỗi kết nối

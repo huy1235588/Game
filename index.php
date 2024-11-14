@@ -15,12 +15,16 @@
                 echo '<p>' . $key . ': ' . $value . '</p>';
             }
         }
+
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
 
     // phpinfo();
     ?>
+
+    <a href="admin">admin</a>
+
 </body>
 
 </html>

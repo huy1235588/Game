@@ -1,0 +1,7 @@
+RewriteEngine On
+# Nếu yêu cầu đường dẫn /admin/ mà không có .php
+RewriteRule ^$ index.php [L]
+
+RewriteEngine On
+RewriteBase /admin/
+RewriteRule ^login/?$ login/login.php [L]

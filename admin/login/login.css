@@ -32,6 +32,13 @@ Author       : LeThienHuy.
     --input-submit-bg: #238636;
     --input-submit-bg-hover: #29903b;
     --input-submit-border-color: #ffffff1a;
+
+    /* Error auth */
+    --error-auth-bg: #1f2937;
+    --error-auth-text: #ef4444;
+
+    /* Show password */
+    --show-password-bg-hover: #1f2937;
 }
 
 body {
@@ -59,6 +66,7 @@ button {
     text-decoration: none;
     background: none;
     color: #fff;
+    line-height: 0;
     cursor: pointer;
 }
 
@@ -228,6 +236,11 @@ input[type="search"]::-webkit-search-results-decoration {
 /*===================================*
     02.START MAIN
 *===================================*/
+html{
+    position: relative;
+    overflow: hidden;
+}
+
 main {
     position: relative;
     overflow: hidden;
@@ -235,11 +248,8 @@ main {
 
 /* Background */
 .body-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 200%;
-    transform: translate(-25%, -25%);
+    transform: translate(-25%, -50%);
     overflow: hidden;
     pointer-events: none;
 }
@@ -251,7 +261,7 @@ main {
 }
 
 /* Logo */
-.logo-container{
+.logo-container {
     width: 100%;
     padding: 2rem 0 1.5rem;
     text-align: center;
@@ -269,11 +279,15 @@ main {
     text-align: center;
 }
 
+.input-container {
+    position: relative;
+    margin: 0.25rem 0 1rem;
+}
+
 .form-input {
     width: 100%;
     display: block;
-    padding: 5px 12px;
-    margin: 0.25rem 0 1rem;
+    padding: 0.75rem 1rem;
     border: 1px solid var(--input-border-color);
     border-radius: 6px;
     box-shadow: inset 0 0 0 32px var(--input-box-shadow-bg);
@@ -295,6 +309,19 @@ label {
     font-weight: 400;
 }
 
+/* Show password */
+.show-password {
+    position: absolute;
+    top: 15%;
+    right: 2%;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.show-password:hover {
+    background-color: var(--show-password-bg-hover);
+}
+
 /* Submit button */
 .form-submit {
     width: 100%;
@@ -312,6 +339,21 @@ label {
 
 .form-submit:hover {
     background-color: var(--input-submit-bg-hover);
+}
+
+/* Check auth */
+.error-auth {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+    border-radius: 0.5rem;
+    background-color: var(--error-auth-bg);
+    color: var(--error-auth-text);
+}
+
+.error-auth svg {
+    margin-right: 0.75rem;
 }
 /*===================================*
     02.END MAIN
