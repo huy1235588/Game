@@ -503,7 +503,6 @@ body:has(.menu-main-item:hover) footer {
     display: none;
     width: 230px;
     padding: 9px 0;
-    border-radius: 10px;
     background-color: var(--submenu-bg);
     border-spacing: 0 10px;
     transition: all 0.9s;
@@ -749,16 +748,16 @@ body:has(.menu-main-item:hover) footer {
 }
 
 .windows-icon {
-    background-image: url(/icon/platform/windows.svg);
+    background-image: url(../../assets/icon/platform/windows.svg);
 }
 
 .mac-icon {
-    background-image: url(/icon/platform/masOS.svg);
+    background-image: url(../../assets/icon/platform/masOS.svg);
     margin-bottom: 3px;
 }
 
 .linux-icon {
-    background-image: url(/icon/platform/linux.svg);
+    background-image: url(../../assets/icon/platform/linux.svg);
 }
 
 /* price */
