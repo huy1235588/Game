@@ -1,4 +1,4 @@
 fonts/
 *.rar
 
-config
+.env

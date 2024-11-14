@@ -8,7 +8,7 @@ Create table if not exists Users
     Country varchar(50),
     CreateAt timestamp Default Current_timestamp,
     IsVerified boolean Default false,
-    Role enum('admin', 'User') Default 'user'
+    Role enum('admin', 'user') Default 'user'
 );
 
 Create table if not exists Apps
@@ -19,8 +19,8 @@ Create table if not exists Apps
     Description Text,
     Price decimal(5, 2) Not Null,
     Discount int Default 0,
-    DiscountStart timestamp,
-    DiscountEnd timestamp,
+    DiscountStart timestamp Null,
+    DiscountEnd timestamp Null,
     ReleaseDate Date,
     Developer varchar(255),
     Publisher varchar(255),
