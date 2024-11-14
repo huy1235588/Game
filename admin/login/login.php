@@ -29,9 +29,19 @@
     require_once '../../config/db.php';
     require_once '../../controller/UserController.php';
 
+    // Bắt đầu phiên
+    session_start();
+
+    // Kiểm tra nếu người dùng đã đăng nhập
+    if (isset($_SESSION['userId'])) {
+        // Chuyển hướng đến trang chủ
+        header('Location: ../');
+        exit();
+    }
+
     // Lấy dữ liệu từ form
     $userForm = isset($_POST['txtUser']) ? htmlspecialchars($_POST['txtUser']) : '';
-    $passwordForm = isset($_POST['txtPassword']) ? $_POST['txtPassword'] : '';
+    $passwordForm = isset($_POST['txtPassword']) ? htmlspecialchars($_POST['txtPassword']) : '';
 
     // Kiểm tra xem có form rỗng
     $requiredForm = array($userForm, $passwordForm);
@@ -58,16 +68,21 @@
 
             $checkAuth = "Invalid credentials!";
 
+            // Lặp từng user
             foreach ($users as $user) {
-                // Kiểm tra nếu user tồn tại trong Database
-                if ($user['Username'] == $userForm) {
-                    // Kiểm tra mật khẩu
-                    if (password_verify($passwordForm, $user['Password'])) {
-                        if ($user['Role'] == 'admin') {
-                            $checkAuth = "Đăng nhập thành công!";
-                            break;
-                        }
-                    }
+                // Kiểm tra thông tin đăng nhập và vai trò role
+                if (
+                    $user['Username'] == $userForm &&
+                    password_verify($passwordForm, $user['Password']) &&
+                    $user['Role'] == 'admin'
+                ) {
+                    $checkAuth = "Đăng nhập thành công!";
+
+                    // Lưu thông tin vào session nếu đăng nhập thành công
+                    $_SESSION['userId'] = $user['UserId']; // Lưu ID người dùng vào session
+
+                    // // Chuyển hướng người dùng đến trang chính
+                    header('Location: ../');
                 }
             }
         }
@@ -133,11 +148,12 @@
     <img class="body-bg" src="../assets/img/background/login-bg.svg" alt="">
 
     <script>
-        // JavaScript to toggle password visibility
-        document.getElementById('showPassword').addEventListener('change', function() {
-            var passwordField = document.getElementById('password');
-            // Toggle between 'password' and 'text' input types
-            if (this.checked) {
+        // Toggle password visibility
+        document.querySelector('.show-password').addEventListener('click', function() {
+            const passwordField = document.getElementById('password');
+
+            // Chuyển đổi giữa 'password' and 'text' input
+            if (passwordField.type === 'password') {
                 passwordField.type = 'text';
             } else {
                 passwordField.type = 'password';

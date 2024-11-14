@@ -1,7 +1,8 @@
 <?php
 
 // Hàm kiểm tra đăng nhập
-function authMiddleware(){
+function authMiddleware()
+{
     session_start();
 
     // Kiểm  tra người dùng có đăng nhập hay chưa
@@ -11,5 +12,3 @@ function authMiddleware(){
         exit();
     }
 }
-
-?>

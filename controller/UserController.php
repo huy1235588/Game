@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../config/db.php';
+require_once __DIR__ . '../../config/db.php';
 
 class UserController
 {
@@ -16,6 +16,13 @@ class UserController
     {
         $stmt = $this->pdo->query("SELECT * FROM users");
         return $stmt->fetchAll();
+    }
+
+    // Hàm để lấy toàn bộ user
+    public function getUserById($userId)
+    {
+        $stmt = $this->pdo->query("SELECT * FROM users WHERE userId = $userId");
+        return $stmt->fetchAll()[0];
     }
 
     // Hàm để insert user

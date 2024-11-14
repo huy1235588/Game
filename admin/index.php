@@ -1,6 +1,18 @@
 <?php
 include './middleware/authMiddleware.php';
 authMiddleware();
+
+// Khai báo thư viện
+require_once '../config/env.php';
+require_once '../config/db.php';
+require_once '../controller/UserController.php';
+
+// Tạo đối tượng truy vấn
+$userController = new UserController($pdo);
+
+// Lấy thông tin của người dùng
+$user = $userController->getUserById($_SESSION['userId']);
+
 ?>
 
 <!DOCTYPE html>
@@ -142,8 +154,8 @@ authMiddleware();
                                             alt="Image Description">
                                     </div>
                                     <div class="dropdown-account-info">
-                                        <span class="card-title h5">Lê Huy</span>
-                                        <span class="card-text">haha@gmail.com</span>
+                                        <span class="card-title h5"><?php echo $user['ProfileName'] ?></span>
+                                        <span class="card-text"><?php echo $user['Email'] ?></span>
                                     </div>
                                 </div>
 
