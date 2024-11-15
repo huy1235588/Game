@@ -1,17 +1,9 @@
-<?php
-$active = "ha";
-function setActive($setActive) {
-    $active = $setActive;
-}
-setActive("g");
-?>
-
 <aside class="navbar-vertical-aside">
     <div class="sidebar-container">
         <div class="sidebar-offset">
             <div class="sidebar-logo-wrapper">
                 <!-- LOGO -->
-                <a href="./" class="sidebar-logo">
+                <a href="/admin" class="sidebar-logo">
                     <img src="/assets/img/logo.png" class="sidebar-logo-icon" alt="">
                     <img src="/assets/img/logo-mini.png" class="sidebar-logo-mini-icon" alt="">
                 </a>
@@ -22,7 +14,7 @@ setActive("g");
                 <ul class="sidebar-list navbar-nav nav-tabs">
                     <!-- DASHBOARDS -->
                     <li class="sidebar-item-has-menu">
-                        <a class="sidebar-item-link sidebar-link active" href="javascript:;">
+                        <a class="sidebar-item-link sidebar-link" href="javascript:;">
                             <span class="sidebar-item-icon">
                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0"
                                     viewBox="0 0 1024 1024" height="18px" width="18px"
@@ -37,12 +29,12 @@ setActive("g");
                             </span>
                         </a>
                         <!-- SUBMENU -->
-                        <ul class="sidebar-submenu-list nav show">
+                        <ul class="sidebar-submenu-list nav">
                             <li class="sidebar-item">
                                 <!-- Default -->
-                                <a class="sidebar-link <?php echo $active == "default" ? "active" : "" ?>" href="javascript:;">
+                                <a class="sidebar-link" href="javascript:;">
                                     <span class="sidebar-submenu-item-icon">
-                                        <img src="assets/icon/circle.svg" alt="">
+                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                     </span>
                                     <span class="sidebar-item-text">
                                         Default
@@ -52,7 +44,7 @@ setActive("g");
                             <li class="sidebar-item">
                                 <a class="sidebar-link" href="javascript:;">
                                     <span class="sidebar-submenu-item-icon">
-                                        <img src="assets/icon/circle.svg" alt="">
+                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                     </span>
                                     <span class="sidebar-item-text">
                                         Alternative
@@ -84,7 +76,7 @@ setActive("g");
                             <li class="sidebar-item sidebar-submenu-item-has-menu">
                                 <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                     <span class="sidebar-submenu-item-icon">
-                                        <img src="assets/icon/circle.svg" alt="">
+                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                     </span>
                                     <span class="sidebar-item-text">
                                         Users
@@ -95,9 +87,9 @@ setActive("g");
                                 <ul class="sidebar-submenu-list nav">
                                     <!-- OVERVIEW -->
                                     <li class="sidebar-item">
-                                        <a class="sidebar-submenu-item-link sidebar-link" href="">
+                                        <a class="sidebar-submenu-item-link sidebar-link" href="/admin/view/ecommerce/users">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Overview
@@ -108,7 +100,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Leaderboard
@@ -117,9 +109,9 @@ setActive("g");
                                     </li>
                                     <!-- ADD USER -->
                                     <li class="sidebar-item">
-                                        <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
+                                        <a class="sidebar-submenu-item-link sidebar-link" href="/admin/view/ecommerce/users/add-user">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Add User
@@ -132,7 +124,7 @@ setActive("g");
                             <li class="sidebar-item sidebar-submenu-item-has-menu">
                                 <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                     <span class="sidebar-submenu-item-icon">
-                                        <img src="assets/icon/circle.svg" alt="">
+                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                     </span>
                                     <span class="sidebar-item-text">
                                         User Profile
@@ -145,7 +137,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Profile
@@ -156,7 +148,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Teams
@@ -167,7 +159,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Projects
@@ -178,7 +170,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Connections
@@ -189,7 +181,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 My Profiles
@@ -202,7 +194,7 @@ setActive("g");
                             <li class="sidebar-item sidebar-submenu-item-has-menu">
                                 <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                     <span class="sidebar-submenu-item-icon">
-                                        <img src="assets/icon/circle.svg" alt="">
+                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                     </span>
                                     <span class="sidebar-item-text">
                                         Acount
@@ -215,7 +207,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Settings
@@ -226,7 +218,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Billing
@@ -237,7 +229,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Invoice
@@ -248,7 +240,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Api Keys
@@ -261,7 +253,7 @@ setActive("g");
                             <li class="sidebar-item sidebar-submenu-item-has-menu">
                                 <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                     <span class="sidebar-submenu-item-icon">
-                                        <img src="assets/icon/circle.svg" alt="">
+                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                     </span>
                                     <span class="sidebar-item-text">
                                         E-commerce
@@ -274,7 +266,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Overview
@@ -285,7 +277,7 @@ setActive("g");
                                     <li class="sidebar-item sidebar-submenu-item-has-menu">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Products
@@ -297,9 +289,9 @@ setActive("g");
                                             <!-- PRODUCTS -->
                                             <li class="sidebar-item">
                                                 <a class="sidebar-submenu-item-link sidebar-link"
-                                                    href="view/Ecommerce/Products">
+                                                    href="/admin/view/ecommerce/products/">
                                                     <span class="sidebar-submenu-item-icon">
-                                                        <img src="assets/icon/circle.svg" alt="">
+                                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                                     </span>
                                                     <span class="sidebar-item-text">
                                                         Products
@@ -310,7 +302,7 @@ setActive("g");
                                             <li class="sidebar-item">
                                                 <a class="sidebar-submenu-item-link sidebar-link" href="">
                                                     <span class="sidebar-submenu-item-icon">
-                                                        <img src="assets/icon/circle.svg" alt="">
+                                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                                     </span>
                                                     <span class="sidebar-item-text">
                                                         Product Details
@@ -322,7 +314,7 @@ setActive("g");
                                                 <a class="sidebar-submenu-item-link sidebar-link"
                                                     href="javascript:;">
                                                     <span class="sidebar-submenu-item-icon">
-                                                        <img src="assets/icon/circle.svg" alt="">
+                                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                                     </span>
                                                     <span class="sidebar-item-text">
                                                         Add Product
@@ -335,7 +327,7 @@ setActive("g");
                                     <li class="sidebar-item sidebar-submenu-item-has-menu">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Orders
@@ -348,7 +340,7 @@ setActive("g");
                                             <li class="sidebar-item">
                                                 <a class="sidebar-submenu-item-link sidebar-link" href="">
                                                     <span class="sidebar-submenu-item-icon">
-                                                        <img src="assets/icon/circle.svg" alt="">
+                                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                                     </span>
                                                     <span class="sidebar-item-text">
                                                         Orders
@@ -359,7 +351,7 @@ setActive("g");
                                             <li class="sidebar-item">
                                                 <a class="sidebar-submenu-item-link sidebar-link" href="">
                                                     <span class="sidebar-submenu-item-icon">
-                                                        <img src="assets/icon/circle.svg" alt="">
+                                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                                     </span>
                                                     <span class="sidebar-item-text">
                                                         Order Details
@@ -372,7 +364,7 @@ setActive("g");
                                     <li class="sidebar-item sidebar-submenu-item-has-menu">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Customers
@@ -381,25 +373,25 @@ setActive("g");
 
                                         <!-- SUBMENU 3 -->
                                         <ul class="sidebar-submenu-list nav">
-                                            <!-- Products -->
+                                            <!-- Customers -->
                                             <li class="sidebar-item">
                                                 <a class="sidebar-submenu-item-link sidebar-link" href="">
                                                     <span class="sidebar-submenu-item-icon">
-                                                        <img src="assets/icon/circle.svg" alt="">
+                                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                                     </span>
                                                     <span class="sidebar-item-text">
-                                                        Products
+                                                        Customers
                                                     </span>
                                                 </a>
                                             </li>
-                                            <!-- Product Details -->
+                                            <!-- Customer Details -->
                                             <li class="sidebar-item">
                                                 <a class="sidebar-submenu-item-link sidebar-link" href="">
                                                     <span class="sidebar-submenu-item-icon">
-                                                        <img src="assets/icon/circle.svg" alt="">
+                                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                                     </span>
                                                     <span class="sidebar-item-text">
-                                                        Product Details
+                                                        Customer Details
                                                     </span>
                                                 </a>
                                             </li>
@@ -408,10 +400,10 @@ setActive("g");
                                                 <a class="sidebar-submenu-item-link sidebar-link"
                                                     href="javascript:;">
                                                     <span class="sidebar-submenu-item-icon">
-                                                        <img src="assets/icon/circle.svg" alt="">
+                                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                                     </span>
                                                     <span class="sidebar-item-text">
-                                                        Add Product
+                                                        Add Customer
                                                     </span>
                                                 </a>
                                             </li>
@@ -421,7 +413,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Manage Reviews
@@ -432,7 +424,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Checkout
@@ -445,7 +437,7 @@ setActive("g");
                             <li class="sidebar-item sidebar-submenu-item-has-menu">
                                 <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                     <span class="sidebar-submenu-item-icon">
-                                        <img src="assets/icon/circle.svg" alt="">
+                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                     </span>
                                     <span class="sidebar-item-text">
                                         Projects
@@ -458,7 +450,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Overview
@@ -469,7 +461,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Timeline
@@ -482,7 +474,7 @@ setActive("g");
                             <li class="sidebar-item sidebar-submenu-item-has-menu">
                                 <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                     <span class="sidebar-submenu-item-icon">
-                                        <img src="assets/icon/circle.svg" alt="">
+                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                     </span>
                                     <span class="sidebar-item-text">
                                         Project
@@ -495,7 +487,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Overview
@@ -506,7 +498,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Files
@@ -517,7 +509,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Activity
@@ -528,7 +520,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Teams
@@ -539,7 +531,7 @@ setActive("g");
                                     <li class="sidebar-item">
                                         <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                             <span class="sidebar-submenu-item-icon">
-                                                <img src="assets/icon/circle-north.svg" alt="">
+                                                <img src="/admin/assets/icon/circle-north.svg" alt="">
                                             </span>
                                             <span class="sidebar-item-text">
                                                 Settings
@@ -552,7 +544,7 @@ setActive("g");
                             <li class="sidebar-item ">
                                 <a class="sidebar-submenu-item-link sidebar-link" href="">
                                     <span class="sidebar-submenu-item-icon">
-                                        <img src="assets/icon/circle.svg" alt="">
+                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                     </span>
                                     <span class="sidebar-item-text">
                                         Referrals
@@ -584,7 +576,7 @@ setActive("g");
                             <li class="sidebar-item">
                                 <a class="sidebar-link" href="javascript:;">
                                     <span class="sidebar-submenu-item-icon">
-                                        <img src="assets/icon/circle.svg" alt="">
+                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                     </span>
                                     <span class="sidebar-item-text">
                                         Calendars
@@ -595,7 +587,7 @@ setActive("g");
                             <li class="sidebar-item">
                                 <a class="sidebar-link" href="javascript:;">
                                     <span class="sidebar-submenu-item-icon">
-                                        <img src="assets/icon/circle.svg" alt="">
+                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                     </span>
                                     <span class="sidebar-item-text">
                                         File Manager
@@ -626,7 +618,7 @@ setActive("g");
                             <li class="sidebar-item">
                                 <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                     <span class="sidebar-submenu-item-icon">
-                                        <img src="assets/icon/circle.svg" alt="">
+                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                     </span>
                                     <span class="sidebar-item-text">
                                         Sign In
@@ -637,7 +629,7 @@ setActive("g");
                             <li class="sidebar-item">
                                 <a class="sidebar-submenu-item-link sidebar-link" href="javascript:;">
                                     <span class="sidebar-submenu-item-icon">
-                                        <img src="assets/icon/circle.svg" alt="">
+                                        <img src="/admin/assets/icon/circle.svg" alt="">
                                     </span>
                                     <span class="sidebar-item-text">
                                         Sign Up
@@ -678,8 +670,44 @@ setActive("g");
 </aside>
 
 <script>
-    const sidebarLinks = document.querySelectorAll('.sidebar-link');
-    sidebarLinks.forEach(element => {
-        console.log("<?php echo $active?>");
-    });
+    /**
+     * Hàm đệ quy để tìm và đánh dấu các item trong sidebar tương ứng với các link đang hoạt động.
+     * @param {Element} parent - Phần tử cha chứa các item sidebar cần kiểm tra.
+     * @param {Array} activeLinks - Danh sách các link đang hoạt động (các tên cần tìm).
+     * @param {number} level - Cấp độ hiện tại của quá trình tìm kiếm (mặc định là 0).
+     */
+    function findActiveSidebarItem(parent, activeLinks, level = 0) {
+        // Nếu là cấp cuối, thoát hàm
+        if (level >= activeLinks.length) return;
+
+        // Lấy tất cả các item ở cấp hiện tại (cả cấp 1 và submenu)
+        const items = parent.querySelectorAll(':scope > .sidebar-submenu-list > li, :scope > li');
+        // Duyệt qua từng item trong danh sách
+        items.forEach(item => {
+            const linkText = item.querySelector('a')?.textContent.trim();
+
+            // Kiểm tra nếu text của link khớp với active link ở cấp hiện tại
+            if (linkText === activeLinks[level]) {
+                // Mở submenu nếu có
+                item.parentElement.classList.add("show");
+
+                // Nếu là cấp cuối cùng, đánh dấu item là active
+                if (level === activeLinks.length - 1) {
+                    item.firstElementChild.classList.add("active");
+                }
+
+                // Nếu item có menu con, tiếp tục đệ quy để kiểm tra cấp con
+                else if (item.classList.contains('sidebar-submenu-item-has-menu') ||
+                    item.classList.contains('sidebar-item-has-menu')) {
+                    findActiveSidebarItem(item, activeLinks, level + 1);
+                }
+            }
+        });
+    }
+
+    // Bắt đầu từ danh sách sidebar gốc
+    const sidebar = document.querySelector('.sidebar-list');
+
+    // Gọi hàm với danh sách active links (các text cần kiểm tra)
+    findActiveSidebarItem(sidebar, activeSidebarLink);
 </script>

@@ -2,16 +2,16 @@
     <div class="navbar-wrap">
         <div class="navbar-logo-wrapper">
             <!-- LOGO -->
-            <a href="./" class="navbar-logo">
+            <a href="/admin" class="navbar-logo">
                 <img src="/assets/img/logo2.png" class="logo-icon" alt="">
             </a>
         </div>
         <div class="navbar-content-left">
             <!-- Navbar Vertical Toggle -->
             <button type="button" class="toggle-vertical-aside">
-                <img class="toggle-collapse" src="assets/icon/collapse.svg" alt="" data-toggle="tooltip"
+                <img class="toggle-collapse" src="/admin/assets/icon/collapse.svg" alt="" data-toggle="tooltip"
                     data-placement="right" data-original-title="Collapse">
-                <img class="toggle-expand" src="assets/icon/expand.svg" alt="" data-toggle="tooltip"
+                <img class="toggle-expand" src="/admin/assets/icon/expand.svg" alt="" data-toggle="tooltip"
                     data-placement="right" data-original-title="Expand">
             </button>
 
@@ -20,11 +20,11 @@
                 <!-- INPUT SEARCH -->
                 <div class="form-search-container">
                     <div class="search-icon">
-                        <img src="assets/icon/search.svg" alt="">
+                        <img src="/admin/assets/icon/search.svg" alt="">
                     </div>
                     <input type="search" class="input-search" placeholder="Search" aria-placeholder="Search">
                     <span class="search-clear">
-                        <img src="assets/icon/close.svg" alt="">
+                        <img src="/admin/assets/icon/close.svg" alt="">
                     </span>
                 </div>
             </form>
@@ -99,7 +99,7 @@
                         <!-- Avatar -->
                         <button class="navbar-button">
                             <div class="avatar-btn">
-                                <img class="avatar-img" src="assets/img/avatar/img2.jpg" alt="">
+                                <img class="avatar-img" src="/admin/assets/img/avatar/img2.jpg" alt="">
                                 <span class="avatar-status"></span>
                             </div>
                         </button>
@@ -108,7 +108,7 @@
                             <!-- Info -->
                             <div class="dropdown-item-text">
                                 <div class="avatar">
-                                    <img class="avatar-img" src="assets/img/avatar/img2.jpg"
+                                    <img class="avatar-img" src="/admin/assets/img/avatar/img2.jpg"
                                         alt="Image Description">
                                 </div>
                                 <div class="dropdown-account-info">
@@ -123,7 +123,7 @@
                             <div class="relative">
                                 <a class="dropdown-item navbar-dropdown-submenu-btn" href="javascript:;">
                                     <span class="text-truncate pr-2" title="Set status">Set status</span>
-                                    <img style="margin-left: auto;" src="assets/icon/arrow-right.svg"
+                                    <img style="margin-left: auto;" src="/admin/assets/icon/arrow-right.svg"
                                         alt="">
                                 </a>
 
