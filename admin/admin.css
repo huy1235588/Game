@@ -38,8 +38,22 @@ Author       : LeThienHuy.
 
     /* Page header */
     --page-header-text: #fff;
+    --page-header-title: #1e2022;
     --page-header-bg: #377dff;
     --page-header-bg-hover: #045cff;
+
+    /* Breadcrumb */
+    --breadcrumb-text: #1e2022;
+    --breadcrumb-text: #8c98a4;
+    --breadcrumb-link-hover: #0052ea;
+
+    /* Step */
+    --step-icon-text: #132144;
+    --step-icon-bg: #1321441a;
+    --step-title: #1e2022;
+    --step-icon-text-active: #fff;
+    --step-icon-bg-active: #377dff;
+    --step-title-active: #1e2022;
 }
 
 /*===================================*
@@ -61,8 +75,7 @@ Author       : LeThienHuy.
     10.START MAIN CONTENT
 *===================================*/
 .main {
-    padding-left: 16.25rem;
-    padding-top: 3.75rem;
+    padding: 3.75rem 0 3.5rem 16.25rem;
     transition: padding 0.3s ease-in-out;
 }
 
@@ -76,6 +89,7 @@ Author       : LeThienHuy.
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 2.25rem;
 }
 
 .add-user-link {
@@ -91,8 +105,13 @@ Author       : LeThienHuy.
     background-color: var(--page-header-bg-hover);
 }
 
-.add-user-link svg{
+.add-user-link svg {
     margin-right: 4px;
+}
+
+.page-header-title {
+    margin-top: 10px;
+    color: var(--page-header-title);
 }
 /*===================================*
     10.END MAIN CONTENT
@@ -109,3 +128,146 @@ Author       : LeThienHuy.
 
 
 */
+/*===================================*
+    11.START BREADCRUMB
+*===================================*/
+.breadcrumb,
+.breadcrumb-item,
+.breadcrumb-link {
+    color: var(--breadcrumb-text);
+}
+
+.breadcrumb-list {
+    display: flex;
+}
+
+.breadcrumb-item + .breadcrumb-item {
+    padding-left: 0.5rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.5rem;
+    color: var(--breadcrumb-text);
+    content: "/";
+}
+
+.breadcrumb .breadcrumb-link:hover {
+    color: var(--breadcrumb-link-hover);
+}
+/*===================================*
+    11.END BREADCRUMB
+*===================================*/
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+/*===================================*
+    12.START FORM
+*===================================*/
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 70%;
+}
+/*===================================*
+    12.END FORM
+*===================================*/
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+/*===================================*
+    13.START STEP
+*===================================*/
+.step-list {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 2rem;
+}
+.step-item {
+    flex: 4;
+    padding-right: 0.95rem;
+    padding-left: 0.95rem;
+    overflow: hidden;
+    user-select: none;
+}
+
+.step-item:last-child {
+    margin: 0;
+    flex: 0 0 auto;
+}
+
+.step-item:first-child {
+    margin: 0;
+    flex: 3;
+}
+
+.step-content-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.step-icon {
+    display: inline-flex;
+    width: 2.1875rem;
+    height: 2.1875rem;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    border-radius: 50%;
+    font-size: 1rem;
+    color: var(--step-icon-text);
+    background-color: var(--step-icon-bg);
+}
+
+.step-title {
+    color: var(--step-title);
+}
+
+.step-list .active .step-icon {
+    color: var(--step-icon-text-active);
+    background-color: var(--step-icon-bg-active);
+}
+
+.step-list .active .step-title.active {
+    color: var(--step-title-active);
+}
+
+.step-list .step-item:not(:last-child) .step-title:after {
+    position: absolute;
+    top: 1rem;
+    width: 100%;
+    height: 1.25rem;
+    border-top: 0.125rem solid #e7eaf3;
+    margin-left: 0.75rem;
+    content: "";
+}
+/*===================================*
+    13.END STEP
+*===================================*/

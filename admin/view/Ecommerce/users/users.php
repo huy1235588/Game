@@ -63,10 +63,9 @@ $user = $userController->getUserById($_SESSION['userId']);
     <!-- START MAIN CONTENT -->
     <main id="content" class="main">
         <article class="content">
-            <div class="row align-items-center">
-                <div class="col-sm mb-2 mb-sm-0">
-                    <h1 class="page-header-title">Overview</h1>
-                </div>
+            <!-- Page header -->
+            <div class="page-header">
+                <h1 class="page-header-title">Overview</h1>
             </div>
         </article>
     </main>
