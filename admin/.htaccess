@@ -1,7 +1,18 @@
 RewriteEngine On
-# Nếu yêu cầu đường dẫn /admin/ mà không có .php
+# Nếu yêu cầu đường dẫn /admin/ mà không có .php, chuyển hướng tới index.php
+RewriteBase /admin/
 RewriteRule ^$ index.php [L]
 
-RewriteEngine On
-RewriteBase /admin/
+# Yêu cầu /admin/login sẽ chuyển tới /admin/login/login.php
 RewriteRule ^login/?$ login/login.php [L]
+
+# Yêu cầu /admin/view/ecommerce/products/products
+RewriteRule ^view/ecommerce/products/?$ view/ecommerce/products/products.php [L]
+
+###########################################################
+#                            USER                         #
+###########################################################
+# Yêu cầu /admin/view/ecommerce/users/user
+RewriteRule ^view/ecommerce/users/?$ view/ecommerce/users/users.php [L]
+# Yêu cầu /admin/view/ecommerce/users/add-user
+RewriteRule ^view/ecommerce/users/add-user/?$ view/ecommerce/users/add-user/add-user.php [L]

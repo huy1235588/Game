@@ -8,7 +8,7 @@ function authMiddleware()
     // Kiểm  tra người dùng có đăng nhập hay chưa
     if (!isset($_SESSION['userId'])) {
         // Nếu chưa thì chuyển hướng đến trang đăng nhập
-        header('Location: ./login');
+        header('Location: /admin/login');
         exit();
     }
 }

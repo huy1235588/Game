@@ -53,8 +53,11 @@ Author       : LeThienHuy.
     --navbar-dropdown-hover: #bdc5d14d;
 }
 
+html {
+    min-height: 100%;
+}
+
 body {
-    position: relative;
     background-color: var(--body-bg);
     font-family: Lato, sans-serif;
     color: #000;

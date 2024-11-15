@@ -1,11 +1,11 @@
 <?php
-include '../../../middleware/authMiddleware.php';
+include '../../../../../admin/middleware/authMiddleware.php';
 authMiddleware();
 
 // Khai báo thư viện
-require_once __DIR__ . '../../../../../config/env.php';
-require_once __DIR__ . '../../../../../config/db.php';
-require_once __DIR__ . '../../../../../controller/UserController.php';
+require_once __DIR__ . '../../../../../../config/env.php';
+require_once __DIR__ . '../../../../../../config/db.php';
+require_once __DIR__ . '../../../../../../controller/UserController.php';
 
 // Tạo đối tượng truy vấn
 $userController = new UserController($pdo);
@@ -29,32 +29,32 @@ $user = $userController->getUserById($_SESSION['userId']);
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="icon" href="/assets/icon/logo.ico">
-
-    <!-- CSS -->
     <link rel="stylesheet" href="/admin/component/header.css">
     <link rel="stylesheet" href="/admin/component/aside.css">
     <link rel="stylesheet" href="/admin/component/footer.css">
-    <link rel="stylesheet" href="products.css">
+    <link rel="icon" href="/assets/icon/logo.ico">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="add-user.css">
 
     <!-- JQuery -->
-    <script src="../../../assets/js/jquery-3.7.1.min.js"></script>
+    <script src="/admin/assets/js/jquery-3.7.1.min.js"></script>
 </head>
 
 <body class="">
     <!-- START HEADER -->
     <?php
-    include '../../../component/header.php';
+    include '../../../../component/header.php';
     ?>
     <!-- END HEADER -->
 
     <!-- START SIDEBAR -->
     <script>
         // Set active cho sidebar-link 
-        activeSidebarLink = ["Pages", "E-commerce", "Products", "Products"];
+        activeSidebarLink = ["Pages", "Users", "Add User"];
     </script>
     <?php
-    include '../../../component/aside.php';
+    include '../../../../component/aside.php';
     ?>
     <!-- END SIDEBAR -->
 
@@ -65,7 +65,7 @@ $user = $userController->getUserById($_SESSION['userId']);
         <article class="content">
             <div class="row align-items-center">
                 <div class="col-sm mb-2 mb-sm-0">
-                    <h1 class="page-header-title">Product</h1>
+                    <h1 class="page-header-title">Add User</h1>
                 </div>
             </div>
         </article>
@@ -74,7 +74,7 @@ $user = $userController->getUserById($_SESSION['userId']);
 
     <!-- START FOOTER -->
     <?php
-    include '../../../component/footer.php';
+    include '../../../../component/footer.php';
     ?>
     <!-- END FOOTER -->
 

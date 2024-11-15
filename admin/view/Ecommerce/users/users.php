@@ -35,7 +35,7 @@ $user = $userController->getUserById($_SESSION['userId']);
     <link rel="stylesheet" href="/admin/component/header.css">
     <link rel="stylesheet" href="/admin/component/aside.css">
     <link rel="stylesheet" href="/admin/component/footer.css">
-    <link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="users.css">
 
     <!-- JQuery -->
     <script src="../../../assets/js/jquery-3.7.1.min.js"></script>
@@ -51,7 +51,7 @@ $user = $userController->getUserById($_SESSION['userId']);
     <!-- START SIDEBAR -->
     <script>
         // Set active cho sidebar-link 
-        activeSidebarLink = ["Pages", "E-commerce", "Products", "Products"];
+        activeSidebarLink = ["Pages", "Users", "Overview"];
     </script>
     <?php
     include '../../../component/aside.php';
@@ -65,7 +65,7 @@ $user = $userController->getUserById($_SESSION['userId']);
         <article class="content">
             <div class="row align-items-center">
                 <div class="col-sm mb-2 mb-sm-0">
-                    <h1 class="page-header-title">Product</h1>
+                    <h1 class="page-header-title">Overview</h1>
                 </div>
             </div>
         </article>
