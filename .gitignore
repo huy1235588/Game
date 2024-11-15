@@ -2,3 +2,5 @@ fonts/
 *.rar
 
 .env
+vendor/
+config/env.php
