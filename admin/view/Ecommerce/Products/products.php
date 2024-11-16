@@ -35,6 +35,7 @@ $user = $userController->getUserById($_SESSION['userId']);
     <link rel="stylesheet" href="/admin/component/header.css">
     <link rel="stylesheet" href="/admin/component/aside.css">
     <link rel="stylesheet" href="/admin/component/footer.css">
+    <link rel="stylesheet" href="/admin/component/page-header.css">
     <link rel="stylesheet" href="products.css">
 
     <!-- JQuery -->
@@ -65,8 +66,13 @@ $user = $userController->getUserById($_SESSION['userId']);
         <article class="content">
             <!-- Page header -->
             <div class="page-header">
-                <h1 class="page-header-title">Product</h1>
+                <?php
+                $breadcrumb = ['Pages', 'E-commerce', 'Products'];
+                $pageHeader = 'Products';
+                include '../../../component/page-header.php';
+                ?>
             </div>
+
         </article>
     </main>
     <!-- END MAIN CONTENT -->

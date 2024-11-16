@@ -45,8 +45,7 @@ Author       : LeThienHuy.
     10.START MAIN CONTENT
 *===================================*/
 .main {
-    padding-left: 16.25rem;
-    padding-top: 3.75rem;
+    padding: 3.75rem 0 3.5rem 16.25rem;
     transition: padding 0.3s ease-in-out;
 }
 
@@ -56,4 +55,295 @@ Author       : LeThienHuy.
 }
 /*===================================*
     10.END MAIN CONTENT
+*===================================*/
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+/*===================================*
+    12.START FORM
+*===================================*/
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 70%;
+}
+/*===================================*
+    12.END FORM
+*===================================*/
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+/*===================================*
+    13.START STEP
+*===================================*/
+.step-list {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 2rem;
+}
+.step-item {
+    flex: 4;
+    padding-right: 0.95rem;
+    padding-left: 0.95rem;
+    overflow: hidden;
+    user-select: none;
+}
+
+.step-item:last-child {
+    margin: 0;
+    flex: 0 0 auto;
+}
+
+.step-item:first-child {
+    margin: 0;
+    flex: 3;
+}
+
+.step-content-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.step-icon {
+    display: inline-flex;
+    width: 2.1875rem;
+    height: 2.1875rem;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    border-radius: 50%;
+    font-size: 1rem;
+    color: var(--step-icon-text);
+    background-color: var(--step-icon-bg);
+}
+
+.step-title {
+    color: var(--step-title);
+}
+
+.step-list .active .step-icon {
+    color: var(--step-icon-text-active);
+    background-color: var(--step-icon-bg-active);
+}
+
+.step-list .active .step-title.active {
+    color: var(--step-title-active);
+}
+
+.step-list .step-item:not(:last-child) .step-title:after {
+    position: absolute;
+    top: 1rem;
+    width: 100%;
+    height: 1.25rem;
+    border-top: 0.125rem solid #e7eaf3;
+    margin-left: 0.75rem;
+    content: "";
+}
+/*===================================*
+    13.END STEP
+*===================================*/
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+/*===================================*
+    14.START CARD
+*===================================*/
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    color: #000;
+    background-clip: border-box;
+    border: 1px solid rgba(231, 234, 243, 0.7);
+    border-radius: 0.75rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 2rem 2rem 0;
+}
+
+.form-group td {
+    padding-bottom: 1.5rem;
+}
+
+.col-form-label {
+    position: relative;
+    width: 100%;
+    padding: 9px 15px;
+    padding-left: 0;
+    max-width: 25%;
+}
+
+.col-form-label label {
+    color: #1e2022;
+    line-height: 1.6;
+    font-size: 0.875rem;
+}
+
+.col-form-input {
+    max-width: 75%;
+    position: relative;
+    width: 100%;
+    padding-left: 15px;
+}
+
+/* Avatar */
+.col-form-avatar {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-container {
+    position: relative;
+    width: 4.92188rem;
+    height: 4.92188rem;
+    border-radius: 50%;
+    margin-right: 2rem;
+    background-color: #fff;
+    border-color: #377dff;
+    cursor: pointer;
+}
+
+.avatar-img {
+    display: block;
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.avatar-uploader-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(19, 33, 68, 0.25);
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.avatar-uploader-trigger {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.avatar-uploader-trigger {
+    padding: 3px;
+    background-color: #fff;
+    color: #677788;
+    box-shadow: 0 3px 6px 0 rgba(140, 152, 164, 0.25);
+}
+
+.avatar-container:hover .avatar-uploader-trigger {
+    color: #fff;
+    background-color: #377dff;
+    box-shadow: 0 3px 6px 0 rgba(140, 152, 164, 0.25);
+}
+
+.avatar-delete-btn {
+    height: 20%;
+    padding: 0.54688rem 0.875rem;
+    border: 1px solid #e7eaf3;
+    border-radius: 0.3125rem;
+    color: #677788;
+    background-color: #fff;
+}
+
+.avatar-delete-btn:hover {
+    background-color: #377dff1a;
+}
+
+.form-control {
+    width: 100%;
+    height: calc(1.6em + 1.21875rem);
+    padding: 0.54688rem 0.875rem;
+    font-size: 0.875rem;
+    color: #1e2022;
+    border: 0.0625rem solid #e7eaf3;
+    border-radius: 0.3125rem;
+}
+
+.col-form-name {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+}
+
+.form-control-text {
+    width: 1%;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+/* Button Next */
+.card-footer{
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 2rem;
+    border-radius: 0 0 0.6875rem 0.6875rem;
+}
+
+.btn-next{
+    color: #fff;
+    background-color: #377dff;
+    border: 0.0625rem solid #377dff;
+    padding: 0.54688rem 0.875rem;
+    border-radius: 0.3125rem;
+}
+
+.btn-next:hover{
+    background-color: #377dffda;
+}
+/*===================================*
+    14.END CARD
 *===================================*/

@@ -72,21 +72,39 @@ Author       : LeThienHuy.
 
 */
 /*===================================*
-    10.START MAIN CONTENT
+    11.PAGE HEADER
 *===================================*/
-.main {
-    padding: 3.75rem 0 3.5rem 16.25rem;
-    transition: padding 0.3s ease-in-out;
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.25rem;
 }
 
-.content {
-    width: 100%;
-    padding: 1.65rem 2rem 1.75rem;
+.add-user-link {
+    display: flex;
+    margin: 0 15px;
+    padding: 0.75rem 1rem;
+    border-radius: 7px;
+    background-color: var(--page-header-bg);
+    color: var(--page-header-text);
+}
+
+.add-user-link:hover {
+    background-color: var(--page-header-bg-hover);
+}
+
+.add-user-link svg {
+    margin-right: 4px;
+}
+
+.page-header-title {
+    margin-top: 10px;
+    color: var(--page-header-title);
 }
 /*===================================*
-    10.END MAIN CONTENT
+    01.END PAGE HEADER
 *===================================*/
-
 /*
 
 
@@ -99,3 +117,37 @@ Author       : LeThienHuy.
 
 
 */
+/*===================================*
+    11.START BREADCRUMB
+*===================================*/
+.breadcrumb,
+.breadcrumb-item,
+.breadcrumb-link {
+    color: var(--breadcrumb-text);
+}
+
+.breadcrumb-list {
+    display: flex;
+}
+
+.breadcrumb-item.active {
+    color: var(--breadcrumb-text-active);
+}
+
+.breadcrumb-item + .breadcrumb-item {
+    padding-left: 0.5rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.5rem;
+    color: var(--breadcrumb-text);
+    content: "/";
+}
+
+.breadcrumb .breadcrumb-link:hover {
+    color: var(--breadcrumb-link-hover);
+}
+/*===================================*
+    11.END BREADCRUMB
+*===================================*/

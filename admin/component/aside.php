@@ -32,7 +32,7 @@
                         <ul class="sidebar-submenu-list nav">
                             <li class="sidebar-item">
                                 <!-- Default -->
-                                <a class="sidebar-link" href="javascript:;">
+                                <a class="sidebar-link" href="/admin/">
                                     <span class="sidebar-submenu-item-icon">
                                         <img src="/admin/assets/icon/circle.svg" alt="">
                                     </span>
