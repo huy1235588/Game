@@ -169,9 +169,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const circleMaskWrapper2 = document.getElementById("circleMaskWrapper2");
     const imgTranslate2 = document.getElementById("imgTranslate2");
 
-    const cropBtn = document.getElementById("cropBtn");
-    const resultImg = document.getElementById("avatarImg");
-
     const cropBtnSave = document.getElementById("cropBtnSave");
     const cropBtnCancel = document.getElementById("cropBtnCancel");
     const cropBtnClose = document.getElementById("cropBtnClose");
@@ -320,15 +317,40 @@ document.addEventListener("DOMContentLoaded", () => {
         imgTranslate.style.cursor = 'grab';
     });
 
-    // // Xử lý khi nhấn nút cắt
-    // cropBtn.addEventListener("click", () => {
-    //     if (cropper) {
-    //         const croppedCanvas = cropper.getCroppedCanvas();
-    //         resultImg.src = croppedCanvas.toDataURL(); // Hiển thị ảnh đã cắt
-    //         cropBox.style.display = "none"; // Ẩn box cắt
-    //         fileInput.value = ""; // Reset input file
-    //     }
-    // });
+    // Xử lý khi nhấn nút cắt
+    cropBtnSave.addEventListener("click", () => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+
+        const size = 400; // Kích thước của hình ảnh và div
+
+        // Thiết lập kích thước canvas bằng kích thước của div
+        var cropX = 0;
+        var cropY = 0;
+        var cropWidth = imageToCrop.naturalWidth * 0.5;
+        var cropHeight = imageToCrop.naturalHeight * 0.5;
+
+        //resize our canvas to match the size of the cropped area
+        canvas.width = cropWidth;
+        canvas.height = cropHeight;
+
+        // Vẽ một hình tròn lên canvas để cắt ảnh
+        ctx.beginPath();
+        ctx.arc(canvas.width / 2, canvas.height / 2, canvas.width / 2, 0, 2 * Math.PI);
+        ctx.clip(); // Chỉ vẽ vào khu vực hình tròn
+
+        // Vẽ hình ảnh lên canvas
+        ctx.drawImage(imageToCrop, cropX, cropY, cropWidth, cropHeight, 0, 0, canvas.width, canvas.height);
+
+        // Chuyển canvas thành dữ liệu URL (Base64)
+        const dataUrl = canvas.toDataURL('image/png');
+
+        // Tạo một liên kết để tải ảnh về
+        const link = document.createElement('a');
+        link.href = dataUrl;
+        link.download = 'cropped_image.png';
+        link.click();
+    });
 
     // Xử lý nút cancel
     cropBtnCancel.addEventListener('click', () => {
