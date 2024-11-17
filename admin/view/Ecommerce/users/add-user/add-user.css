@@ -25,6 +25,14 @@ Author       : LeThienHuy.
     --white: #fff;
     --gray: #e0e0e0;
     --yellow: #020202;
+
+    /* Step */
+    --step-icon-text: #132144;
+    --step-icon-bg: #1321441a;
+    --step-title: #1e2022;
+    --step-icon-text-active: #fff;
+    --step-icon-bg-active: #377dff;
+    --step-title-active: #377dff;
 }
 /*===================================*
     01.END GENERAL STYLE
@@ -153,7 +161,7 @@ Author       : LeThienHuy.
     background-color: var(--step-icon-bg-active);
 }
 
-.step-list .active .step-title.active {
+.step-list .active .step-title {
     color: var(--step-title-active);
 }
 
@@ -226,6 +234,12 @@ Author       : LeThienHuy.
     position: relative;
     width: 100%;
     padding-left: 15px;
+}
+
+.input-label-secondary {
+    color: #8c98a4;
+    font-size: 0.8125rem;
+    margin-left: 0.25rem;
 }
 
 /* Avatar */
@@ -309,7 +323,7 @@ Author       : LeThienHuy.
     padding: 0.54688rem 0.875rem;
     font-size: 0.875rem;
     color: #1e2022;
-    border: 0.0625rem solid #e7eaf3;
+    border: 0.0625rem solid #929292;
     border-radius: 0.3125rem;
 }
 
@@ -326,14 +340,31 @@ Author       : LeThienHuy.
 }
 
 /* Button Next */
-.card-footer{
+.card-footer {
     display: flex;
     justify-content: flex-end;
     padding: 1rem 2rem;
     border-radius: 0 0 0.6875rem 0.6875rem;
 }
 
-.btn-next{
+.btn-previous {
+    display: flex;
+    color: #71869d;
+    padding: 0.54688rem 0.875rem;
+    border-radius: 0.3125rem;
+}
+
+.btn-previous svg {
+    margin-right: 3px;
+}
+
+.btn-previous:hover {
+    color: #377dff;
+    background-color: #377dff1a;
+}
+
+.btn-next {
+    display: flex;
     color: #fff;
     background-color: #377dff;
     border: 0.0625rem solid #377dff;
@@ -341,9 +372,293 @@ Author       : LeThienHuy.
     border-radius: 0.3125rem;
 }
 
-.btn-next:hover{
+.btn-next svg {
+    margin-left: 3px;
+}
+
+.btn-next:hover {
     background-color: #377dffda;
 }
 /*===================================*
     14.END CARD
 *===================================*/
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+/*===================================*
+    15.START SELECT FORM
+*===================================*/
+.select-container {
+    position: absolute;
+    width: calc(100% - 15px);
+    height: calc(1.6em + 1.21875rem);
+    padding: 0.54688rem 0 0.54688rem 0.875rem;
+    color: #1e2022;
+    border: 0.0625rem solid #e7eaf3;
+    border-radius: 0.3125rem;
+    vertical-align: middle;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    appearance: none;
+    cursor: pointer;
+}
+
+.select-container:focus-visible {
+    outline: none;
+    border-color: #377dff;
+}
+
+.selected-container {
+    width: 100%;
+    height: calc(1.6em + 1.21875rem);
+    padding: 0.54688rem 1.875rem 0.54688rem 0.875rem;
+    color: #1e2022;
+    border: 0.0625rem solid #e7eaf3;
+    border-radius: 0.3125rem;
+    vertical-align: middle;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    appearance: none;
+}
+
+.selected-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.col-form-radio {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+}
+
+.form-control-radio {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    border: 0.0625rem solid #e7eaf3;
+    border-radius: 0.3125rem;
+}
+
+.form-control-radio:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-control-radio:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.col-form-radio input {
+    position: absolute;
+    left: 10px;
+    width: 1rem;
+    height: 1.2rem;
+}
+
+.col-form-radio label {
+    display: inline-block;
+    width: 100%;
+    padding: 0.54688rem 0.875rem;
+    padding-left: 2rem;
+}
+/*===================================*
+    15.END SELECT FORM
+*===================================*/
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+/*===================================*
+    15.START CONFIRM FORM
+*===================================*/
+.card-confirm {
+    border: 1px solid #66666666;
+}
+
+.confirm-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.confirm-term {
+    flex: 0 0 50%;
+    max-width: 50%;
+    text-align: right;
+    padding: 0 1rem;
+    color: #1e2022;
+    font-weight: 600;
+}
+
+.confirm-value {
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+    color: #677788;
+}
+
+/* Avatar */
+.profile-cover {
+    position: relative;
+    height: 10rem;
+    padding: 1.75rem 2rem;
+    border-radius: 0.75rem;
+}
+.profile-cover-img {
+    width: 100%;
+    height: 7.5rem;
+    object-fit: cover;
+    vertical-align: top;
+    border-radius: 0.75rem;
+}
+
+.profile-cover-avatar {
+    position: relative;
+    width: 7.875rem;
+    height: 7.875rem;
+    display: flex;
+    margin: -6.3rem auto 0.5rem auto;
+    border: 0.1875rem solid #fff;
+    border-radius: 50%;
+    background-color: #fff;
+    user-select: none;
+}
+
+.avatar-img {
+    display: block;
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    border-radius: 50%;
+}
+/*===================================*
+    15.END CONFIRM FORM
+*===================================*/
+#cropBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 70%;
+    height: 85%;
+
+    margin-top: 20px;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #383838;
+    box-shadow: 0 3px 6px 0 rgba(140, 152, 164, 0.25);
+    z-index: 100;
+}
+
+/* Header */
+.crop-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+/* Close button */
+.crop-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ffffff1a;
+}
+
+.crop-close-btn:hover {
+    background-color: #ffffff28;
+}
+
+/* Image Crop */
+.cropBox-img-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 70%;
+    overflow: hidden;
+}
+
+.circle-mask-container {
+    width: 400px;
+    height: 400px;
+    margin: auto;
+}
+
+#circleMask {
+    mask-image: -webkit-radial-gradient(center, white, black);
+    border-radius: 50%;
+    height: 400px;
+    width: 400px;
+}
+
+.circle-mask-wrapper {
+    position: absolute;
+}
+
+#circleMaskWrapper2 {
+    top: 0;
+    z-index: -1;
+}
+
+.image-to-crop {
+    -webkit-user-drag: none;
+}
+
+/* Crop btn */
+.crop-btn {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+}
+
+.crop-save-btn {
+    padding: 12px 40px;
+    margin-right: 5px;
+    border-radius: 8px;
+    background-color: #0866ff;
+}
+
+.crop-cancel-btn {
+    padding: 12px;
+    margin-right: 10px;
+    border-radius: 8px;
+    color: #75b6ff;
+}
+
+.crop-save-btn:hover {
+    background-color: #2075ff;
+}
+
+.crop-cancel-btn:hover {
+    background-color: #474747;
+}
