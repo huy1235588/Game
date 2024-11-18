@@ -10,106 +10,49 @@ const stepContentWrapper = document.querySelectorAll('a.step-content-wrapper');
 const btnNextForm = document.getElementById('btnNextForm');
 const btnPreviousForm = document.getElementById('btnPreviousForm');
 
-btnNextForm.addEventListener('click', () => {
-    if (profile.classList.contains('active')) {
-        profile.style.display = "none";
-        securityInformation.style.display = "block";
+// Toggle password visibility
+document.querySelectorAll('.form-input-password').forEach(element => {
+    const showPasswordBtn = element.getElementsByClassName('show-password')[0];
 
-        btnPreviousForm.style.display = "block"
+    showPasswordBtn.addEventListener('click', () => {
+        const passwordField = element.getElementsByTagName('input')[0];
 
-        cardFooter.style.justifyContent = "space-between";
-
-        profile.classList.remove('active');
-        securityInformation.classList.add('active');
-
-        stepItem[0].classList.remove('active');
-        stepItem[1].classList.add('active');
-    }
-
-    else if (securityInformation.classList.contains('active')) {
-        securityInformation.style.display = "none";
-        confirmation.style.display = "block";
-
-        securityInformation.classList.remove('active');
-        confirmation.classList.add('active');
-
-        stepItem[1].classList.remove('active');
-        stepItem[2].classList.add('active');
-
-        const firstName = document.getElementsByName("firstName")[0];
-        const lastName = document.getElementsByName("lastName")[0];
-        const email = document.getElementsByName("email")[0];
-        const phone = document.getElementsByName("phone")[0];
-        const country = document.getElementById("countryText").textContent.trim();
-        const username = document.getElementsByName("username")[0];
-        const password = document.getElementsByName("password")[0];
-        const role = document.getElementsByName("role")[0];
-
-        // console.log(country.textContent.trim())
-
-        document.getElementById('confirmFullName').textContent = firstName.value + " " + lastName.value;
-        document.getElementById('confirmEmail').textContent = email.value
-        document.getElementById('confirmPhone').textContent = phone.value;
-        document.getElementById('confirmCountry').textContent = country;
-        document.getElementById('confirmUsername').textContent = username.value;
-        document.getElementById('confirmPassword').textContent = password.value;
-        document.getElementById('confirmRole').textContent = role.value;
-    }
+        // Chuyển đổi giữa 'password' and 'text' input
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            element.getElementsByClassName('show-password-icon')[0].style.display = "none";
+            element.getElementsByClassName('hide-password-icon')[0].style.display = "block";
+        } else {
+            passwordField.type = 'password';
+            element.getElementsByClassName('show-password-icon')[0].style.display = "block";
+            element.getElementsByClassName('hide-password-icon')[0].style.display = "none";
+        }
+    });
 });
 
-btnPreviousForm.addEventListener('click', () => {
-    if (confirmation.classList.contains('active')) {
-        confirmation.style.display = "none";
-        securityInformation.style.display = "block";
-
-        confirmation.classList.remove('active');
-        securityInformation.classList.add('active');
-
-        stepItem[2].classList.remove('active');
-        stepItem[1].classList.add('active');
-    }
-
-    else if (securityInformation.classList.contains('active')) {
-        securityInformation.style.display = "none";
-        profile.style.display = "block";
-
-        btnPreviousForm.style.display = "none"
-
-        cardFooter.style.justifyContent = "flex-end";
-
-        securityInformation.classList.remove('active');
-        profile.classList.add('active');
-
-        stepItem[1].classList.remove('active');
-        stepItem[0].classList.add('active');
-    }
-});
-
-stepContentWrapper[0].addEventListener('click', () => {
-    profile.style.display = "block";
+const showProfile = () => {
+    profile.style.display = "flex";
     securityInformation.style.display = "none";
     confirmation.style.display = "none";
 
     btnPreviousForm.style.display = "none"
-
     cardFooter.style.justifyContent = "flex-end";
 
     profile.classList.add('active');
-    securityInformation.classList.remove('active');
     confirmation.classList.remove('active');
+    securityInformation.classList.remove('active');
 
     stepItem[0].classList.add('active');
     stepItem[1].classList.remove('active');
     stepItem[2].classList.remove('active');
-});
+};
 
-stepContentWrapper[1].addEventListener('click', () => {
+const showSecurityInformation = () => {
     profile.style.display = "none";
-    securityInformation.style.display = "block";
+    securityInformation.style.display = "flex";
     confirmation.style.display = "none";
 
     btnPreviousForm.style.display = "block"
-
     cardFooter.style.justifyContent = "space-between";
 
     profile.classList.remove('active');
@@ -119,15 +62,14 @@ stepContentWrapper[1].addEventListener('click', () => {
     stepItem[0].classList.remove('active');
     stepItem[1].classList.add('active');
     stepItem[2].classList.remove('active');
-});
+};
 
-stepContentWrapper[2].addEventListener('click', () => {
+const showConfirmation = () => {
     profile.style.display = "none";
     securityInformation.style.display = "none";
     confirmation.style.display = "block";
 
     btnPreviousForm.style.display = "block"
-
     cardFooter.style.justifyContent = "space-between";
 
     profile.classList.remove('active');
@@ -137,6 +79,53 @@ stepContentWrapper[2].addEventListener('click', () => {
     stepItem[0].classList.remove('active');
     stepItem[1].classList.remove('active');
     stepItem[2].classList.add('active');
+};
+
+// Button next
+// btnNextForm.addEventListener('click', () => {
+//     if (profile.classList.contains('active')) {
+//         showSecurityInformation();
+//     }
+
+//     else if (securityInformation.classList.contains('active')) {
+//         showConfirmation();
+
+//         // Avatar
+
+//         const firstName = document.getElementsByName("firstName")[0];
+//         const lastName = document.getElementsByName("lastName")[0];
+//         const email = document.getElementsByName("email")[0];
+//         const phone = document.getElementsByName("phone")[0];
+//         const country = document.getElementById("countryText").textContent.trim();
+//         const username = document.getElementsByName("username")[0];
+//         const password = document.getElementsByName("password")[0];
+//         const role = document.getElementsByName("role")[0];
+
+//         
+//     }
+// });
+
+// Button previous
+btnPreviousForm.addEventListener('click', () => {
+    if (confirmation.classList.contains('active')) {
+        showSecurityInformation();
+    }
+
+    else if (securityInformation.classList.contains('active')) {
+        showProfile();
+    }
+});
+
+stepContentWrapper[0].addEventListener('click', () => {
+    showProfile();
+});
+
+stepContentWrapper[1].addEventListener('click', () => {
+    showSecurityInformation();
+});
+
+stepContentWrapper[2].addEventListener('click', () => {
+    showConfirmation();
 });
 
 
@@ -152,204 +141,111 @@ if (countrySelect.selectedIndex) {
     countryText.textContent = countrySelect.value.option[countrySelect.selectedIndex].text;
 }
 
+
 /*******************************************
 * 
 *          CropBox
 * 
 *******************************************/
+const getRoundedCanvas = (sourceCanvas) => {
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+    const width = sourceCanvas.width;
+    const height = sourceCanvas.height;
+
+    canvas.width = width;
+    canvas.height = height;
+
+    context.imageSmoothingEnabled = true;
+    context.drawImage(sourceCanvas, 0, 0, width, height);
+    context.globalCompositeOperation = "destination-in";
+
+    context.beginPath();
+    context.arc(width / 2, height / 2, Math.min(width, height) / 2, 0, 2 * Math.PI, true);
+    context.fill();
+    return canvas;
+};
+
 document.addEventListener("DOMContentLoaded", () => {
-    const avatarUploader = document.getElementById("avatarUploader");
+    // Box
     const cropBox = document.getElementById("cropBox");
 
-    const imageToCrop = document.getElementById("imageToCrop");
-    const imageToCrop2 = document.getElementById("imageToCrop2");
+    // Input file
+    const avatarUploader = document.getElementById("avatarUploader");
 
-    const circleMaskWrapper = document.getElementById("circleMaskWrapper");
-    const imgTranslate = document.getElementById("imgTranslate");
-    const circleMaskWrapper2 = document.getElementById("circleMaskWrapper2");
-    const imgTranslate2 = document.getElementById("imgTranslate2");
+    // Image
+    const imageToCrop = document.getElementById('imageToCrop');
+    // Image Avatar Result
+    const avatarImg = document.getElementById("avatarImg");
+    // Button delete avatar
+    const deleteAvatarBtn = document.getElementById("deleteAvatarBtn");
 
+    // Lấy button
     const cropBtnSave = document.getElementById("cropBtnSave");
     const cropBtnCancel = document.getElementById("cropBtnCancel");
     const cropBtnClose = document.getElementById("cropBtnClose");
 
-    // let cropContext = imageToCrop.getContext('2d');
-    // let img = new Image();
-    let imageX = 0, imageY = 0; // Offset ảnh
-    let isDragging = false;
-    let startX, startY;
-    let heightScale; // Để thu nhỏ hình ảnh
-
     let cropper;
 
-    // Xử lý khi người dùng chọn ảnh
+    // Sự kiện khi chọn file
     avatarUploader.addEventListener("change", (event) => {
+
+        // Kiểm tra file có phải hình ảnh
         const file = event.target.files[0];
         if (file && file.type.startsWith("image/")) {
             const reader = new FileReader();
             reader.onload = (e) => {
                 imageToCrop.src = e.target.result; // Hiển thị ảnh trong box cắt
-                imageToCrop2.src = e.target.result; // Hiển thị ảnh trong box cắt
                 cropBox.style.display = "block";  // Hiển thị box cắt
 
+                // Hình ảnh đang load
                 imageToCrop.onload = () => {
-                    // chiều cao cố định
-                    var desiredHeight = 400;
+                    // Hủy cropper cũ nếu có
+                    if (cropper) {
+                        cropper.destroy();
+                    };
 
-                    // Tính hệ số tỷ lệ cho chiều cao
-                    heightScale = desiredHeight / imageToCrop.naturalHeight;
+                    cropper = new Cropper(imageToCrop, {
+                        aspectRatio: 1,        // Giữ hình vuông
+                        viewMode: 1,           // Đảm bảo crop trong vùng ảnh
+                        zoomable: false,       // Tắt chức năng zoom
+                        minCropBoxWidth: 100,  // Đặt chiều rộng tối thiểu cho vùng crop
+                        minCropBoxHeight: 100, // Đặt chiều cao tối thiểu cho vùng crop
+                        ready: () => {
+                            cropAble = true;
+                            cropper.setCropBoxData({
+                                height: imageToCrop.height
+                            });
+                        },
+                    });
 
-                    // Căn giữa màn hình cộng thêm circleMask 400 x 400
-                    const widthTranslate = imageToCrop.naturalWidth / 2 - 200;
-                    const heightTranslate = imageToCrop.naturalHeight / 2 - 200;
-
-                    // Thu nhỏ hình ảnh
-                    imgTranslate.style.transform = `scale(${heightScale})`;
-                    imgTranslate2.style.transform = `scale(${heightScale})`;
-
-                    // Căn giữa hình ảnh
-                    circleMaskWrapper.style.transform = `translate(-${widthTranslate}px, -${heightTranslate}px)`;
-                    circleMaskWrapper2.style.transform = `translate(-${widthTranslate}px, -${heightTranslate}px)`;
                 };
-
-
-                // if (cropper) cropper.destroy();   // Hủy cropper cũ nếu có
-                // cropper = new Cropper(imageToCrop, {
-                //     aspectRatio: 1, // Tỉ lệ khung hình (ví dụ: 1:1)
-                //     viewMode: 1,
-                // });
             };
             reader.readAsDataURL(file);
-        }
-        else {
-            document.getElementsByClassName("error-pop")[0].style.display = "block";
-            errorHeader = "Error";
-            errorDetail = "The selected file is not an image.";
+
         }
     });
 
-    // Hàm vẽ ảnh và vòng tròn lên canvas
-    // function drawImage() {
-    //     cropContext.clearRect(0, 0, imageToCrop.width, imageToCrop.height);
-    //     cropContext.drawImage(img, imageX, imageY);
-
-    //     // Tạo vùng tối xung quanh hình tròn
-    //     cropContext.save();
-    //     cropContext.beginPath();
-    //     cropContext.arc(
-    //         imageToCrop.width / 2,
-    //         imageToCrop.height / 2,
-    //         Math.min(imageToCrop.width, imageToCrop.height) / 4, // Bán kính vòng tròn
-    //         0,
-    //         Math.PI * 2
-    //     );
-    //     cropContext.strokeStyle = 'red';
-    //     cropContext.lineWidth = 2;
-    //     cropContext.clip();
-    //     cropContext.closePath();
-    //     cropContext.restore();
-
-    //     // // Vẽ vòng tròn
-    //     // const circleRadius = Math.min(imageToCrop.width, imageToCrop.height) / 4; // Bán kính vòng tròn
-    //     // const centerX = imageToCrop.width / 2;
-    //     // const centerY = imageToCrop.height / 2;
-
-    //     // cropContext.beginPath();
-    //     // cropContext.arc(centerX, centerY, circleRadius, 0, Math.PI * 2);
-    //     // cropContext.strokeStyle = 'red';
-    //     // cropContext.lineWidth = 2;
-    //     // cropContext.stroke();
-    //     // cropContext.closePath();
-    // }
-
-    // img.onload = () => {
-    //     imageToCrop.width = img.width;
-    //     imageToCrop.height = img.height;
-    //     cropContext.drawImage(img, offsetX, offsetY, cropCanvas.width, cropCanvas.height);
-    //     cropBox.style.display = 'block';
-    // };
-
-    // Kéo ảnh
-
-    imgTranslate.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        imgTranslate.style.cursor = 'grabbing';
-        startX = e.clientX;
-        startY = e.clientY;
-    });
-
-    document.addEventListener('mousemove', (e) => {
-        if (isDragging) {
-            const deltaX = e.clientX - startX;
-            const deltaY = e.clientY - startY;
-
-            const maxX = imgTranslate.getBoundingClientRect().width / 2 - 200;
-
-            imageX += deltaX;
-            imageY += deltaY;
-
-            // Thu nhỏ hình ảnh
-            if (imageX >= -maxX && imageX <= maxX) {
-                imgTranslate.style.transform = `translate3d(${imageX}px, -${0}px, 0px) scale(${heightScale})`;
-                imgTranslate2.style.transform = `translate3d(${imageX}px, -${0}px, 0px) scale(${heightScale})`;
-            } else if (imageX > 0) {
-                imageX = maxX;
-
-            } else {
-                imageX = -maxX;
-            }
-
-            // Cập nhật điểm bắt đầu cho lần di chuyển tiếp theo
-            startX = e.clientX;
-            startY = e.clientY;
-        }
-    });
-
-    document.addEventListener('mouseup', () => {
-        if (isDragging) {
-            isDragging = false;
-            imgTranslate.style.cursor = "grab";
-        }
-    });
-
-    document.addEventListener('mouseleave', () => {
-        isDragging = false;
-        imgTranslate.style.cursor = 'grab';
-    });
-
-    // Xử lý khi nhấn nút cắt
+    // Xử lý nút Save
     cropBtnSave.addEventListener("click", () => {
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
+        if (!cropAble) {
+            return;
+        }
 
-        const size = 400; // Kích thước của hình ảnh và div
-
-        // Thiết lập kích thước canvas bằng kích thước của div
-        var cropX = 0;
-        var cropY = 0;
-        var cropWidth = imageToCrop.naturalWidth * 0.5;
-        var cropHeight = imageToCrop.naturalHeight * 0.5;
-
-        //resize our canvas to match the size of the cropped area
-        canvas.width = cropWidth;
-        canvas.height = cropHeight;
-
-        // Vẽ một hình tròn lên canvas để cắt ảnh
-        ctx.beginPath();
-        ctx.arc(canvas.width / 2, canvas.height / 2, canvas.width / 2, 0, 2 * Math.PI);
-        ctx.clip(); // Chỉ vẽ vào khu vực hình tròn
-
-        // Vẽ hình ảnh lên canvas
-        ctx.drawImage(imageToCrop, cropX, cropY, cropWidth, cropHeight, 0, 0, canvas.width, canvas.height);
+        // Crop
+        const croppedCanvas = cropper.getCroppedCanvas();
+        // Round
+        const roundedCanvas = getRoundedCanvas(croppedCanvas);
 
         // Chuyển canvas thành dữ liệu URL (Base64)
-        const dataUrl = canvas.toDataURL('image/png');
+        const dataUrl = roundedCanvas.toDataURL('image/png');
 
-        // Tạo một liên kết để tải ảnh về
-        const link = document.createElement('a');
-        link.href = dataUrl;
-        link.download = 'cropped_image.png';
-        link.click();
+        avatarImg.src = dataUrl;
+
+        cropBox.style.display = "none";
+
+        // Hủy cropper
+        cropper.destroy();
     });
 
     // Xử lý nút cancel
@@ -357,6 +253,8 @@ document.addEventListener("DOMContentLoaded", () => {
         cropBox.style.display = "none";
         imageToCrop.value = "";
         imageToCrop.removeAttribute('src');
+
+        cropper.destroy();
     });
 
     // Xử lý nút đóng
@@ -364,5 +262,226 @@ document.addEventListener("DOMContentLoaded", () => {
         cropBox.style.display = "none";
         imageToCrop.value = "";
         imageToCrop.removeAttribute('src');
+
+        cropper.destroy();
     });
+
+    // Delete Avatar
+    deleteAvatarBtn.addEventListener("click", () => {
+        if (avatarImg.src !== "/admin/assets/img/avatar/img1.jpg") {
+            avatarImg.src = "/admin/assets/img/avatar/img1.jpg";
+        }
+    });
+});
+
+
+/*******************************************
+* 
+*          Check input
+* 
+*******************************************/
+// Các hàm kiểm tra input   
+const validationRules = {
+    email: (value) => {
+        if (value.trim().length === 0) return "Required";
+        if (!value.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+            return "Invalid email";
+        }
+        if (value.length >= 255) return "Too long";
+        return "";
+    },
+
+    userName: (value) => {
+        if (value.trim().length === 0) return "Required";
+        if (value.length <= 2) return "Too short";
+        if (value.match(/\s/)) return "Invalid format";
+
+        return "";
+    },
+
+    password: (value) => {
+        if (value.trim().length === 0) return "Required";
+        if (value.length <= 6) return "Too short";
+        if (!/^(?=.*[a-zA-Z])(?=.*\d)(?!.*\s).+$/.test(value)) return "Invalid format";
+        if (value.length >= 255) return "Too long";
+        return "";
+    },
+
+    confirmPassword: (value) => {
+        const password = document.getElementById('passwordInput').value;
+        if (value.trim().length === 0) return "Required";
+        if (value !== password) return "Passwords do not match";
+        return "";
+    },
+
+    avatar: () => {
+
+    },
+
+    default: (value) => {
+        return value.trim() ? "" : "Required";
+    },
+};
+
+// Hàm xác nhận form
+const confirmForm = {
+    email: (value) => {
+        document.getElementById('confirmEmail').textContent = value
+    },
+
+    userName: (value) => {
+        document.getElementById('confirmUsername').textContent = value;
+    },
+
+    password: (value) => {
+        // Ẩn password
+        var hiddenContent = value.replace(/./g, "•");
+
+        document.getElementById('confirmPassword').textContent = hiddenContent;
+    },
+
+    fullName: (firstName, lastName) => {
+        document.getElementById('confirmFullName').textContent = firstName.value + " " + lastName.value;
+    },
+
+    phone: (value) => {
+        document.getElementById('confirmPhone').textContent = value;
+    },
+
+    country: (value) => {
+        document.getElementById('confirmCountry').textContent = value;
+    },
+
+    role: (value) => {
+        document.getElementById('confirmRole').textContent = value;
+    },
+
+    avatar: (value) => {
+        document.getElementById("confirmAvatar").src = value;
+    },
+
+    default: () => {
+    },
+}
+
+// Hàm tạo element lỗi
+const createErrorMessage = (element, message) => {
+    let errorMessage = element.parentElement.querySelector(`.error-message-input[data-error-for="${element.name}"]`);
+
+    // Chỉ thêm errorMessage nếu nó chưa tồn tại
+    if (!errorMessage) {
+        // Áp dụng css lỗi
+        element.classList.add("form-input-error");
+
+        // Thêm nội dung lỗi
+        errorMessage = document.createElement('span');              // Tạo element
+        errorMessage.textContent = message;                      // Thêm nội dung
+        errorMessage.classList.add("error-message-input");          // Thêm class
+        errorMessage.setAttribute("data-error-for", element.name);  // Liên kết với input thông qua 'name'
+        element.parentElement.append(errorMessage);
+    }
+}
+
+// Tìm toàn bộ input
+const inputForm = document.querySelectorAll(".col-form-input input");
+
+// Gắn sự kiện cho từng input
+inputForm.forEach(element => {
+    // Sự kiện input khi mất focus
+    element.addEventListener("blur", () => {
+        const validate = validationRules[element.name] || validationRules.default;
+        const errorMessage = validate(element.value);
+        if (errorMessage) {
+            createErrorMessage(element, errorMessage);
+        }
+    });
+
+    // Xóa errorMessage khi focus
+    element.addEventListener("focus", () => {
+        const errorMessage = element.parentElement.querySelector(`.error-message-input[data-error-for="${element.name}"]`);
+        if (errorMessage) {
+            errorMessage.remove();
+        }
+
+        // Xóa css lỗi
+        element.classList.remove("form-input-error");
+    });
+});
+
+// Hàm kiểm tra toàn bộ input
+const checkAllInputForm = (inputForm) => {
+    // Kiểm tra từng input
+    inputForm.forEach(element => {
+        const validate = validationRules[element.name] || validationRules.default;
+        const errorMessage = validate(element.value);
+        if (errorMessage) {
+            createErrorMessage(element, errorMessage);
+        }
+
+        // Xóa errorMessage khi focus
+        element.addEventListener("focus", () => {
+            const errorMessage = element.parentElement.querySelector(`.error-message-input[data-error-for="${element.name}"]`);
+            if (errorMessage) {
+                errorMessage.remove();
+            }
+
+            // Xóa css lỗi
+            element.classList.remove("form-input-error");
+        });
+    });
+}
+
+// Nút next
+btnNextForm.addEventListener('click', () => {
+    if (profile.classList.contains('active')) {
+        // Tìm toàn bộ input
+        const inputForm = document.querySelectorAll("#addUserStepProfile .col-form-input input");
+
+        // Kiểm tra toàn bộ input
+        checkAllInputForm(inputForm);
+
+        // Nếu có input không hợp lệ
+        if (document.querySelector("#addUserStepProfile .error-message-input")) {
+            showProfile();
+        }
+
+        // Nếu hợp lệ thì chuyển đến form tiếp theo
+        else {
+        }
+        showSecurityInformation();
+    }
+    else if (securityInformation.classList.contains('active')) {
+        // Tìm toàn bộ input
+        const inputForm = document.querySelectorAll("#addUserStepSecurityInformation .col-form-input input");
+
+        // Kiểm tra toàn bộ input
+        checkAllInputForm(inputForm);
+
+        // Nếu có input không hợp lệ
+        if (document.querySelector("#addUserStepSecurityInformation .error-message-input")) {
+            showSecurityInformation();
+        }
+
+        // Nếu hợp lệ thì chuyển đến form tiếp theo
+        else {
+            showConfirmation();
+
+            const allInputForm = document.querySelectorAll(".col-form-input input");
+
+            // Lặp qua từng phần tử và gọi hàm xác nhận thích hợp
+            allInputForm.forEach(element => {
+                const handler = confirmForm[element.name] || confirmForm.default;
+
+                // Xử lý các trường hợp như fullName cần tham chiếu đến firstName, lastName
+                if (element.name === 'firstName' || element.name === 'lastName') {
+                    const firstName = document.querySelector('[name="firstName"]').value;
+                    const lastName = document.querySelector('[name="lastName"]').value;
+                    confirmForm.fullName(firstName, lastName);
+                } else {
+                    handler(element.value);
+                }
+            });
+
+        }
+    }
 });

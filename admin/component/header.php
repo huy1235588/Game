@@ -48,7 +48,7 @@
                             </span>
                         </button>
                         <!-- Dropdown -->
-                        <div class="navbar-dropdown">
+                        <div class="navbar-dropdown hs-hidden">
 
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                             </span>
                         </button>
                         <!-- Dropdown -->
-                        <div class="navbar-dropdown">
+                        <div class="navbar-dropdown hs-hidden">
 
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                             </span>
                         </button>
                         <!-- Dropdown -->
-                        <div class="navbar-dropdown">
+                        <div class="navbar-dropdown hs-hidden">
 
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                             <div class="dropdown-divider"></div>
 
                             <!-- Sign out -->
-                            <a class="dropdown-item" href="./login/login.php">
+                            <a class="dropdown-item" href="/admin/login/logout.php">
                                 <span class="text-truncate pr-2" title="Sign out">Sign out</span>
                             </a>
                         </div>

@@ -226,19 +226,18 @@ Author       : LeThienHuy.
 .col-form-label label {
     color: #1e2022;
     line-height: 1.6;
-    font-size: 0.875rem;
+    font-size: 1rem;
 }
 
 .col-form-input {
     max-width: 75%;
     position: relative;
     width: 100%;
-    padding-left: 15px;
 }
 
 .input-label-secondary {
     color: #8c98a4;
-    font-size: 0.8125rem;
+    font-size: 1rem;
     margin-left: 0.25rem;
 }
 
@@ -292,8 +291,11 @@ Author       : LeThienHuy.
 }
 
 .avatar-uploader-trigger {
-    padding: 3px;
-    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    background-color: #eeeeee;
     color: #677788;
     box-shadow: 0 3px 6px 0 rgba(140, 152, 164, 0.25);
 }
@@ -317,14 +319,31 @@ Author       : LeThienHuy.
     background-color: #377dff1a;
 }
 
+/* Form Control */
 .form-control {
     width: 100%;
     height: calc(1.6em + 1.21875rem);
     padding: 0.54688rem 0.875rem;
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: #1e2022;
     border: 0.0625rem solid #929292;
     border-radius: 0.3125rem;
+}
+
+.form-control.form-input-error {
+    border-color: #ef4444;
+}
+
+.error-message-input {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    color: #ef4444;
+    font-size: 14px;
+}
+
+span.error-message-input[data-error-for="lastName"] {
+    left: 50%;
 }
 
 .col-form-name {
@@ -337,6 +356,16 @@ Author       : LeThienHuy.
     width: 1%;
     flex: 1 1 auto;
     min-width: 0;
+}
+
+#firstNameInput {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#lastNameInput {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 /* Button Next */
@@ -399,7 +428,7 @@ Author       : LeThienHuy.
 *===================================*/
 .select-container {
     position: absolute;
-    width: calc(100% - 15px);
+    width: calc(100%);
     height: calc(1.6em + 1.21875rem);
     padding: 0.54688rem 0 0.54688rem 0.875rem;
     color: #1e2022;
@@ -436,6 +465,10 @@ Author       : LeThienHuy.
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.selected-arrow {
+    z-index: 1;
 }
 
 .col-form-radio {
@@ -478,6 +511,31 @@ Author       : LeThienHuy.
     padding: 0.54688rem 0.875rem;
     padding-left: 2rem;
 }
+
+/* Show password */
+.show-password {
+    position: absolute;
+    top: 6%;
+    right: 2%;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    fill: #0866ff;
+    stroke: #377dff;
+}
+
+.show-password svg {
+    fill: #000;
+    stroke: #000;
+}
+
+.show-password:hover {
+    background-color: #e3e3e3;
+}
+
+.hide-password-icon {
+    display: none;
+}
+
 /*===================================*
     15.END SELECT FORM
 *===================================*/
@@ -560,9 +618,24 @@ Author       : LeThienHuy.
 /*===================================*
     15.END CONFIRM FORM
 *===================================*/
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+/*===================================*
+    15.START CROPPER
+*===================================*/
 #cropBox {
     position: fixed;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     width: 70%;
@@ -573,7 +646,7 @@ Author       : LeThienHuy.
     color: #fff;
     background-color: #383838;
     box-shadow: 0 3px 6px 0 rgba(140, 152, 164, 0.25);
-    z-index: 100;
+    z-index: 10;
 }
 
 /* Header */
@@ -601,37 +674,16 @@ Author       : LeThienHuy.
 
 /* Image Crop */
 .cropBox-img-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    height: 70%;
+    /* max-width: 80%; */
+    max-height: 76%;
+    margin: 0 auto;
     overflow: hidden;
-}
-
-.circle-mask-container {
-    width: 400px;
-    height: 400px;
-    margin: auto;
-}
-
-#circleMask {
-    mask-image: -webkit-radial-gradient(center, white, black);
-    border-radius: 50%;
-    height: 400px;
-    width: 400px;
-}
-
-.circle-mask-wrapper {
-    position: absolute;
-}
-
-#circleMaskWrapper2 {
-    top: 0;
-    z-index: -1;
+    user-select: none;
 }
 
 .image-to-crop {
     -webkit-user-drag: none;
+    max-width: 100%;
 }
 
 /* Crop btn */
@@ -662,3 +714,22 @@ Author       : LeThienHuy.
 .crop-cancel-btn:hover {
     background-color: #474747;
 }
+
+/* Custom Cropper Api */
+.cropper-view-box,
+.cropper-face {
+    border-radius: 50%;
+}
+
+/* The css styles for `outline` do not follow `border-radius` on iOS/Safari (#979). */
+.cropper-view-box {
+    outline: 0;
+    box-shadow: 0 0 0 1px #39f;
+}
+
+.cropper-bg {
+    background-image: #383838;
+}
+/*===================================*
+    15.END CROPPER
+*===================================*/

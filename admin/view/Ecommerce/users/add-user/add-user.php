@@ -36,11 +36,11 @@ $user = $userController->getUserById($_SESSION['userId']);
     <link rel="icon" href="/assets/icon/logo.ico">
 
     <!-- CSS -->
+    <link rel="stylesheet" href="/admin/assets/css/copper.css">
     <link rel="stylesheet" href="add-user.css">
 
     <!-- JQuery -->
     <script src="/admin/assets/js/jquery-3.7.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
 
 </head>
 
@@ -128,7 +128,7 @@ $user = $userController->getUserById($_SESSION['userId']);
                                         <label class="avatar-container" for="avatarUploader">
                                             <img id="avatarImg" class="avatar-img" src="/admin/assets/img/avatar/img1.jpg" alt="Image Description">
 
-                                            <input onclick="this.value=null;" type="file" accept="image/*" class="avatar-uploader-input" id="avatarUploader">
+                                            <input name="avatar" onclick="this.value=null;" type="file" accept="image/*" class="avatar-uploader-input" id="avatarUploader">
 
                                             <span class="avatar-uploader-trigger">
                                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg">
@@ -139,7 +139,7 @@ $user = $userController->getUserById($_SESSION['userId']);
                                         </label>
                                         <!-- End Avatar -->
 
-                                        <button type="button" class="avatar-delete-btn">Delete</button>
+                                        <button id="deleteAvatarBtn" type="button" class="avatar-delete-btn">Delete</button>
                                     </td>
                                 </tr>
                                 <!-- End AVATAR -->
@@ -147,14 +147,14 @@ $user = $userController->getUserById($_SESSION['userId']);
                                 <!-- FULL NAME -->
                                 <tr class="row form-group">
                                     <td class="col-form-label">
-                                        <label for="firstNameLabel">
+                                        <label for="firstNameInput">
                                             Full name
                                         </label>
                                     </td>
 
                                     <td class="col-form-input col-form-name">
-                                        <input type="text" class="form-control form-control-text" name="firstName" id="firstNameLabel" placeholder="First name" aria-label="Clarice">
-                                        <input type="text" class="form-control form-control-text" name="lastName" id="lastNameLabel" placeholder="Last name" aria-label="Boone">
+                                        <input type="text" class="form-control form-control-text" name="firstName" id="firstNameInput" placeholder="First name" aria-label="Clarice">
+                                        <input type="text" class="form-control form-control-text" name="lastName" id="lastNameInput" placeholder="Last name" aria-label="Boone">
                                     </td>
                                 </tr>
                                 <!-- End FULL NAME -->
@@ -162,21 +162,21 @@ $user = $userController->getUserById($_SESSION['userId']);
                                 <!-- EMAIL -->
                                 <tr class="row form-group">
                                     <td class="col-form-label">
-                                        <label for="emailLabel" class="col-sm-3 col-form-label input-label">
+                                        <label for="emailInput" class="col-sm-3 col-form-label input-label">
                                             Email
                                         </label>
                                     </td>
 
                                     <td class="col-form-input">
-                                        <input type="email" class="form-control" name="email" id="emailLabel" placeholder="clarice@example.com" aria-label="clarice@example.com">
+                                        <input type="email" class="form-control" name="email" id="emailInput" placeholder="clarice@example.com" aria-label="clarice@example.com">
                                     </td>
                                 </tr>
                                 <!-- End EMAIL -->
 
                                 <!-- PHONE -->
-                                <tr class="js-add-field row form-group">
+                                <tr class="row form-group">
                                     <td class="col-form-label">
-                                        <label for="phoneLabel" class="col-sm-3 col-form-label input-label">
+                                        <label for="phoneInput" class="col-sm-3 col-form-label input-label">
                                             Phone
                                             <span class="input-label-secondary">
                                                 (Optional)
@@ -185,15 +185,15 @@ $user = $userController->getUserById($_SESSION['userId']);
                                     </td>
 
                                     <td class="col-form-input">
-                                        <input type="text" class="js-masked-input form-control" name="phone" id="phoneLabel" placeholder="+x(xxx)xxx-xx-xx" aria-label="+x(xxx)xxx-xx-xx">
+                                        <input type="text" class="js-masked-input form-control" name="phone" id="phoneInput" placeholder="+x(xxx)xxx-xx-xx" aria-label="+x(xxx)xxx-xx-xx" maxlength="13">
                                     </td>
                                 </tr>
                                 <!-- End PHONE -->
 
                                 <!-- COUNTRY -->
-                                <tr class="js-add-field row form-group">
+                                <tr class="row form-group">
                                     <td class="col-form-label">
-                                        <label for="phoneLabel" class="col-sm-3 col-form-label input-label">
+                                        <label for="countrySelect" class="col-sm-3 col-form-label input-label">
                                             Country
                                         </label>
                                     </td>
@@ -472,13 +472,13 @@ $user = $userController->getUserById($_SESSION['userId']);
                                 <!-- USERNAME -->
                                 <tr class="row form-group">
                                     <td class="col-form-label">
-                                        <label for="usernameLabel" class="col-sm-3 col-form-label input-label">
+                                        <label for="usernameInput" class="col-sm-3 col-form-label input-label">
                                             Username
                                         </label>
                                     </td>
 
                                     <td class="col-form-input">
-                                        <input type="text" class="form-control" name="username" id="usernameLabel" placeholder="Username" aria-label="Username">
+                                        <input type="text" class="form-control" name="username" id="usernameInput" placeholder="Username" aria-label="Username">
                                     </td>
                                 </tr>
                                 <!-- End USERNAME -->
@@ -486,13 +486,23 @@ $user = $userController->getUserById($_SESSION['userId']);
                                 <!-- PASSWORD -->
                                 <tr class="row form-group">
                                     <td class="col-form-label">
-                                        <label for="passwordLabel" class="col-sm-3 col-form-label input-label">
+                                        <label for="passwordInput" class="col-sm-3 col-form-label input-label">
                                             Password
                                         </label>
                                     </td>
 
-                                    <td class="col-form-input">
-                                        <input type="password" class="form-control" name="password" id="passwordLabel" placeholder="Password" aria-label="Password">
+                                    <td class="col-form-input form-input-password">
+                                        <input type="password" class="form-control" name="password" id="passwordInput" placeholder="Password" aria-label="Password">
+                                        <!-- Button show password -->
+                                        <button class="show-password" type="button">
+                                            <svg class="show-password-icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12 5c-7.633 0-9.927 6.617-9.948 6.684L1.946 12l.105.316C2.073 12.383 4.367 19 12 19s9.927-6.617 9.948-6.684l.106-.316-.105-.316C21.927 11.617 19.633 5 12 5zm0 11c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4z"></path>
+                                                <path d="M12 10c-1.084 0-2 .916-2 2s.916 2 2 2 2-.916 2-2-.916-2-2-2z"></path>
+                                            </svg>
+                                            <svg class="hide-password-icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M8.073 12.194 4.212 8.333c-1.52 1.657-2.096 3.317-2.106 3.351L2 12l.105.316C2.127 12.383 4.421 19 12.054 19c.929 0 1.775-.102 2.552-.273l-2.746-2.746a3.987 3.987 0 0 1-3.787-3.787zM12.054 5c-1.855 0-3.375.404-4.642.998L3.707 2.293 2.293 3.707l18 18 1.414-1.414-3.298-3.298c2.638-1.953 3.579-4.637 3.593-4.679l.105-.316-.105-.316C21.98 11.617 19.687 5 12.054 5zm1.906 7.546c.187-.677.028-1.439-.492-1.96s-1.283-.679-1.96-.492L10 8.586A3.955 3.955 0 0 1 12.054 8c2.206 0 4 1.794 4 4a3.94 3.94 0 0 1-.587 2.053l-1.507-1.507z"></path>
+                                            </svg>
+                                        </button>
                                     </td>
                                 </tr>
                                 <!-- End PASSWORD -->
@@ -500,13 +510,23 @@ $user = $userController->getUserById($_SESSION['userId']);
                                 <!-- CONFIRM PASSWORD -->
                                 <tr class="row form-group">
                                     <td class="col-form-label">
-                                        <label for="confirmPasswordLabel" class="col-sm-3 col-form-label input-label">
+                                        <label for="confirmPasswordInput" class="col-sm-3 col-form-label input-label">
                                             Confirm password
                                         </label>
                                     </td>
 
-                                    <td class="col-form-input">
-                                        <input type="password" class="form-control" name="confirmPassword" id="confirmPasswordLabel" placeholder="Confirm password" aria-label="Confirm password">
+                                    <td class="col-form-input form-input-password">
+                                        <input type="password" class="form-control" name="confirmPassword" id="confirmPasswordInput" placeholder="Confirm password" aria-label="Confirm password">
+                                        <!-- Button show password -->
+                                        <button class="show-password" type="button">
+                                            <svg class="show-password-icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12 5c-7.633 0-9.927 6.617-9.948 6.684L1.946 12l.105.316C2.073 12.383 4.367 19 12 19s9.927-6.617 9.948-6.684l.106-.316-.105-.316C21.927 11.617 19.633 5 12 5zm0 11c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4z"></path>
+                                                <path d="M12 10c-1.084 0-2 .916-2 2s.916 2 2 2 2-.916 2-2-.916-2-2-2z"></path>
+                                            </svg>
+                                            <svg class="hide-password-icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M8.073 12.194 4.212 8.333c-1.52 1.657-2.096 3.317-2.106 3.351L2 12l.105.316C2.127 12.383 4.421 19 12.054 19c.929 0 1.775-.102 2.552-.273l-2.746-2.746a3.987 3.987 0 0 1-3.787-3.787zM12.054 5c-1.855 0-3.375.404-4.642.998L3.707 2.293 2.293 3.707l18 18 1.414-1.414-3.298-3.298c2.638-1.953 3.579-4.637 3.593-4.679l.105-.316-.105-.316C21.98 11.617 19.687 5 12.054 5zm1.906 7.546c.187-.677.028-1.439-.492-1.96s-1.283-.679-1.96-.492L10 8.586A3.955 3.955 0 0 1 12.054 8c2.206 0 4 1.794 4 4a3.94 3.94 0 0 1-.587 2.053l-1.507-1.507z"></path>
+                                            </svg>
+                                        </button>
                                     </td>
                                 </tr>
                                 <!-- End CONFIRM PASSWORD -->
@@ -521,12 +541,12 @@ $user = $userController->getUserById($_SESSION['userId']);
 
                                     <td class="col-form-input col-form-radio">
                                         <div class="form-control-radio">
-                                            <input type="radio" class="form-control" name="role" value="Admin" id="adminLabel">
-                                            <label for="adminLabel">Admin</label>
+                                            <input type="radio" class="form-control" name="role" value="Admin" id="adminInput">
+                                            <label for="adminInput">Admin</label>
                                         </div>
                                         <div class="form-control-radio">
-                                            <input type="radio" class="form-control" name="role" value="User" id="userLabel">
-                                            <label for="userLabel">User</label>
+                                            <input type="radio" class="form-control" name="role" value="User" id="userInput" checked>
+                                            <label for="userInput">User</label>
                                         </div>
                                     </td>
                                 </tr>
@@ -547,7 +567,7 @@ $user = $userController->getUserById($_SESSION['userId']);
 
                             <!-- Avatar -->
                             <div class="profile-cover-avatar">
-                                <img class="avatar-img" src="/admin/assets/img/avatar/img1.jpg" alt="Image Description">
+                                <img id="confirmAvatar" class="avatar-img" src="/admin/assets/img/avatar/img1.jpg" alt="Image Description">
                             </div>
                             <!-- End Avatar -->
 
@@ -653,23 +673,7 @@ $user = $userController->getUserById($_SESSION['userId']);
 
         <!-- Img Crop -->
         <div id="imgCropContainer" class="cropBox-img-container">
-            <!-- <img id="imageToCrop" /> -->
-            <!-- <canvas id="imageToCrop"></canvas> -->
-            <div class="circle-mask-container">
-                <div id="circleMask">
-                    <div id="circleMaskWrapper" class="circle-mask-wrapper">
-                        <div id="imgTranslate" class="img-translate">
-                            <img id="imageToCrop" class="image-to-crop" />
-                        </div>
-                    </div>
-                </div>
-
-                <div id="circleMaskWrapper2" class="circle-mask-wrapper" style="opacity: 0.3;">
-                    <div id="imgTranslate2" class="img-translate">
-                        <img id="imageToCrop2" class="image-to-crop" />
-                    </div>
-                </div>
-            </div>
+            <img id="imageToCrop" class="image-to-crop" />
         </div>
 
         <!-- Confirm button -->
@@ -695,6 +699,8 @@ $user = $userController->getUserById($_SESSION['userId']);
     ?>
 
     <script src="/admin/assets/js/index.js"></script>
+
+    <script src="/admin/assets/js/cropper.js"></script>
     <script src="add-user.js"></script>
 </body>
 
