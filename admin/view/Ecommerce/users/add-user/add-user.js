@@ -81,30 +81,6 @@ const showConfirmation = () => {
     stepItem[2].classList.add('active');
 };
 
-// Button next
-// btnNextForm.addEventListener('click', () => {
-//     if (profile.classList.contains('active')) {
-//         showSecurityInformation();
-//     }
-
-//     else if (securityInformation.classList.contains('active')) {
-//         showConfirmation();
-
-//         // Avatar
-
-//         const firstName = document.getElementsByName("firstName")[0];
-//         const lastName = document.getElementsByName("lastName")[0];
-//         const email = document.getElementsByName("email")[0];
-//         const phone = document.getElementsByName("phone")[0];
-//         const country = document.getElementById("countryText").textContent.trim();
-//         const username = document.getElementsByName("username")[0];
-//         const password = document.getElementsByName("password")[0];
-//         const role = document.getElementsByName("role")[0];
-
-//         
-//     }
-// });
-
 // Button previous
 btnPreviousForm.addEventListener('click', () => {
     if (confirmation.classList.contains('active')) {
@@ -137,10 +113,9 @@ stepContentWrapper[2].addEventListener('click', () => {
 const countrySelect = document.getElementById('countrySelect');
 const countryText = document.getElementById('countryText');
 
-if (countrySelect.selectedIndex) {
-    countryText.textContent = countrySelect.value.option[countrySelect.selectedIndex].text;
-}
-
+countrySelect.addEventListener("change", (event) => {
+    countryText.textContent = event.target.value;
+});
 
 /*******************************************
 * 
@@ -329,7 +304,7 @@ const confirmForm = {
         document.getElementById('confirmEmail').textContent = value
     },
 
-    userName: (value) => {
+    username: (value) => {
         document.getElementById('confirmUsername').textContent = value;
     },
 
@@ -340,24 +315,28 @@ const confirmForm = {
         document.getElementById('confirmPassword').textContent = hiddenContent;
     },
 
-    fullName: (firstName, lastName) => {
-        document.getElementById('confirmFullName').textContent = firstName.value + " " + lastName.value;
+    firstName: (value, element) => {
+        const lastName = element.nextElementSibling.value
+        document.getElementById('confirmFullName').textContent = value + " " + lastName;
     },
 
     phone: (value) => {
         document.getElementById('confirmPhone').textContent = value;
     },
 
-    country: (value) => {
-        document.getElementById('confirmCountry').textContent = value;
+    country: () => {
+        document.getElementById('confirmCountry').textContent = document.getElementById("countryText").textContent;
     },
 
-    role: (value) => {
-        document.getElementById('confirmRole').textContent = value;
+    role: (value, element) => {
+        console.log(element)
+        element.closet(".col-form-radio").querySelectorAll(".form-control").forEach(el => {
+            document.getElementById('confirmRole').textContent = el.value;
+        });
     },
 
-    avatar: (value) => {
-        document.getElementById("confirmAvatar").src = value;
+    avatar: () => {
+        document.getElementById("confirmAvatar").src = document.getElementById("avatarImg").src;
     },
 
     default: () => {
@@ -464,24 +443,18 @@ btnNextForm.addEventListener('click', () => {
 
         // Nếu hợp lệ thì chuyển đến form tiếp theo
         else {
-            showConfirmation();
-
+            
             const allInputForm = document.querySelectorAll(".col-form-input input");
-
+            
             // Lặp qua từng phần tử và gọi hàm xác nhận thích hợp
             allInputForm.forEach(element => {
                 const handler = confirmForm[element.name] || confirmForm.default;
-
-                // Xử lý các trường hợp như fullName cần tham chiếu đến firstName, lastName
-                if (element.name === 'firstName' || element.name === 'lastName') {
-                    const firstName = document.querySelector('[name="firstName"]').value;
-                    const lastName = document.querySelector('[name="lastName"]').value;
-                    confirmForm.fullName(firstName, lastName);
-                } else {
-                    handler(element.value);
-                }
+                
+                handler(element.value, element);
+                confirmForm.country();
             });
-
+            
         }
+        showConfirmation();
     }
 });
